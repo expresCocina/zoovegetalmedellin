@@ -38,37 +38,17 @@ export default function Footer() {
           
           {/* Brand column */}
           <div style={{ gridColumn: 'span 1', maxWidth: '280px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.25rem' }}>
-              <div style={{
-                width: '40px', height: '40px', borderRadius: '12px',
-                background: 'rgba(126,200,35,0.15)',
-                border: '1px solid rgba(126,200,35,0.25)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '1.2rem',
-              }}>
-                🐾
-              </div>
-              <div>
-                <div style={{
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  fontWeight: 900,
-                  fontSize: '1.2rem',
-                  letterSpacing: '-0.03em',
-                  color: 'white',
-                }}>
-                  ZOOVEGETAL
-                </div>
-                <div style={{
-                  fontFamily: "'Lexend Deca', sans-serif",
-                  fontWeight: 500,
-                  fontSize: '0.6rem',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase' as const,
-                  color: '#9fd63a',
-                }}>
-                  Nutrición Animal
-                </div>
-              </div>
+            <div style={{ marginBottom: '1.25rem' }}>
+              <img
+                src="/logo.svg"
+                alt="Zoovegetal"
+                style={{
+                  height: '44px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  filter: 'brightness(0) invert(1)',
+                }}
+              />
             </div>
 
             <p style={{

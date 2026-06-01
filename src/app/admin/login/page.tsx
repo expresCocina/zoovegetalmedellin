@@ -97,7 +97,7 @@ export default function AdminLoginPage() {
             borderRadius: '16px',
             boxShadow: '0 8px 32px rgba(0,0,0,0.2)' 
           }}>
-            <img src="/cropped-logo3.webp" alt="Zoovegetal Logo" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
+            <img src="/logo.svg" alt="Zoovegetal Logo" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
           </div>
         </div>
 

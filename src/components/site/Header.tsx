@@ -58,26 +58,29 @@ export default function Header() {
           
           {/* Logo */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}>
-            <div style={{
-              background: '#ffffff',
-              padding: '6px 14px',
-              borderRadius: '12px',
-              display: 'flex',
-              alignItems: 'center',
-              boxShadow: solid ? 'none' : '0 4px 20px rgba(0,0,0,0.2)',
-              border: solid ? 'none' : '1px solid rgba(255,255,255,0.1)',
-              transition: 'all 0.3s ease'
-            }}>
-              <img 
-                src="/cropped-logo3.webp" 
-                alt="Zoovegetal" 
-                style={{ 
-                  height: '32px', 
-                  width: 'auto', 
-                  objectFit: 'contain', 
-                }} 
+            {solid ? (
+              <img
+                src="/logo.svg"
+                alt="Zoovegetal"
+                style={{ height: '38px', width: 'auto', objectFit: 'contain' }}
               />
-            </div>
+            ) : (
+              <div style={{
+                background: 'rgba(255,255,255,0.96)',
+                padding: '6px 16px',
+                borderRadius: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.18)',
+                transition: 'all 0.3s ease',
+              }}>
+                <img
+                  src="/logo.svg"
+                  alt="Zoovegetal"
+                  style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
+                />
+              </div>
+            )}
           </Link>
 
           {/* Desktop Nav */}
