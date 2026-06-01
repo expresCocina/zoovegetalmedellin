@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, CheckCircle, Award, Leaf, Beaker, Truck, ChevronRight, Star } from 'lucide-react'
+import { ArrowRight, CheckCircle, Award, Leaf, Beaker, Truck, ChevronRight, Star, ChevronDown } from 'lucide-react'
 import { prisma } from '@/lib/prisma'
 
 async function getFeaturedProducts() {
@@ -62,11 +62,12 @@ const categoryCards = [
   },
 ]
 
+// Stats más específicos y creíbles
 const stats = [
-  { value: '7+', label: 'Años de experiencia', icon: '⏱️' },
-  { value: '50+', label: 'Productos fabricados', icon: '📦' },
-  { value: '100%', label: 'Ingredientes naturales', icon: '🌿' },
-  { value: 'BPM', label: 'Certificación ICA', icon: '🏆' },
+  { value: '9+', label: 'Años fabricando', sub: 'Desde 2015 en Medellín', icon: '⏱️' },
+  { value: '53', label: 'Productos registrados', sub: 'Con registro ICA activo', icon: '📦' },
+  { value: '100%', label: 'Grado humano', sub: 'Todas las materias primas', icon: '🌿' },
+  { value: 'BPM', label: 'Cert. ICA vigente', sub: 'Auditada anualmente', icon: '🏆' },
 ]
 
 const services = [
@@ -100,20 +101,64 @@ const services = [
   },
 ]
 
-const whyUs = [
-  'Materias primas de grado humano: proteínas animales y vegetales',
-  'Análisis microbiológico y bromatológico en cada lote',
-  'Certificación BPM ICA — Buenas Prácticas de Manufactura',
-  'Registro ICA individual por producto',
-  'Fórmulas personalizadas para tu marca o negocio',
-  'Acompañamiento desde la concepción hasta el mercado',
+// Por qué elegirnos — cards visuales (estilo BeFrank)
+const whyUsCards = [
+  {
+    icon: '🌿',
+    title: 'Ingredientes de grado humano',
+    desc: 'Proteínas animales y vegetales de la misma calidad que se usa en alimentos para personas.',
+    color: '#7ec823',
+    bg: '#f0f9e0',
+    border: 'rgba(126,200,35,0.25)',
+  },
+  {
+    icon: '🔬',
+    title: 'Análisis por lote garantizado',
+    desc: 'Microbiológico y bromatológico en cada producción. Certificado, documentado, trazable.',
+    color: '#f5a623',
+    bg: '#fff8ec',
+    border: 'rgba(245,166,35,0.25)',
+  },
+  {
+    icon: '🏅',
+    title: 'Registro ICA individual',
+    desc: 'Cada producto sale con su propio registro. Puedes comercializarlo legalmente desde el primer día.',
+    color: '#7ec823',
+    bg: '#edf7ec',
+    border: 'rgba(126,200,35,0.25)',
+  },
+  {
+    icon: '🤝',
+    title: 'Aliado estratégico, no solo maquilador',
+    desc: 'Desde la fórmula hasta la etiqueta. Te asesoramos en todo el proceso de lanzamiento.',
+    color: '#063b05',
+    bg: '#f0f9e0',
+    border: 'rgba(6,59,5,0.2)',
+  },
 ]
 
-const certBadges = [
-  { icon: '✅', title: 'BPM ICA', sub: 'Certificado' },
-  { icon: '🌿', title: 'Grado Humano', sub: 'Ingredientes' },
-  { icon: '🔬', title: 'Microbiológico', sub: 'Análisis en lote' },
-  { icon: '📋', title: 'Registro ICA', sub: 'Por producto' },
+// FAQs
+const faqs = [
+  {
+    q: '¿Cuál es el pedido mínimo para maquila?',
+    a: 'El mínimo depende del tipo de producto. Para snacks y galletas partimos desde 100 kg por lote. Para concentrado seco y pelletizados, desde 200 kg. Contáctanos para una cotización exacta según tu producto.',
+  },
+  {
+    q: '¿Puedo vender los productos bajo mi propia marca?',
+    a: 'Sí, es nuestro modelo principal. Fabricamos bajo tu marca (white label) con o sin registro ICA. Si no tienes registro, nosotros gestionamos el trámite ante el ICA para tu producto.',
+  },
+  {
+    q: '¿Cuánto demora el desarrollo de un producto nuevo?',
+    a: 'El desarrollo de fórmula toma entre 4 y 8 semanas. El registro ICA puede demorar entre 2 y 4 meses adicionales según el tipo de producto y la carga del ICA en ese momento.',
+  },
+  {
+    q: '¿Solo trabajan con empresas o también con emprendedores?',
+    a: 'Atendemos a marcas en etapa inicial y empresas consolidadas. Si tienes un proyecto serio, con visión de mercado, podemos acompañarte desde cero aunque seas un emprendedor individual.',
+  },
+  {
+    q: '¿Los ingredientes son 100% naturales?',
+    a: 'Utilizamos materias primas de grado humano — proteínas animales (res, pollo, cerdo) y vegetales (garbanzo, lenteja, soya). Sin colorantes artificiales ni conservantes sintéticos en nuestras formulaciones base.',
+  },
 ]
 
 export default async function HomePage() {
@@ -158,12 +203,6 @@ export default async function HomePage() {
           background: 'radial-gradient(circle, rgba(251,176,59,0.10) 0%, transparent 65%)',
           filter: 'blur(50px)',
         }} />
-        <div style={{
-          position: 'absolute', top: '40%', left: '50%',
-          width: '300px', height: '300px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(141,208,43,0.06) 0%, transparent 70%)',
-          filter: 'blur(40px)',
-        }} />
 
         {/* Paw prints pattern */}
         <div style={{
@@ -207,10 +246,10 @@ export default async function HomePage() {
             <h1 className="animate-fade-in-up delay-100" style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
-              fontSize: 'clamp(2.6rem, 5vw, 4.2rem)',
+              fontSize: 'clamp(2.8rem, 5.5vw, 4.5rem)',
               color: '#ffffff',
               letterSpacing: '-0.03em',
-              lineHeight: 1.05,
+              lineHeight: 1.0,
               marginBottom: '1.5rem',
             }}>
               Tu marca de<br />
@@ -225,7 +264,7 @@ export default async function HomePage() {
 
             <p className="animate-fade-in-up delay-200" style={{
               fontFamily: "'Lexend Deca', sans-serif",
-              fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
+              fontSize: 'clamp(1rem, 1.6vw, 1.15rem)',
               color: 'rgba(255,255,255,0.68)',
               lineHeight: 1.8,
               marginBottom: '2.5rem',
@@ -247,7 +286,7 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            {/* Stats row */}
+            {/* Stats row — mejorado con subtítulos */}
             <div className="animate-fade-in-up delay-400" style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(4, auto)',
@@ -256,11 +295,11 @@ export default async function HomePage() {
               borderRadius: '16px',
               overflow: 'hidden',
               border: '1px solid rgba(255,255,255,0.08)',
-              maxWidth: '480px',
+              maxWidth: '520px',
             }}>
               {stats.map((stat, i) => (
                 <div key={stat.label} style={{
-                  padding: '1.1rem 0.75rem',
+                  padding: '1.1rem 0.65rem',
                   textAlign: 'center',
                   borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none',
                 }}>
@@ -276,12 +315,21 @@ export default async function HomePage() {
                   </div>
                   <div style={{
                     fontFamily: "'Lexend Deca', sans-serif",
-                    fontSize: '0.62rem',
+                    fontSize: '0.58rem',
                     color: 'rgba(255,255,255,0.45)',
                     marginTop: '0.3rem',
                     lineHeight: 1.3,
                   }}>
                     {stat.label}
+                  </div>
+                  <div style={{
+                    fontFamily: "'Lexend Deca', sans-serif",
+                    fontSize: '0.52rem',
+                    color: 'rgba(255,255,255,0.28)',
+                    marginTop: '0.15rem',
+                    lineHeight: 1.2,
+                  }}>
+                    {stat.sub}
                   </div>
                 </div>
               ))}
@@ -326,7 +374,7 @@ export default async function HomePage() {
                   color: '#9fd63a',
                   letterSpacing: '0.05em',
                 }}>
-                  50+ SKUs
+                  53 SKUs activos
                 </span>
               </div>
 
@@ -493,34 +541,80 @@ export default async function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          CATEGORÍAS — cards limpias sobre fondo claro
+          BARRA DE CERTIFICACIONES — visible desde el inicio
       ══════════════════════════════════════════════════════ */}
-      <section style={{ padding: '6rem 1.5rem', background: '#ffffff' }}>
+      <section style={{
+        padding: '1.25rem 1.5rem',
+        background: '#f8faf5',
+        borderBottom: '1px solid rgba(126,200,35,0.12)',
+      }}>
+        <div style={{
+          maxWidth: '1200px', margin: '0 auto',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          gap: 'clamp(1.5rem, 4vw, 4rem)', flexWrap: 'wrap',
+        }}>
+          {[
+            { icon: '🏅', label: 'Certificación BPM ICA', sub: 'Vigente' },
+            { icon: '📋', label: 'Registro ICA por producto', sub: 'Individual' },
+            { icon: '🔬', label: 'Análisis microbiológico', sub: 'Por lote' },
+            { icon: '🧪', label: 'Análisis bromatológico', sub: 'Composición nutricional' },
+            { icon: '🌿', label: 'Ingredientes grado humano', sub: '100% verificados' },
+          ].map((cert) => (
+            <div key={cert.label} style={{
+              display: 'flex', alignItems: 'center', gap: '0.6rem',
+            }}>
+              <span style={{ fontSize: '1.2rem' }}>{cert.icon}</span>
+              <div>
+                <div style={{
+                  fontFamily: "'Red Hat Display', sans-serif",
+                  fontWeight: 700, fontSize: '0.78rem',
+                  color: '#063b05',
+                  lineHeight: 1,
+                }}>{cert.label}</div>
+                <div style={{
+                  fontFamily: "'Lexend Deca', sans-serif",
+                  fontSize: '0.65rem', color: '#6b7280',
+                  marginTop: '0.1rem',
+                }}>{cert.sub}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          SEGMENTACIÓN — ¿Tienes perro, gato o caballo? (Lyka)
+      ══════════════════════════════════════════════════════ */}
+      <section style={{ padding: '7rem 1.5rem 5rem', background: '#ffffff' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           {/* Header */}
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <span className="section-badge">Líneas de Productos</span>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <span className="section-badge">Encuentra tu línea</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)',
               color: 'var(--green-dark)',
               letterSpacing: '-0.03em',
-              lineHeight: 1.1,
+              lineHeight: 1.05,
+              marginBottom: '1rem',
             }}>
-              Para cada animal,{' '}
-              <span style={{ color: 'var(--green-bright)' }}>la mejor nutrición</span>
+              ¿Tienes{' '}
+              <span style={{ color: '#7ec823' }}>perro</span>,{' '}
+              <span style={{ color: '#f5a623' }}>gato</span>{' '}
+              o{' '}
+              <span style={{ color: '#063b05' }}>caballo</span>?
             </h2>
             <p style={{
-              marginTop: '1rem',
               fontFamily: "'Lexend Deca', sans-serif",
-              fontSize: '1rem',
+              fontSize: '1.05rem',
               color: 'var(--gray-500)',
-              maxWidth: '500px',
-              margin: '1rem auto 0',
-              lineHeight: 1.65,
+              maxWidth: '520px',
+              margin: '0 auto',
+              lineHeight: 1.7,
             }}>
-              Líneas especializadas diseñadas con ingredientes de grado humano para caninos, felinos y equinos.
+              Líneas especializadas diseñadas con ingredientes de grado humano.
+              Accede directo a la categoría que necesitas.
             </p>
           </div>
 
@@ -528,7 +622,7 @@ export default async function HomePage() {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '1.5rem',
+            gap: '1.75rem',
           }}>
             {categoryCards.map((cat) => (
               <Link
@@ -540,27 +634,27 @@ export default async function HomePage() {
                 {/* Card header band */}
                 <div style={{
                   background: cat.bgGradient,
-                  padding: '2.5rem 2rem 2rem',
+                  padding: '3rem 2rem 2.5rem',
                   position: 'relative',
                   overflow: 'hidden',
                 }}>
                   {/* Decorative circle */}
                   <div style={{
                     position: 'absolute', top: '-20px', right: '-20px',
-                    width: '100px', height: '100px', borderRadius: '50%',
+                    width: '120px', height: '120px', borderRadius: '50%',
                     background: cat.accentColor,
                     opacity: 0.08,
                   }} />
-                  <div style={{ fontSize: '3.5rem', lineHeight: 1, marginBottom: '1rem' }}>
+                  <div style={{ fontSize: '4rem', lineHeight: 1, marginBottom: '1.25rem' }}>
                     {cat.emoji}
                   </div>
                   <h3 style={{
                     fontFamily: "'Red Hat Display', sans-serif",
                     fontWeight: 800,
-                    fontSize: '1.5rem',
+                    fontSize: '1.6rem',
                     color: 'var(--green-dark)',
                     letterSpacing: '-0.02em',
-                    marginBottom: '0.35rem',
+                    marginBottom: '0.4rem',
                   }}>
                     {cat.label}
                   </h3>
@@ -572,7 +666,7 @@ export default async function HomePage() {
                     fontSize: '0.68rem',
                     fontFamily: "'Red Hat Display', sans-serif",
                     fontWeight: 700,
-                    padding: '0.2rem 0.7rem',
+                    padding: '0.25rem 0.75rem',
                     letterSpacing: '0.04em',
                   }}>
                     {cat.tag}
@@ -581,7 +675,7 @@ export default async function HomePage() {
 
                 {/* Card body */}
                 <div style={{
-                  padding: '1.5rem 2rem 1.75rem',
+                  padding: '1.75rem 2rem 2rem',
                   display: 'flex',
                   flexDirection: 'column',
                   flex: 1,
@@ -589,11 +683,11 @@ export default async function HomePage() {
                 }}>
                   <p style={{
                     fontFamily: "'Lexend Deca', sans-serif",
-                    fontSize: '0.9rem',
+                    fontSize: '0.92rem',
                     color: 'var(--gray-600)',
-                    lineHeight: 1.65,
+                    lineHeight: 1.7,
                     flex: 1,
-                    marginBottom: '1.25rem',
+                    marginBottom: '1.5rem',
                   }}>
                     {cat.desc}
                   </p>
@@ -603,9 +697,8 @@ export default async function HomePage() {
                     gap: '0.4rem',
                     fontFamily: "'Red Hat Display', sans-serif",
                     fontWeight: 700,
-                    fontSize: '0.88rem',
+                    fontSize: '0.9rem',
                     color: cat.accentColor === '#063b05' ? cat.accentColor : cat.accentColor,
-                    transition: 'gap 0.2s ease',
                   }}>
                     Ver productos
                     <ChevronRight size={16} />
@@ -633,7 +726,7 @@ export default async function HomePage() {
                 <h2 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: 900,
-                  fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+                  fontSize: 'clamp(1.9rem, 3.5vw, 2.75rem)',
                   color: 'var(--green-dark)',
                   letterSpacing: '-0.03em',
                 }}>
@@ -747,7 +840,7 @@ export default async function HomePage() {
           SERVICIOS — tarjetas en fondo verde oscuro
       ══════════════════════════════════════════════════════ */}
       <section style={{
-        padding: '6rem 1.5rem',
+        padding: '7rem 1.5rem',
         background: 'linear-gradient(160deg, #021f01 0%, #063b05 50%, #0d5c0b 100%)',
         position: 'relative',
         overflow: 'hidden',
@@ -761,7 +854,7 @@ export default async function HomePage() {
         }} />
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <span style={{
               display: 'inline-block',
               padding: '0.35rem 1rem',
@@ -781,22 +874,22 @@ export default async function HomePage() {
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              fontSize: 'clamp(2.2rem, 4.5vw, 3.25rem)',
               color: '#ffffff',
               letterSpacing: '-0.03em',
-              lineHeight: 1.1,
+              lineHeight: 1.05,
             }}>
               Hacemos realidad{' '}
               <span style={{ color: '#9fd63a' }}>tu marca de alimentos</span>
             </h2>
             <p style={{
-              marginTop: '1rem',
+              marginTop: '1.25rem',
               fontFamily: "'Lexend Deca', sans-serif",
               fontSize: '1rem',
               color: 'rgba(255,255,255,0.55)',
               maxWidth: '500px',
-              margin: '1rem auto 0',
-              lineHeight: 1.65,
+              margin: '1.25rem auto 0',
+              lineHeight: 1.7,
             }}>
               Desde la fórmula hasta el producto terminado, somos tu aliado estratégico en nutrición animal.
             </p>
@@ -808,24 +901,24 @@ export default async function HomePage() {
             gap: '1.25rem',
           }}>
             {services.map((svc) => (
-              <div key={svc.title} className="card-glass" style={{ padding: '2rem 1.75rem' }}>
+              <div key={svc.title} className="card-glass" style={{ padding: '2.25rem 1.75rem' }}>
                 <div style={{
-                  width: '48px', height: '48px',
-                  borderRadius: '14px',
+                  width: '52px', height: '52px',
+                  borderRadius: '16px',
                   background: svc.bg,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: '1.25rem',
+                  marginBottom: '1.5rem',
                 }}>
-                  <svc.icon size={22} style={{ color: svc.color }} />
+                  <svc.icon size={24} style={{ color: svc.color }} />
                 </div>
                 <h3 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: 800,
-                  fontSize: '1.05rem',
+                  fontSize: '1.1rem',
                   color: '#ffffff',
                   letterSpacing: '-0.02em',
-                  marginBottom: '0.6rem',
-                  lineHeight: 1.25,
+                  marginBottom: '0.75rem',
+                  lineHeight: 1.2,
                 }}>
                   {svc.title}
                 </h3>
@@ -833,7 +926,7 @@ export default async function HomePage() {
                   fontFamily: "'Lexend Deca', sans-serif",
                   fontSize: '0.875rem',
                   color: 'rgba(255,255,255,0.58)',
-                  lineHeight: 1.65,
+                  lineHeight: 1.7,
                 }}>
                   {svc.desc}
                 </p>
@@ -841,7 +934,7 @@ export default async function HomePage() {
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '2.75rem' }}>
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
             <Link href="/servicios" className="btn-primary" style={{ fontSize: '0.95rem' }}>
               Conocer todos los servicios
               <ArrowRight size={17} />
@@ -854,7 +947,7 @@ export default async function HomePage() {
           VIDEO SHOWCASE
       ══════════════════════════════════════════════════════ */}
       <section style={{
-        padding: '6rem 1.5rem',
+        padding: '7rem 1.5rem',
         background: 'linear-gradient(160deg, #021f01 0%, #063b05 60%, #0a4a08 100%)',
         position: 'relative',
         overflow: 'hidden',
@@ -869,12 +962,6 @@ export default async function HomePage() {
           position: 'absolute', top: '-100px', right: '-80px',
           width: '500px', height: '500px', borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(141,208,43,0.12) 0%, transparent 70%)',
-          filter: 'blur(40px)',
-        }} />
-        <div style={{
-          position: 'absolute', bottom: '-60px', left: '-60px',
-          width: '350px', height: '350px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(251,176,59,0.08) 0%, transparent 70%)',
           filter: 'blur(40px)',
         }} />
 
@@ -900,7 +987,7 @@ export default async function HomePage() {
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
-              fontSize: 'clamp(1.9rem, 4vw, 3rem)',
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
               color: '#ffffff',
               letterSpacing: '-0.03em',
               lineHeight: 1.1,
@@ -992,18 +1079,18 @@ export default async function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          GALERÍA DE INSTALACIONES
+          GALERÍA — 4 fotos limpias (reemplaza masonry de 13)
       ══════════════════════════════════════════════════════ */}
-      <section style={{ padding: '6rem 1.5rem', background: '#ffffff' }}>
+      <section style={{ padding: '7rem 1.5rem', background: '#ffffff' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
 
           {/* Header */}
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <span className="section-badge">📸 Nuestras Instalaciones</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
-              fontSize: 'clamp(1.9rem, 4vw, 2.75rem)',
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
               color: 'var(--green-dark)',
               letterSpacing: '-0.03em',
               lineHeight: 1.1,
@@ -1016,93 +1103,77 @@ export default async function HomePage() {
               fontFamily: "'Lexend Deca', sans-serif",
               fontSize: '1rem',
               color: 'var(--gray-500)',
-              maxWidth: '520px',
+              maxWidth: '500px',
               margin: '0 auto',
-              lineHeight: 1.65,
+              lineHeight: 1.7,
             }}>
-              Conoce nuestras instalaciones en Medellín. Equipos de grado industrial,
-              procesos controlados y estrictos estándares de higiene en cada línea de producción.
+              Equipos de grado industrial, procesos controlados y estrictos estándares de higiene
+              en cada línea de producción en Medellín.
             </p>
           </div>
 
-          {/* ── Masonry Grid Layout ── */}
-          {/* Row 1: 1 large featured + 4 smaller */}
+          {/* ── 4 fotos limpias: 1 grande + 3 en columna ── */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
+            gridTemplateColumns: '1.4fr 1fr',
             gridTemplateRows: 'auto auto',
-            gap: '0.75rem',
-            marginBottom: '0.75rem',
+            gap: '1rem',
           }}>
-            {/* Featured large image */}
-            <div className="gallery-cell-lg" style={{ gridColumn: '1 / 2', gridRow: '1 / 3' }}>
+            {/* Imagen grande izquierda */}
+            <div style={{
+              gridRow: '1 / 3',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              position: 'relative',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+              minHeight: '420px',
+            }}>
               <img
                 src="/locativo1 (1).jpg"
                 alt="Planta de producción Zoovegetal - Vista general"
-                className="gallery-img"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
               <div style={{
                 position: 'absolute', bottom: 0, left: 0, right: 0,
                 background: 'linear-gradient(to top, rgba(6,59,5,0.75) 0%, transparent 100%)',
-                padding: '1.25rem 1.25rem 1rem',
-                borderRadius: '0 0 20px 20px',
+                padding: '1.5rem 1.5rem 1.25rem',
               }}>
                 <span style={{
                   fontFamily: "'Red Hat Display', sans-serif",
-                  fontWeight: 700, fontSize: '0.8rem',
-                  color: '#ffffff', letterSpacing: '0.02em',
+                  fontWeight: 700, fontSize: '0.85rem',
+                  color: '#ffffff',
                 }}>Zona de producción principal</span>
               </div>
             </div>
-            {/* Top-right */}
-            <div className="gallery-cell" style={{ borderRadius: '20px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
-              <img src="/locativo1 (2).jpg" alt="Instalaciones Zoovegetal" className="gallery-img-43" />
-            </div>
-            {/* Mid-right top */}
-            <div className="gallery-cell" style={{ borderRadius: '20px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
-              <img src="/locativo1 (3).jpg" alt="Equipos de producción" className="gallery-img-43" />
-            </div>
-            {/* Bottom-right */}
-            <div className="gallery-cell" style={{ borderRadius: '20px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
-              <img src="/locativo1 (4).jpg" alt="Maquinaria industrial" className="gallery-img-43" />
-            </div>
-            {/* Bottom-right 2 */}
-            <div className="gallery-cell" style={{ borderRadius: '20px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
-              <img src="/locativo1 (5).jpg" alt="Zona de almacenamiento" className="gallery-img-43" />
-            </div>
-          </div>
 
-          {/* Row 2: 4 square cards */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '0.75rem',
-            marginBottom: '0.75rem',
-          }}>
-            {[6, 7, 8, 9].map((n) => (
-              <div key={n} className="gallery-cell">
+            {/* 3 fotos derechas */}
+            {[
+              { n: 3, label: 'Equipos de producción' },
+              { n: 5, label: 'Zona de almacenamiento' },
+              { n: 8, label: 'Control de calidad' },
+            ].map((photo) => (
+              <div key={photo.n} style={{
+                borderRadius: '18px',
+                overflow: 'hidden',
+                position: 'relative',
+                boxShadow: '0 4px 16px rgba(0,0,0,0.09)',
+              }}>
                 <img
-                  src={`/locativo1 (${n}).jpg`}
-                  alt={`Instalaciones Zoovegetal ${n}`}
-                  className="gallery-img-sq"
+                  src={`/locativo1 (${photo.n}).jpg`}
+                  alt={photo.label}
+                  style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }}
                 />
-              </div>
-            ))}
-          </div>
-
-          {/* Row 3: last 4 square cards */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '0.75rem',
-          }}>
-            {[10, 11, 12, 13].map((n) => (
-              <div key={n} className="gallery-cell">
-                <img
-                  src={`/locativo1 (${n}).jpg`}
-                  alt={`Instalaciones Zoovegetal ${n}`}
-                  className="gallery-img-sq"
-                />
+                <div style={{
+                  position: 'absolute', bottom: 0, left: 0, right: 0,
+                  background: 'linear-gradient(to top, rgba(6,59,5,0.65) 0%, transparent 100%)',
+                  padding: '0.75rem 1rem 0.6rem',
+                }}>
+                  <span style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: 600, fontSize: '0.72rem',
+                    color: 'rgba(255,255,255,0.9)',
+                  }}>{photo.label}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -1113,7 +1184,7 @@ export default async function HomePage() {
             background: 'linear-gradient(135deg, var(--green-pale) 0%, #edffd0 100%)',
             border: '1.5px solid rgba(141,208,43,0.25)',
             borderRadius: '20px',
-            padding: '1.75rem 2rem',
+            padding: '2rem 2.5rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -1123,12 +1194,12 @@ export default async function HomePage() {
             <div>
               <div style={{
                 fontFamily: "'Red Hat Display', sans-serif",
-                fontWeight: 900, fontSize: '1.1rem',
+                fontWeight: 900, fontSize: '1.15rem',
                 color: 'var(--green-dark)', letterSpacing: '-0.02em',
               }}>¿Quieres conocer nuestra planta en persona?</div>
               <div style={{
                 fontFamily: "'Lexend Deca', sans-serif",
-                fontSize: '0.88rem', color: 'var(--gray-600)', marginTop: '0.25rem',
+                fontSize: '0.88rem', color: 'var(--gray-600)', marginTop: '0.3rem',
               }}>Agenda una visita y te mostramos todo el proceso de fabricación.</div>
             </div>
             <Link href="/contacto" className="btn-primary" style={{ whiteSpace: 'nowrap' as const }}>
@@ -1139,153 +1210,104 @@ export default async function HomePage() {
         </div>
       </section>
 
-
       {/* ══════════════════════════════════════════════════════
-          POR QUÉ ZOOVEGETAL — 2 columnas
+          POR QUÉ ZOOVEGETAL — 4 cards visuales (estilo BeFrank)
       ══════════════════════════════════════════════════════ */}
-      <section style={{ padding: '6rem 1.5rem', background: '#ffffff' }}>
-
+      <section style={{ padding: '7rem 1.5rem', background: 'var(--off-white)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+
+          {/* Header */}
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <span className="section-badge">¿Por qué elegirnos?</span>
+            <h2 style={{
+              fontFamily: "'Red Hat Display', sans-serif",
+              fontWeight: 900,
+              fontSize: 'clamp(2.2rem, 4.5vw, 3.25rem)',
+              color: 'var(--green-dark)',
+              letterSpacing: '-0.03em',
+              lineHeight: 1.05,
+              marginBottom: '1rem',
+            }}>
+              Calidad que{' '}
+              <span style={{ color: 'var(--green-bright)' }}>se puede medir</span>
+            </h2>
+            <p style={{
+              fontFamily: "'Lexend Deca', sans-serif",
+              fontSize: '1.05rem',
+              color: 'var(--gray-500)',
+              maxWidth: '540px',
+              margin: '0 auto',
+              lineHeight: 1.7,
+            }}>
+              Desde 2015, Zoovegetal ha desarrollado más de 53 productos con ingredientes
+              de grado humano. Estos son los pilares que nos diferencian.
+            </p>
+          </div>
+
+          {/* 4 cards visuales */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '4rem',
-            alignItems: 'center',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.5rem',
+            marginBottom: '3.5rem',
           }}>
-            {/* Left column */}
-            <div>
-              <span className="section-badge">¿Por qué elegirnos?</span>
-              <h2 style={{
-                fontFamily: "'Red Hat Display', sans-serif",
-                fontWeight: 900,
-                fontSize: 'clamp(1.85rem, 3.5vw, 2.75rem)',
-                color: 'var(--green-dark)',
-                letterSpacing: '-0.03em',
-                lineHeight: 1.1,
-                marginBottom: '1.25rem',
-              }}>
-                Calidad que{' '}
-                <span style={{ color: 'var(--green-bright)' }}>se puede medir</span>
-              </h2>
-              <p style={{
-                fontFamily: "'Lexend Deca', sans-serif",
-                fontSize: '0.97rem',
-                color: 'var(--gray-600)',
-                lineHeight: 1.75,
-                marginBottom: '2rem',
-              }}>
-                Desde 2017, Zoovegetal ha desarrollado más de 50 productos con ingredientes
-                de grado humano, garantizando la más alta calidad nutricional para caninos,
-                felinos y equinos.
-              </p>
-
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                {whyUs.map((item) => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                    <div style={{
-                      width: '20px', height: '20px', flexShrink: 0, marginTop: '1px',
-                    }}>
-                      <CheckCircle size={20} style={{ color: 'var(--green-bright)' }} />
-                    </div>
-                    <span style={{
-                      fontFamily: "'Lexend Deca', sans-serif",
-                      fontSize: '0.9rem',
-                      color: 'var(--gray-700)',
-                      lineHeight: 1.5,
-                    }}>
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <div style={{ marginTop: '2.25rem', display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
-                <Link href="/quienes-somos" className="btn-primary">
-                  Conocer más
-                  <ArrowRight size={17} />
-                </Link>
-                <Link href="/contacto" className="btn-amber">
-                  Hablar con un experto
-                </Link>
-              </div>
-            </div>
-
-            {/* Right column — cert badges */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                {certBadges.map((badge) => (
-                  <div key={badge.title} style={{
-                    background: 'var(--green-pale)',
-                    border: '1.5px solid rgba(126,200,35,0.2)',
-                    borderRadius: '20px',
-                    padding: '1.75rem 1.25rem',
-                    textAlign: 'center',
-                    transition: 'all 0.25s ease',
-                  }}
-                    className="card"
-                  >
-                    <div style={{ fontSize: '2.2rem', marginBottom: '0.6rem' }}>{badge.icon}</div>
-                    <div style={{
-                      fontFamily: "'Red Hat Display', sans-serif",
-                      fontWeight: 800,
-                      fontSize: '0.9rem',
-                      color: 'var(--green-dark)',
-                      letterSpacing: '-0.01em',
-                    }}>
-                      {badge.title}
-                    </div>
-                    <div style={{
-                      fontFamily: "'Lexend Deca', sans-serif",
-                      fontSize: '0.75rem',
-                      color: 'var(--gray-500)',
-                      marginTop: '0.25rem',
-                    }}>
-                      {badge.sub}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Trophy card */}
-              <div style={{
-                background: 'linear-gradient(135deg, var(--green-dark) 0%, #0d5c0b 100%)',
-                borderRadius: '20px',
-                padding: '2rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1.5rem',
-              }}>
+            {whyUsCards.map((card) => (
+              <div
+                key={card.title}
+                className="card"
+                style={{
+                  padding: '2.25rem 1.75rem',
+                  background: card.bg,
+                  border: `1.5px solid ${card.border}`,
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
                 <div style={{
-                  width: '56px', height: '56px', flexShrink: 0,
-                  background: 'rgba(255,255,255,0.1)',
-                  borderRadius: '16px',
+                  width: '56px', height: '56px',
+                  borderRadius: '18px',
+                  background: '#ffffff',
+                  border: `1.5px solid ${card.border}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: '1.75rem',
+                  marginBottom: '1.5rem',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
                 }}>
-                  🏆
+                  {card.icon}
                 </div>
-                <div>
-                  <h3 style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: 900,
-                    fontSize: '1.2rem',
-                    color: '#ffffff',
-                    letterSpacing: '-0.02em',
-                    marginBottom: '0.35rem',
-                  }}>
-                    +7 años de experiencia
-                  </h3>
-                  <p style={{
-                    fontFamily: "'Lexend Deca', sans-serif",
-                    fontSize: '0.82rem',
-                    color: 'rgba(255,255,255,0.65)',
-                    lineHeight: 1.5,
-                  }}>
-                    Fabricando productos premium para mascotas desde 2017 en Medellín, Colombia.
-                  </p>
-                </div>
+                <h3 style={{
+                  fontFamily: "'Red Hat Display', sans-serif",
+                  fontWeight: 800,
+                  fontSize: '1.1rem',
+                  color: 'var(--green-dark)',
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.2,
+                  marginBottom: '0.75rem',
+                }}>
+                  {card.title}
+                </h3>
+                <p style={{
+                  fontFamily: "'Lexend Deca', sans-serif",
+                  fontSize: '0.88rem',
+                  color: 'var(--gray-600)',
+                  lineHeight: 1.7,
+                  flex: 1,
+                }}>
+                  {card.desc}
+                </p>
               </div>
-            </div>
+            ))}
+          </div>
+
+          {/* CTA row */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Link href="/quienes-somos" className="btn-primary">
+              Conocer más sobre nosotros
+              <ArrowRight size={17} />
+            </Link>
+            <Link href="/contacto" className="btn-amber">
+              Hablar con un experto
+            </Link>
           </div>
         </div>
       </section>
@@ -1294,11 +1316,11 @@ export default async function HomePage() {
           BLOG
       ══════════════════════════════════════════════════════ */}
       {latestPosts.length > 0 && (
-        <section style={{ padding: '6rem 1.5rem', background: 'var(--off-white)' }}>
+        <section style={{ padding: '7rem 1.5rem', background: '#ffffff' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div style={{
               display: 'flex', alignItems: 'flex-end',
-              justifyContent: 'space-between', marginBottom: '2.75rem',
+              justifyContent: 'space-between', marginBottom: '3rem',
               flexWrap: 'wrap', gap: '1rem',
             }}>
               <div>
@@ -1306,7 +1328,7 @@ export default async function HomePage() {
                 <h2 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: 900,
-                  fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+                  fontSize: 'clamp(1.9rem, 3.5vw, 2.75rem)',
                   color: 'var(--green-dark)',
                   letterSpacing: '-0.03em',
                 }}>
@@ -1395,10 +1417,114 @@ export default async function HomePage() {
       )}
 
       {/* ══════════════════════════════════════════════════════
+          FAQ — preguntas frecuentes
+      ══════════════════════════════════════════════════════ */}
+      <section style={{
+        padding: '7rem 1.5rem',
+        background: 'var(--off-white)',
+      }}>
+        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <span className="section-badge">FAQ</span>
+            <h2 style={{
+              fontFamily: "'Red Hat Display', sans-serif",
+              fontWeight: 900,
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              color: 'var(--green-dark)',
+              letterSpacing: '-0.03em',
+              lineHeight: 1.05,
+              marginBottom: '1rem',
+            }}>
+              Preguntas frecuentes
+            </h2>
+            <p style={{
+              fontFamily: "'Lexend Deca', sans-serif",
+              fontSize: '1rem',
+              color: 'var(--gray-500)',
+              lineHeight: 1.7,
+            }}>
+              Todo lo que necesitas saber antes de empezar tu proyecto con nosotros.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            {faqs.map((faq, i) => (
+              <details
+                key={i}
+                style={{
+                  background: '#ffffff',
+                  border: '1.5px solid rgba(126,200,35,0.18)',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                <summary style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '1.5rem 1.75rem',
+                  cursor: 'pointer',
+                  listStyle: 'none',
+                  fontFamily: "'Red Hat Display', sans-serif",
+                  fontWeight: 800,
+                  fontSize: '1rem',
+                  color: 'var(--green-dark)',
+                  letterSpacing: '-0.01em',
+                  lineHeight: 1.3,
+                  userSelect: 'none' as const,
+                  gap: '1rem',
+                }}>
+                  <span>{faq.q}</span>
+                  <span style={{
+                    flexShrink: 0,
+                    width: '28px', height: '28px',
+                    borderRadius: '50%',
+                    background: 'var(--green-pale)',
+                    border: '1.5px solid rgba(126,200,35,0.25)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'var(--green-bright)',
+                  }}>
+                    <ChevronDown size={15} />
+                  </span>
+                </summary>
+                <div style={{
+                  padding: '0 1.75rem 1.5rem',
+                  fontFamily: "'Lexend Deca', sans-serif",
+                  fontSize: '0.92rem',
+                  color: 'var(--gray-600)',
+                  lineHeight: 1.75,
+                  borderTop: '1px solid rgba(126,200,35,0.1)',
+                  paddingTop: '1.25rem',
+                }}>
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <p style={{
+              fontFamily: "'Lexend Deca', sans-serif",
+              fontSize: '0.92rem',
+              color: 'var(--gray-500)',
+              marginBottom: '1.25rem',
+            }}>
+              ¿Tienes otra pregunta? Escríbenos directamente.
+            </p>
+            <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.92rem' }}>
+              Contactar ahora
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
           CTA FINAL — degradado verde limón
       ══════════════════════════════════════════════════════ */}
       <section style={{
-        padding: '6rem 1.5rem',
+        padding: '7rem 1.5rem',
         background: 'linear-gradient(135deg, #7ec823 0%, #9fd63a 40%, #c8e88a 100%)',
         textAlign: 'center',
         position: 'relative',
@@ -1416,25 +1542,25 @@ export default async function HomePage() {
           background: 'rgba(255,255,255,0.1)',
         }} />
 
-        <div style={{ maxWidth: '680px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div style={{ fontSize: '3.5rem', marginBottom: '1.25rem', lineHeight: 1 }}>🐾</div>
+        <div style={{ maxWidth: '720px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+          <div style={{ fontSize: '3.5rem', marginBottom: '1.5rem', lineHeight: 1 }}>🐾</div>
           <h2 style={{
             fontFamily: "'Red Hat Display', sans-serif",
             fontWeight: 900,
-            fontSize: 'clamp(1.85rem, 4vw, 2.75rem)',
+            fontSize: 'clamp(2rem, 4.5vw, 3rem)',
             color: 'var(--green-dark)',
             letterSpacing: '-0.03em',
-            lineHeight: 1.15,
-            marginBottom: '1rem',
+            lineHeight: 1.1,
+            marginBottom: '1.25rem',
           }}>
             ¿Listo para crear tu marca de alimentos para mascotas?
           </h2>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
-            fontSize: '1rem',
-            color: 'rgba(6,59,5,0.75)',
-            lineHeight: 1.7,
-            marginBottom: '2.5rem',
+            fontSize: '1.05rem',
+            color: 'rgba(6,59,5,0.72)',
+            lineHeight: 1.75,
+            marginBottom: '2.75rem',
           }}>
             Atendemos exclusivamente a clientes mayoristas y marcas. Contáctanos hoy y cuéntanos tu proyecto.
           </p>

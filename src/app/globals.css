@@ -403,4 +403,28 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.04);
 }
 
+/* ─── FAQ Accordion ─────────────────────────────────────────── */
+details > summary::-webkit-details-marker { display: none; }
+details[open] {
+  border-color: rgba(126,200,35,0.3) !important;
+  box-shadow: 0 4px 20px rgba(126,200,35,0.08);
+}
+details[open] summary span:last-child {
+  transform: rotate(180deg);
+}
+details summary span:last-child {
+  transition: transform 0.25s ease;
+}
+
+/* ─── Gallery clean 2-col ────────────────────────────────────── */
+@media (max-width: 768px) {
+  .gallery-clean-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+  .gallery-clean-grid > div:first-child {
+    grid-row: auto !important;
+    min-height: 260px !important;
+  }
+}
 

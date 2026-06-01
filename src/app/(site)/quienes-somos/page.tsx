@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { CheckCircle, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Quiénes Somos',
-  description: 'Somos una empresa colombiana fundada en 2017, especializada en el desarrollo y fabricación de alimentos y suplementos para mascotas.',
+  title: 'Quiénes Somos | Zoovegetal',
+  description: 'Empresa colombiana fundada en 2015, especializada en el desarrollo y fabricación de alimentos y suplementos para mascotas con ingredientes de grado humano.',
 }
 
 const values = [
@@ -48,18 +48,46 @@ const proteins = [
 ]
 
 const timeline = [
-  { year: '2017', event: 'Fundación de Zoovegetal en Medellín, Antioquia.', active: false },
-  { year: '2018', event: 'Obtención de la primera certificación BPM ICA.', active: false },
-  { year: '2020', event: 'Expansión de líneas de producto a felinos y equinos.', active: false },
+  { year: '2015', event: 'Fundación de Zoovegetal en Medellín, Antioquia.', active: false },
+  { year: '2016', event: 'Obtención de la primera certificación BPM ICA.', active: false },
+  { year: '2018', event: 'Expansión de líneas de producto a felinos y equinos.', active: false },
   { year: '2022', event: 'Superamos los 50 productos desarrollados para marcas clientes.', active: false },
   { year: '2024', event: 'Consolidación como referente de maquila de alimentos para mascotas en Colombia.', active: true },
 ]
 
 const certifications = [
-  { title: 'BPM ICA', sub: 'Buenas Prácticas de Manufactura', icon: '🏅' },
-  { title: 'Registro ICA', sub: 'Certificación individual por producto', icon: '📋' },
-  { title: 'Análisis Microbiológico', sub: 'Control de calidad por lote', icon: '🔬' },
-  { title: 'Análisis Bromatológico', sub: 'Composición nutricional certificada', icon: '🧪' },
+  { title: 'BPM ICA', sub: 'Buenas Prácticas de Manufactura — auditada anualmente', icon: '🏅' },
+  { title: 'Registro ICA', sub: 'Certificación individual por cada producto fabricado', icon: '📋' },
+  { title: 'Análisis Microbiológico', sub: 'Control de calidad documentado por lote', icon: '🔬' },
+  { title: 'Análisis Bromatológico', sub: 'Composición nutricional certificada en laboratorio', icon: '🧪' },
+]
+
+// Equipo / Fundador
+const team = [
+  {
+    name: 'Fundador & Director',
+    role: 'Nutrición Animal — Medellín',
+    bio: 'Más de 9 años desarrollando fórmulas nutricionales con ingredientes de grado humano para mascotas. Fundó Zoovegetal con la visión de democratizar el acceso a alimentos premium para animales.',
+    emoji: '👨‍🔬',
+    color: '#f0f9e0',
+    border: 'rgba(126,200,35,0.2)',
+  },
+  {
+    name: 'Equipo Técnico',
+    role: 'Formulación y Control de Calidad',
+    bio: 'Profesionales en nutrición, veterinaria y bromatología que garantizan que cada lote cumpla con los más altos estándares antes de salir de la planta.',
+    emoji: '🔬',
+    color: '#fff8ec',
+    border: 'rgba(245,166,35,0.2)',
+  },
+  {
+    name: 'Equipo de Producción',
+    role: 'Planta certificada BPM ICA',
+    bio: 'Operarios capacitados en BPM con protocolos estrictos de higiene y manipulación. Cada turno documentado y trazable desde la materia prima hasta el producto terminado.',
+    emoji: '🏭',
+    color: '#edf7ec',
+    border: 'rgba(126,200,35,0.2)',
+  },
 ]
 
 export default function QuienesSomosPage() {
@@ -80,7 +108,7 @@ export default function QuienesSomosPage() {
           filter: 'blur(30px)',
         }} />
 
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '720px', margin: '0 auto' }}>
           <span style={{
             display: 'inline-block',
             padding: '0.35rem 1rem',
@@ -93,38 +121,38 @@ export default function QuienesSomosPage() {
             fontSize: '0.72rem',
             letterSpacing: '0.12em',
             textTransform: 'uppercase' as const,
-            marginBottom: '1.25rem',
+            marginBottom: '1.5rem',
           }}>
             Nuestra Historia
           </span>
           <h1 style={{
             fontFamily: "'Red Hat Display', sans-serif",
             fontWeight: 900,
-            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+            fontSize: 'clamp(2.5rem, 6vw, 4.2rem)',
             color: '#ffffff',
             letterSpacing: '-0.04em',
-            lineHeight: 1.05,
-            marginBottom: '1rem',
+            lineHeight: 1.0,
+            marginBottom: '1.25rem',
           }}>
             Apasionados por la{' '}
             <span style={{ color: '#9fd63a' }}>nutrición animal</span>
           </h1>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
-            fontSize: '1rem',
+            fontSize: '1.05rem',
             color: 'rgba(255,255,255,0.68)',
-            lineHeight: 1.7,
-            maxWidth: '520px',
+            lineHeight: 1.75,
+            maxWidth: '560px',
             margin: '0 auto',
           }}>
-            Desde 2017, en Medellín, Colombia, desarrollamos y fabricamos alimentos de alta calidad
-            para mascotas, usando materias primas de grado humano y los más altos estándares de manufactura.
+            Desde 2015, en Medellín, Colombia, desarrollamos y fabricamos alimentos de alta calidad
+            para mascotas usando materias primas de grado humano y los más altos estándares de manufactura.
           </p>
         </div>
       </div>
 
-      {/* ── Mission + Values ── */}
-      <section style={{ padding: '6rem 1.5rem', background: '#ffffff' }}>
+      {/* ── Misión — concisa (reemplaza 300+ palabras) ── */}
+      <section style={{ padding: '7rem 1.5rem', background: '#ffffff' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{
             display: 'grid',
@@ -132,42 +160,50 @@ export default function QuienesSomosPage() {
             gap: '4rem',
             alignItems: 'center',
           }}>
-            {/* Left — mission text */}
+            {/* Left — mission text — CONDENSADO */}
             <div>
               <span className="section-badge">Misión</span>
               <h2 style={{
                 fontFamily: "'Red Hat Display', sans-serif",
                 fontWeight: 900,
-                fontSize: 'clamp(1.85rem, 3.5vw, 2.5rem)',
+                fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
                 color: 'var(--green-dark)',
                 letterSpacing: '-0.03em',
-                lineHeight: 1.1,
-                marginBottom: '1.25rem',
+                lineHeight: 1.05,
+                marginBottom: '1.5rem',
               }}>
                 Nutrición que{' '}
                 <span style={{ color: 'var(--green-bright)' }}>transforma vidas animales</span>
               </h2>
-              <p style={{
-                fontFamily: "'Lexend Deca', sans-serif",
-                fontSize: '0.97rem',
-                color: 'var(--gray-600)',
-                lineHeight: 1.75,
-                marginBottom: '1rem',
-              }}>
-                En Zoovegetal desarrollamos y fabricamos productos nutricionales premium para animales domésticos,
-                utilizando ingredientes de primera calidad, grado humano, que aportan proteínas, vitaminas y minerales
-                esenciales para la salud y el bienestar animal.
-              </p>
-              <p style={{
-                fontFamily: "'Lexend Deca', sans-serif",
-                fontSize: '0.97rem',
-                color: 'var(--gray-600)',
-                lineHeight: 1.75,
-              }}>
-                Trabajamos con marcas y distribuidores mayoristas, acompañándolos desde la concepción del producto
-                hasta el registro ICA y la producción final, para que puedan competir con confianza en el creciente
-                mercado de nutrición animal.
-              </p>
+
+              {/* 3 puntos clave en lugar de párrafos densos */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem', marginBottom: '2.25rem' }}>
+                {[
+                  { icon: '🌿', txt: 'Fabricamos con materias primas de grado humano — proteínas, vitaminas y minerales de la más alta calidad.' },
+                  { icon: '🏭', txt: 'Atendemos a marcas y distribuidores mayoristas desde la fórmula hasta el registro ICA.' },
+                  { icon: '🤝', txt: 'Somos aliados estratégicos, no solo maquiladores — acompañamos cada etapa de tu lanzamiento.' },
+                ].map((pt) => (
+                  <div key={pt.txt} style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
+                    <span style={{ fontSize: '1.25rem', flexShrink: 0, marginTop: '1px' }}>{pt.icon}</span>
+                    <p style={{
+                      fontFamily: "'Lexend Deca', sans-serif",
+                      fontSize: '0.95rem',
+                      color: 'var(--gray-600)',
+                      lineHeight: 1.75,
+                    }}>{pt.txt}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
+                <Link href="/contacto" className="btn-primary">
+                  Trabajar con nosotros
+                  <ArrowRight size={17} />
+                </Link>
+                <Link href="/servicios" className="btn-amber">
+                  Ver servicios
+                </Link>
+              </div>
             </div>
 
             {/* Right — values grid */}
@@ -177,19 +213,19 @@ export default function QuienesSomosPage() {
                   key={v.title}
                   className="card"
                   style={{
-                    padding: '1.5rem',
+                    padding: '1.75rem',
                     background: v.bg,
                     border: `1.5px solid ${v.color}20`,
                   }}
                 >
-                  <div style={{ fontSize: '2rem', marginBottom: '0.7rem' }}>{v.emoji}</div>
+                  <div style={{ fontSize: '2.25rem', marginBottom: '0.75rem' }}>{v.emoji}</div>
                   <h3 style={{
                     fontFamily: "'Red Hat Display', sans-serif",
                     fontWeight: 800,
                     fontSize: '1rem',
                     color: 'var(--green-dark)',
                     letterSpacing: '-0.01em',
-                    marginBottom: '0.4rem',
+                    marginBottom: '0.5rem',
                   }}>
                     {v.title}
                   </h3>
@@ -197,7 +233,7 @@ export default function QuienesSomosPage() {
                     fontFamily: "'Lexend Deca', sans-serif",
                     fontSize: '0.82rem',
                     color: 'var(--gray-600)',
-                    lineHeight: 1.6,
+                    lineHeight: 1.65,
                   }}>
                     {v.desc}
                   </p>
@@ -208,8 +244,103 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
+      {/* ── Equipo — personas detrás de la marca (Dr. Tim's style) ── */}
+      <section style={{ padding: '7rem 1.5rem', background: 'var(--off-white)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <span className="section-badge">Nuestro Equipo</span>
+            <h2 style={{
+              fontFamily: "'Red Hat Display', sans-serif",
+              fontWeight: 900,
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              color: 'var(--green-dark)',
+              letterSpacing: '-0.03em',
+              lineHeight: 1.05,
+              marginBottom: '1rem',
+            }}>
+              Las personas detrás{' '}
+              <span style={{ color: 'var(--green-bright)' }}>de cada producto</span>
+            </h2>
+            <p style={{
+              fontFamily: "'Lexend Deca', sans-serif",
+              fontSize: '1rem',
+              color: 'var(--gray-500)',
+              maxWidth: '500px',
+              margin: '0 auto',
+              lineHeight: 1.7,
+            }}>
+              Somos un equipo pequeño y apasionado. La transparencia comienza aquí.
+            </p>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+            gap: '1.5rem',
+          }}>
+            {team.map((member) => (
+              <div
+                key={member.name}
+                className="card"
+                style={{
+                  padding: '2.5rem 2rem',
+                  background: member.color,
+                  border: `1.5px solid ${member.border}`,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1.25rem',
+                }}
+              >
+                {/* Avatar placeholder */}
+                <div style={{
+                  width: '72px', height: '72px',
+                  borderRadius: '50%',
+                  background: '#ffffff',
+                  border: `2px solid ${member.border}`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '2rem',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+                }}>
+                  {member.emoji}
+                </div>
+                <div>
+                  <h3 style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: 800,
+                    fontSize: '1.05rem',
+                    color: 'var(--green-dark)',
+                    letterSpacing: '-0.02em',
+                    marginBottom: '0.25rem',
+                  }}>
+                    {member.name}
+                  </h3>
+                  <span style={{
+                    fontFamily: "'Red Hat Display', sans-serif",
+                    fontWeight: 700,
+                    fontSize: '0.72rem',
+                    color: 'var(--green-bright)',
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase' as const,
+                  }}>
+                    {member.role}
+                  </span>
+                </div>
+                <p style={{
+                  fontFamily: "'Lexend Deca', sans-serif",
+                  fontSize: '0.875rem',
+                  color: 'var(--gray-600)',
+                  lineHeight: 1.7,
+                }}>
+                  {member.bio}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Ingredients ── */}
-      <section style={{ padding: '6rem 1.5rem', background: 'var(--off-white)' }}>
+      <section style={{ padding: '7rem 1.5rem', background: '#ffffff' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <span className="section-badge">Ingredientes</span>
@@ -224,6 +355,16 @@ export default function QuienesSomosPage() {
               Solo ingredientes de{' '}
               <span style={{ color: 'var(--green-bright)' }}>grado humano</span>
             </h2>
+            <p style={{
+              fontFamily: "'Lexend Deca', sans-serif",
+              fontSize: '1rem',
+              color: 'var(--gray-500)',
+              maxWidth: '480px',
+              margin: '1rem auto 0',
+              lineHeight: 1.7,
+            }}>
+              Las mismas materias primas que se usan en alimentos para personas. Sin atajos.
+            </p>
           </div>
 
           {/* Protein grid */}
@@ -276,16 +417,16 @@ export default function QuienesSomosPage() {
               <div
                 key={item.title}
                 className="card"
-                style={{ padding: '1.75rem', background: '#ffffff' }}
+                style={{ padding: '2rem', background: '#ffffff' }}
               >
-                <div style={{ fontSize: '2.25rem', marginBottom: '0.85rem' }}>{item.emoji}</div>
+                <div style={{ fontSize: '2.25rem', marginBottom: '1rem' }}>{item.emoji}</div>
                 <h3 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: 800,
                   fontSize: '1rem',
                   color: 'var(--green-dark)',
                   letterSpacing: '-0.01em',
-                  marginBottom: '0.5rem',
+                  marginBottom: '0.6rem',
                 }}>
                   {item.title}
                 </h3>
@@ -293,7 +434,7 @@ export default function QuienesSomosPage() {
                   fontFamily: "'Lexend Deca', sans-serif",
                   fontSize: '0.875rem',
                   color: 'var(--gray-500)',
-                  lineHeight: 1.65,
+                  lineHeight: 1.7,
                 }}>
                   {item.desc}
                 </p>
@@ -305,7 +446,7 @@ export default function QuienesSomosPage() {
 
       {/* ── Certifications ── */}
       <section style={{
-        padding: '6rem 1.5rem',
+        padding: '7rem 1.5rem',
         background: 'linear-gradient(160deg, #021f01 0%, #063b05 50%, #0d5c0b 100%)',
         position: 'relative',
         overflow: 'hidden',
@@ -318,7 +459,7 @@ export default function QuienesSomosPage() {
         }} />
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <span style={{
               display: 'inline-block',
               padding: '0.35rem 1rem',
@@ -338,12 +479,23 @@ export default function QuienesSomosPage() {
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
-              fontSize: 'clamp(2rem, 4vw, 2.75rem)',
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
               color: '#ffffff',
               letterSpacing: '-0.03em',
             }}>
               Certificaciones y estándares
             </h2>
+            <p style={{
+              fontFamily: "'Lexend Deca', sans-serif",
+              fontSize: '1rem',
+              color: 'rgba(255,255,255,0.55)',
+              marginTop: '1rem',
+              maxWidth: '460px',
+              margin: '1rem auto 0',
+              lineHeight: 1.65,
+            }}>
+              No es marketing. Es documentación verificable que protege a tu marca y a los animales.
+            </p>
           </div>
 
           <div style={{
@@ -352,15 +504,15 @@ export default function QuienesSomosPage() {
             gap: '1.25rem',
           }}>
             {certifications.map((cert) => (
-              <div key={cert.title} className="card-glass" style={{ padding: '2rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{cert.icon}</div>
+              <div key={cert.title} className="card-glass" style={{ padding: '2.25rem', textAlign: 'center' }}>
+                <div style={{ fontSize: '2.75rem', marginBottom: '1.1rem' }}>{cert.icon}</div>
                 <h3 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: 800,
-                  fontSize: '1rem',
+                  fontSize: '1.05rem',
                   color: '#ffffff',
                   letterSpacing: '-0.01em',
-                  marginBottom: '0.4rem',
+                  marginBottom: '0.5rem',
                 }}>
                   {cert.title}
                 </h3>
@@ -368,7 +520,7 @@ export default function QuienesSomosPage() {
                   fontFamily: "'Lexend Deca', sans-serif",
                   fontSize: '0.82rem',
                   color: 'rgba(255,255,255,0.58)',
-                  lineHeight: 1.5,
+                  lineHeight: 1.6,
                 }}>
                   {cert.sub}
                 </p>
@@ -379,7 +531,7 @@ export default function QuienesSomosPage() {
       </section>
 
       {/* ── Timeline ── */}
-      <section style={{ padding: '6rem 1.5rem', background: '#ffffff' }}>
+      <section style={{ padding: '7rem 1.5rem', background: '#ffffff' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <span className="section-badge">Historia</span>
@@ -406,7 +558,7 @@ export default function QuienesSomosPage() {
               borderRadius: '1px',
             }} />
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.25rem' }}>
               {timeline.map((item) => (
                 <div key={item.year} style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
                   {/* Year circle */}
@@ -440,7 +592,7 @@ export default function QuienesSomosPage() {
                       fontFamily: "'Lexend Deca', sans-serif",
                       fontSize: '0.95rem',
                       color: item.active ? 'var(--green-dark)' : 'var(--gray-700)',
-                      lineHeight: 1.6,
+                      lineHeight: 1.65,
                       fontWeight: item.active ? 600 : 400,
                     }}>
                       {item.event}
@@ -455,7 +607,7 @@ export default function QuienesSomosPage() {
 
       {/* ── CTA ── */}
       <section style={{
-        padding: '5rem 1.5rem',
+        padding: '6rem 1.5rem',
         textAlign: 'center',
         background: 'var(--green-pale)',
       }}>
@@ -463,7 +615,7 @@ export default function QuienesSomosPage() {
           <h2 style={{
             fontFamily: "'Red Hat Display', sans-serif",
             fontWeight: 900,
-            fontSize: 'clamp(1.75rem, 4vw, 2.25rem)',
+            fontSize: 'clamp(1.85rem, 4vw, 2.5rem)',
             color: 'var(--green-dark)',
             letterSpacing: '-0.03em',
             marginBottom: '1rem',
@@ -472,10 +624,10 @@ export default function QuienesSomosPage() {
           </h2>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
-            fontSize: '0.97rem',
+            fontSize: '1rem',
             color: 'var(--gray-600)',
-            lineHeight: 1.7,
-            marginBottom: '2.25rem',
+            lineHeight: 1.75,
+            marginBottom: '2.5rem',
           }}>
             Somos el aliado que tu marca de alimentos para mascotas necesita.
           </p>
