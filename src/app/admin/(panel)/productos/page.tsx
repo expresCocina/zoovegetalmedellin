@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { Plus, Edit2, Trash2, Search, Star, X, Save, Package } from 'lucide-react'
-import { SUBCATEGORIES } from '@/lib/utils'
+import { SUBCATEGORIES, CATEGORIES } from '@/lib/utils'
 
 interface Product {
   id: string
@@ -22,11 +22,11 @@ const EMPTY: Omit<Product, 'id' | 'slug'> = {
   subcategory: 'Snacks y Galletas', featured: false, active: true, order: 0,
 }
 
-const catMeta: Record<string, { label: string; bg: string; color: string }> = {
-  canino: { label: '🐕 Canino', bg: '#f0f9e0', color: '#3a7a0a' },
-  felino: { label: '🐈 Felino', bg: '#fff8ec', color: '#b07210' },
-  equino: { label: '🐴 Equino', bg: '#edf7ec', color: '#063b05' },
+const catBg: Record<string, string> = {
+  canino: '#f0f9e0', felino: '#fff8ec', equino:   '#edf7ec',
+  avicola: '#fffaed', porcino: '#fff0f4', cunicola: '#f5f0ff',
 }
+
 
 const labelStyle = {
   display: 'block',
@@ -178,9 +178,9 @@ export default function AdminProductosPage() {
           style={{ width: 'auto', minWidth: '160px' }}
         >
           <option value="">Todas las categorías</option>
-          <option value="canino">🐕 Caninos</option>
-          <option value="felino">🐈 Felinos</option>
-          <option value="equino">🐴 Equinos</option>
+          {Object.entries(CATEGORIES).map(([id, c]) => (
+            <option key={id} value={id}>{c.emoji} {c.label}</option>
+          ))}
         </select>
       </div>
 
@@ -239,7 +239,7 @@ export default function AdminProductosPage() {
               </thead>
               <tbody>
                 {filtered.map((product, i) => {
-                  const meta = catMeta[product.category]
+                  const cat = CATEGORIES[product.category as keyof typeof CATEGORIES]
                   return (
                     <tr
                       key={product.id}
@@ -270,18 +270,18 @@ export default function AdminProductosPage() {
                         </div>
                       </td>
                       <td style={{ padding: '1rem 1.25rem' }}>
-                        {meta && (
+                        {cat && (
                           <span style={{
                             display: 'inline-block',
                             padding: '0.2rem 0.65rem',
                             borderRadius: '100px',
-                            background: meta.bg,
-                            color: meta.color,
+                            background: catBg[product.category] ?? '#f5f5f5',
+                            color: cat.color,
                             fontFamily: "'Red Hat Display', sans-serif",
                             fontWeight: 700, fontSize: '0.72rem',
-                            border: `1px solid ${meta.color}20`,
+                            border: `1px solid ${cat.color}20`,
                           }}>
-                            {meta.label}
+                            {cat.emoji} {cat.label}
                           </span>
                         )}
                       </td>
@@ -412,9 +412,9 @@ export default function AdminProductosPage() {
                     onChange={(e) => setForm({ ...form, category: e.target.value })}
                     className="input-field"
                   >
-                    <option value="canino">🐕 Canino</option>
-                    <option value="felino">🐈 Felino</option>
-                    <option value="equino">🐴 Equino</option>
+                    {Object.entries(CATEGORIES).map(([id, c]) => (
+                      <option key={id} value={id}>{c.emoji} {c.label}</option>
+                    ))}
                   </select>
                 </div>
               </div>

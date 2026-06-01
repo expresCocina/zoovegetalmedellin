@@ -27,9 +27,12 @@ export function cn(...classes: (string | undefined | null | false)[]): string {
 }
 
 export const CATEGORIES = {
-  canino: { label: 'Caninos', emoji: '🐕', color: '#8cd02b' },
-  felino: { label: 'Felinos', emoji: '🐈', color: '#fbb03b' },
-  equino: { label: 'Equinos', emoji: '🐴', color: '#063b05' },
+  canino:   { label: 'Caninos',  emoji: '🐕', color: '#8cd02b' },
+  felino:   { label: 'Felinos',  emoji: '🐈', color: '#fbb03b' },
+  equino:   { label: 'Equinos',  emoji: '🐴', color: '#063b05' },
+  avicola:  { label: 'Aves',     emoji: '🐔', color: '#e8a020' },
+  porcino:  { label: 'Porcinos', emoji: '🐷', color: '#e07090' },
+  cunicola: { label: 'Conejos',  emoji: '🐰', color: '#a07cc5' },
 } as const
 
 export const SUBCATEGORIES = [
