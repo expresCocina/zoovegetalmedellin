@@ -60,6 +60,39 @@ const categoryCards = [
     href: '/productos?cat=equino',
     tag: '10+ productos',
   },
+  {
+    id: 'avicola',
+    label: 'Aves',
+    emoji: '🐔',
+    desc: 'Alimentos y suplementos formulados para aves de corral, ponedoras y aves de engorde.',
+    accentColor: '#e8a020',
+    bgGradient: 'linear-gradient(135deg, #fffaed 0%, #fff0cc 100%)',
+    borderColor: 'rgba(232,160,32,0.2)',
+    href: '/contacto',
+    tag: 'Consultar',
+  },
+  {
+    id: 'porcino',
+    label: 'Porcinos',
+    emoji: '🐷',
+    desc: 'Nutrición especializada para cerdos en todas las etapas productivas: cría, levante y engorde.',
+    accentColor: '#e07090',
+    bgGradient: 'linear-gradient(135deg, #fff0f4 0%, #ffe4ec 100%)',
+    borderColor: 'rgba(224,112,144,0.2)',
+    href: '/contacto',
+    tag: 'Consultar',
+  },
+  {
+    id: 'cunicola',
+    label: 'Conejos',
+    emoji: '🐰',
+    desc: 'Pellets y suplementos nutricionales para conejos de producción y mascotas con ingredientes naturales.',
+    accentColor: '#a07cc5',
+    bgGradient: 'linear-gradient(135deg, #f5f0ff 0%, #ede4ff 100%)',
+    borderColor: 'rgba(160,124,197,0.2)',
+    href: '/contacto',
+    tag: 'Consultar',
+  },
 ]
 
 // Stats más específicos y creíbles
@@ -399,6 +432,24 @@ export default async function HomePage() {
                     color: '#c0de7c', bg: 'rgba(192,222,124,0.08)',
                     border: 'rgba(192,222,124,0.18)', href: '/productos?cat=equino',
                   },
+                  {
+                    emoji: '🐔', label: 'Aves', tag: 'Consultar',
+                    desc: 'Alimento para aves de corral y ponedoras',
+                    color: '#e8a020', bg: 'rgba(232,160,32,0.08)',
+                    border: 'rgba(232,160,32,0.2)', href: '/contacto',
+                  },
+                  {
+                    emoji: '🐷', label: 'Porcinos', tag: 'Consultar',
+                    desc: 'Nutrición para cerdos en etapas productivas',
+                    color: '#e07090', bg: 'rgba(224,112,144,0.08)',
+                    border: 'rgba(224,112,144,0.2)', href: '/contacto',
+                  },
+                  {
+                    emoji: '🐰', label: 'Conejos', tag: 'Consultar',
+                    desc: 'Pellets y suplementos para cunícolas',
+                    color: '#a07cc5', bg: 'rgba(160,124,197,0.08)',
+                    border: 'rgba(160,124,197,0.2)', href: '/contacto',
+                  },
                 ].map((line) => (
                   <Link key={line.label} href={line.href} style={{
                     display: 'flex', alignItems: 'center', gap: '1rem',
@@ -599,11 +650,9 @@ export default async function HomePage() {
               lineHeight: 1.05,
               marginBottom: '1rem',
             }}>
-              ¿Tienes{' '}
-              <span style={{ color: '#7ec823' }}>perro</span>,{' '}
-              <span style={{ color: '#f5a623' }}>gato</span>{' '}
-              o{' '}
-              <span style={{ color: '#063b05' }}>caballo</span>?
+              Nutrición para{' '}
+              <span style={{ color: '#7ec823' }}>cada</span>{' '}
+              <span style={{ color: '#f5a623' }}>especie</span>
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif",
@@ -613,8 +662,8 @@ export default async function HomePage() {
               margin: '0 auto',
               lineHeight: 1.7,
             }}>
-              Líneas especializadas diseñadas con ingredientes de grado humano.
-              Accede directo a la categoría que necesitas.
+              Caninos, felinos, equinos, aves, porcinos, conejos y más.
+              Fórmulas con ingredientes de grado humano para cada etapa de vida.
             </p>
           </div>
 
