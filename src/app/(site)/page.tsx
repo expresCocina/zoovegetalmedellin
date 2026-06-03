@@ -267,15 +267,35 @@ export default async function HomePage() {
               propiedad del cliente, bajo normas BPM — Medellín, Colombia.
             </p>
 
-            {/* CTA buttons */}
-            <div className="animate-fade-in-up delay-200" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
-              <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.95rem', padding: '0.85rem 2rem' }}>
-                Cotiza tu proyecto
-                <ArrowRight size={17} />
+            {/* CTA */}
+            <div className="animate-fade-in-up delay-200" style={{ marginBottom: '1.75rem' }}>
+              <Link href="/contacto" style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.7rem',
+                background: 'linear-gradient(135deg, #7ec823 0%, #5a9a18 100%)',
+                color: '#ffffff', padding: '1rem 2.2rem',
+                borderRadius: '100px', textDecoration: 'none',
+                fontFamily: "'Red Hat Display', sans-serif",
+                fontWeight: 800, fontSize: '1.05rem',
+                boxShadow: '0 8px 32px rgba(126,200,35,0.45), 0 2px 8px rgba(0,0,0,0.2)',
+                letterSpacing: '-0.01em',
+              }}>
+                Cotiza tu proyecto de maquila
+                <ArrowRight size={18} />
               </Link>
-              <Link href="/servicios" className="btn-secondary" style={{ fontSize: '0.95rem', padding: '0.85rem 2rem' }}>
-                Ver cómo trabajamos
-              </Link>
+              <div style={{ marginTop: '0.85rem' }}>
+                <Link href="/servicios" style={{
+                  fontFamily: "'Lexend Deca', sans-serif",
+                  fontSize: '0.85rem',
+                  color: 'rgba(255,255,255,0.5)',
+                  textDecoration: 'none',
+                  display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
+                  borderBottom: '1px solid rgba(255,255,255,0.2)',
+                  paddingBottom: '1px',
+                  transition: 'color 0.2s',
+                }}>
+                  Ver cómo trabajamos <ChevronRight size={13} />
+                </Link>
+              </div>
             </div>
 
             {/* Stats row */}
@@ -413,18 +433,22 @@ export default async function HomePage() {
                 ))}
               </div>
 
-              {/* CTA bottom */}
-              <div style={{ paddingTop: '1.25rem', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-                <Link href="/contacto" style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-                  background: 'linear-gradient(135deg, #7ec823, #5a9a18)',
-                  color: 'white', padding: '0.8rem 1.5rem', borderRadius: '100px',
-                  fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
-                  fontSize: '0.88rem', textDecoration: 'none',
-                  boxShadow: '0 6px 20px rgba(126,200,35,0.4)',
-                }}>
-                  Cotizar mi proyecto <ChevronRight size={15} />
-                </Link>
+              {/* Trust footer */}
+              <div style={{
+                paddingTop: '1.1rem', borderTop: '1px solid rgba(255,255,255,0.07)',
+                display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ade80', flexShrink: 0 }} />
+                  <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.75rem', color: 'rgba(255,255,255,0.55)' }}>
+                    Respondemos en menos de 24 horas
+                  </span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.75rem', color: 'rgba(255,255,255,0.55)' }}>
+                    🔒 Propuesta sin costo
+                  </span>
+                </div>
               </div>
             </div>
 
