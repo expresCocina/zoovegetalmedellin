@@ -347,194 +347,119 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* ── RIGHT: Product showcase ── */}
+          {/* ── RIGHT: B2B Value Card ── */}
           <div className="animate-fade-in delay-200" style={{ position: 'relative', paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
 
-            {/* Main showcase card */}
+            {/* Floating badge top */}
             <div style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(141,208,43,0.2)',
-              borderRadius: '28px',
-              padding: '2rem',
-              backdropFilter: 'blur(12px)',
-              boxShadow: '0 24px 64px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)',
+              position: 'absolute', top: '-4px', right: '16px',
+              background: 'linear-gradient(135deg, #fbb03b, #f5a623)',
+              borderRadius: '14px', padding: '0.55rem 1rem',
+              boxShadow: '0 8px 24px rgba(251,176,59,0.45)',
+              display: 'flex', alignItems: 'center', gap: '0.4rem', zIndex: 5,
             }}>
-
-              {/* Top label */}
-              <div style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                marginBottom: '1.5rem',
-              }}>
-                <span style={{
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  fontWeight: 800,
-                  fontSize: '0.82rem',
-                  color: 'rgba(255,255,255,0.9)',
-                  letterSpacing: '0.04em',
-                }}>
-                  🐾 Líneas de Productos
-                </span>
-                <span style={{
-                  background: 'rgba(141,208,43,0.15)',
-                  border: '1px solid rgba(141,208,43,0.3)',
-                  borderRadius: '100px',
-                  padding: '0.2rem 0.7rem',
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  fontWeight: 700,
-                  fontSize: '0.68rem',
-                  color: '#9fd63a',
-                  letterSpacing: '0.05em',
-                }}>
-                  53 SKUs activos
-                </span>
-              </div>
-
-              {/* Product line cards */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                {[
-                  {
-                    emoji: '🐕', label: 'Caninos', tag: 'Línea activa',
-                    desc: 'Snacks, galletas, concentrado y suplementos funcionales',
-                    color: '#8cd02b', bg: 'rgba(141,208,43,0.08)',
-                    border: 'rgba(141,208,43,0.22)', href: '/productos?cat=canino',
-                  },
-                  {
-                    emoji: '🐈', label: 'Felinos', tag: 'Línea activa',
-                    desc: 'Alimentos balanceados y suplementos especializados',
-                    color: '#fbb03b', bg: 'rgba(251,176,59,0.08)',
-                    border: 'rgba(251,176,59,0.22)', href: '/productos?cat=felino',
-                  },
-                  {
-                    emoji: '🐴', label: 'Equinos', tag: 'Línea activa',
-                    desc: 'Pelletizados, polvos y suplementos de alto rendimiento',
-                    color: '#c0de7c', bg: 'rgba(192,222,124,0.08)',
-                    border: 'rgba(192,222,124,0.18)', href: '/productos?cat=equino',
-                  },
-                  {
-                    emoji: '🐹', label: 'Pequeños Mamíferos', tag: 'Desarrollamos',
-                    desc: 'Hámsters, cavia porcellus, oryctolagus cuniculus',
-                    color: '#a07cc5', bg: 'rgba(160,124,197,0.08)',
-                    border: 'rgba(160,124,197,0.2)', href: '/contacto',
-                  },
-                ].map((line) => (
-                  <Link key={line.label} href={line.href} style={{
-                    display: 'flex', alignItems: 'center', gap: '1rem',
-                    background: line.bg,
-                    border: `1px solid ${line.border}`,
-                    borderRadius: '16px',
-                    padding: '1rem 1.25rem',
-                    textDecoration: 'none',
-                    transition: 'all 0.22s ease',
-                  }}>
-                    <div style={{
-                      width: '48px', height: '48px', flexShrink: 0,
-                      background: 'rgba(255,255,255,0.06)',
-                      borderRadius: '14px',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '1.6rem',
-                    }}>
-                      {line.emoji}
-                    </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
-                        <span style={{
-                          fontFamily: "'Red Hat Display', sans-serif",
-                          fontWeight: 800, fontSize: '0.9rem',
-                          color: '#ffffff',
-                        }}>{line.label}</span>
-                        <span style={{
-                          background: line.color + '22',
-                          border: `1px solid ${line.color}44`,
-                          borderRadius: '100px',
-                          padding: '0.1rem 0.5rem',
-                          fontFamily: "'Red Hat Display', sans-serif",
-                          fontWeight: 700, fontSize: '0.62rem',
-                          color: line.color,
-                        }}>{line.tag}</span>
-                      </div>
-                      <p style={{
-                        fontFamily: "'Lexend Deca', sans-serif",
-                        fontSize: '0.75rem',
-                        color: 'rgba(255,255,255,0.5)',
-                        lineHeight: 1.4, margin: 0,
-                      }}>{line.desc}</p>
-                    </div>
-                    <ChevronRight size={16} style={{ color: line.color, flexShrink: 0 }} />
-                  </Link>
-                ))}
-              </div>
-
-              {/* Bottom cert strip */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '0.75rem',
-                marginTop: '1.5rem',
-                paddingTop: '1.25rem',
-                borderTop: '1px solid rgba(255,255,255,0.07)',
-              }}>
-                <div style={{
-                  display: 'flex', alignItems: 'center', gap: '0.6rem',
-                  background: 'rgba(141,208,43,0.07)',
-                  border: '1px solid rgba(141,208,43,0.15)',
-                  borderRadius: '12px',
-                  padding: '0.65rem 0.75rem',
-                }}>
-                  <span style={{ fontSize: '1rem', flexShrink: 0 }}>🏆</span>
-                  <div>
-                    <div style={{
-                      fontFamily: "'Red Hat Display', sans-serif",
-                      fontWeight: 800, fontSize: '0.72rem', color: '#9fd63a', lineHeight: 1,
-                    }}>BPM ICA</div>
-                    <div style={{
-                      fontFamily: "'Lexend Deca', sans-serif",
-                      fontSize: '0.6rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.3, marginTop: '0.15rem',
-                    }}>Certificación oficial</div>
-                  </div>
-                </div>
-                <div style={{
-                  display: 'flex', alignItems: 'center', gap: '0.6rem',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '12px',
-                  padding: '0.65rem 0.75rem',
-                }}>
-                  <span style={{ fontSize: '1rem', flexShrink: 0 }}>📍</span>
-                  <div>
-                    <div style={{
-                      fontFamily: "'Red Hat Display', sans-serif",
-                      fontWeight: 800, fontSize: '0.72rem', color: '#ffffff', lineHeight: 1,
-                    }}>Medellín</div>
-                    <div style={{
-                      fontFamily: "'Lexend Deca', sans-serif",
-                      fontSize: '0.6rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.3, marginTop: '0.15rem',
-                    }}>Planta propia · Colombia</div>
-                  </div>
-                </div>
+              <span style={{ fontSize: '0.95rem' }}>🌿</span>
+              <div>
+                <div style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900, fontSize: '0.7rem', color: '#063b05', lineHeight: 1 }}>99% Natural</div>
+                <div style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.58rem', color: 'rgba(6,59,5,0.7)', lineHeight: 1.2 }}>Grado humano certificado</div>
               </div>
             </div>
 
-            {/* Floating badge — top right */}
+            {/* Main card */}
             <div style={{
-              position: 'absolute', top: '-16px', right: '20px',
-              background: 'linear-gradient(135deg, #fbb03b, #f5a623)',
-              borderRadius: '14px',
-              padding: '0.6rem 1rem',
-              boxShadow: '0 8px 24px rgba(251,176,59,0.45)',
-              display: 'flex', alignItems: 'center', gap: '0.4rem',
-              zIndex: 5,
+              background: 'rgba(255,255,255,0.05)',
+              border: '1px solid rgba(141,208,43,0.22)',
+              borderRadius: '28px', padding: '2rem',
+              backdropFilter: 'blur(16px)',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)',
             }}>
-              <span style={{ fontSize: '1rem' }}>🌿</span>
+              {/* Header */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <p style={{
+                  fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+                  fontSize: '0.72rem', color: '#9fd63a', letterSpacing: '0.1em',
+                  textTransform: 'uppercase' as const, marginBottom: '0.4rem',
+                }}>Modelo de trabajo</p>
+                <h3 style={{
+                  fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
+                  fontSize: '1.3rem', color: '#ffffff', lineHeight: 1.15, margin: 0,
+                  letterSpacing: '-0.02em',
+                }}>
+                  Tú pones la marca.<br />Nosotros ponemos todo lo demás.
+                </h3>
+              </div>
+
+              {/* Process flow */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+                {[
+                  { icon: '💡', label: 'Tu idea' },
+                  { icon: '→', label: '' },
+                  { icon: '🔬', label: 'Fórmula' },
+                  { icon: '→', label: '' },
+                  { icon: '🏭', label: 'Planta BPM' },
+                  { icon: '→', label: '' },
+                  { icon: '🏷️', label: 'Tu marca' },
+                ].map((s, i) => s.icon === '→' ? (
+                  <span key={i} style={{ color: 'rgba(141,208,43,0.5)', fontSize: '1rem', fontWeight: 300 }}>→</span>
+                ) : (
+                  <div key={i} style={{
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem',
+                    background: 'rgba(255,255,255,0.06)', borderRadius: '12px',
+                    padding: '0.55rem 0.65rem', minWidth: '54px',
+                  }}>
+                    <span style={{ fontSize: '1.2rem' }}>{s.icon}</span>
+                    <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.58rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1, textAlign: 'center' }}>{s.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* 4 deliverables */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem', marginBottom: '1.5rem' }}>
+                {[
+                  { icon: '🔒', text: 'Fórmula 100% de tu propiedad', color: '#9fd63a' },
+                  { icon: '🌿', text: 'Ingredientes 99% naturales · grado humano', color: '#9fd63a' },
+                  { icon: '🏆', text: 'Fabricación bajo normas BPM ICA', color: '#9fd63a' },
+                  { icon: '📦', text: 'Producto terminado listo para vender', color: '#9fd63a' },
+                ].map((item) => (
+                  <div key={item.text} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{
+                      width: '32px', height: '32px', borderRadius: '10px', flexShrink: 0,
+                      background: 'rgba(141,208,43,0.1)', border: '1px solid rgba(141,208,43,0.2)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.95rem',
+                    }}>{item.icon}</div>
+                    <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.83rem', color: 'rgba(255,255,255,0.82)', lineHeight: 1.4 }}>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA bottom */}
+              <div style={{ paddingTop: '1.25rem', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                <Link href="/contacto" style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
+                  background: 'linear-gradient(135deg, #7ec823, #5a9a18)',
+                  color: 'white', padding: '0.8rem 1.5rem', borderRadius: '100px',
+                  fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+                  fontSize: '0.88rem', textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(126,200,35,0.4)',
+                }}>
+                  Cotizar mi proyecto <ChevronRight size={15} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Floating badge bottom left */}
+            <div style={{
+              position: 'absolute', bottom: '-4px', left: '16px',
+              background: 'rgba(6,59,5,0.95)', backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(141,208,43,0.3)',
+              borderRadius: '14px', padding: '0.55rem 1rem',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+              display: 'flex', alignItems: 'center', gap: '0.4rem', zIndex: 5,
+            }}>
+              <span style={{ fontSize: '0.95rem' }}>🏅</span>
               <div>
-                <div style={{
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  fontWeight: 900, fontSize: '0.72rem', color: '#063b05',
-                  lineHeight: 1,
-                }}>Grado Humano</div>
-                <div style={{
-                  fontFamily: "'Lexend Deca', sans-serif",
-                  fontSize: '0.6rem', color: 'rgba(6,59,5,0.7)', lineHeight: 1.2,
-                }}>Ingredientes certificados</div>
+                <div style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900, fontSize: '0.7rem', color: '#9fd63a', lineHeight: 1 }}>BPM ICA</div>
+                <div style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.58rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.2 }}>Planta certificada · Medellín</div>
               </div>
             </div>
           </div>
