@@ -4,8 +4,8 @@ import { ChevronRight, ArrowRight } from 'lucide-react'
 import { prisma } from '@/lib/prisma'
 
 export const metadata: Metadata = {
-  title: 'Productos',
-  description: 'Descubre nuestra línea de alimentos, snacks y suplementos para caninos, felinos y equinos con ingredientes de grado humano.',
+  title: 'Portafolio de Desarrollo | Zoovegetal',
+  description: 'Capacidades de desarrollo y maquila: snacks, concentrados, suplementos y pelletizados para caninos, felinos, equinos y pequeños mamíferos. Fórmulas personalizadas para tu marca.',
 }
 
 async function getProducts(category?: string) {
@@ -79,7 +79,7 @@ export default async function ProductosPage({
             textTransform: 'uppercase' as const,
             marginBottom: '1.25rem',
           }}>
-            Catálogo
+            Portafolio de Desarrollo
           </span>
           <h1 style={{
             fontFamily: "'Red Hat Display', sans-serif",
@@ -90,18 +90,18 @@ export default async function ProductosPage({
             lineHeight: 1.05,
             marginBottom: '1rem',
           }}>
-            Nuestros Productos
+            Lo que fabricamos<br />para tu marca
           </h1>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
             fontSize: '1rem',
             color: 'rgba(255,255,255,0.68)',
             lineHeight: 1.7,
-            maxWidth: '520px',
+            maxWidth: '560px',
             margin: '0 auto',
           }}>
-            Formulados con ingredientes de grado humano. Proteínas animales y vegetales,
-            vitaminas y minerales esenciales.
+            Estas son las líneas de productos que co-desarrollamos y maquilamos.
+            Cada fórmula es personalizable, 99% natural y de propiedad exclusiva del cliente.
           </p>
         </div>
       </div>
@@ -343,7 +343,7 @@ export default async function ProductosPage({
             letterSpacing: '-0.03em',
             marginBottom: '0.75rem',
           }}>
-            ¿No encuentras lo que buscas?
+            ¿Quieres este producto bajo tu marca?
           </h2>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
@@ -352,10 +352,10 @@ export default async function ProductosPage({
             marginBottom: '2rem',
             lineHeight: 1.65,
           }}>
-            Desarrollamos productos personalizados bajo tu marca. Cuéntanos tu idea.
+            Co-desarrollamos y maquilamos cualquier línea con fórmula personalizada, ingredientes 99% naturales y propiedad exclusiva del cliente.
           </p>
           <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.95rem' }}>
-            Solicitar producto personalizado
+            Cotiza tu proyecto de maquila
             <ArrowRight size={17} />
           </Link>
         </div>

@@ -4,35 +4,35 @@ import { CheckCircle, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Quiénes Somos | Zoovegetal',
-  description: 'Empresa colombiana fundada en 2015, especializada en el desarrollo y fabricación de alimentos y suplementos para mascotas con ingredientes de grado humano.',
+  description: 'Laboratorio de desarrollo y planta de producción BPM en Medellín. Co-desarrollamos y maquilamos alimentos y suplementos para mascotas con ingredientes 99% naturales.',
 }
 
 const values = [
   {
-    emoji: '🌿',
-    title: 'Natural',
-    desc: 'Utilizamos exclusivamente ingredientes de grado humano: proteínas animales y vegetales, vitaminas y minerales.',
+    emoji: '🔒',
+    title: 'Propiedad del Cliente',
+    desc: 'Cada fórmula co-desarrollada es 100% propiedad intelectual del cliente. Confidencialidad y exclusividad garantizadas desde el primer acuerdo.',
     color: '#7ec823',
     bg: '#f0f9e0',
   },
   {
-    emoji: '🔬',
-    title: 'Científico',
-    desc: 'Cada producto pasa por análisis microbiológicos y bromatológicos para garantizar su seguridad y calidad nutricional.',
+    emoji: '🌿',
+    title: '99% Natural',
+    desc: 'Materias primas de grado humano, extractos botánicos y fitoterapéuticos. Sin subproductos de baja calidad, sin conservantes sintéticos.',
     color: '#f5a623',
     bg: '#fff8ec',
   },
   {
     emoji: '🏆',
-    title: 'Certificado',
-    desc: 'Contamos con certificación BPM ICA y registro individual por producto, garantizando el cumplimiento normativo.',
+    title: 'Planta Certificada BPM',
+    desc: 'Fabricación bajo Buenas Prácticas de Manufactura (BPMAA). Cada lote es documentado, trazable y entregado con certificado de análisis.',
     color: '#7ec823',
     bg: '#f0f9e0',
   },
   {
     emoji: '🤝',
-    title: 'Aliado',
-    desc: 'Más que un proveedor, somos el socio estratégico que te ayuda a crecer tu marca en el mercado de nutrición animal.',
+    title: 'Aliado, No Competidor',
+    desc: 'Zoovegetal no vende a granel ni compite con sus clientes. Nuestra razón de ser es el éxito del producto final del contratante.',
     color: '#f5a623',
     bg: '#fff8ec',
   },
@@ -134,7 +134,7 @@ export default function QuienesSomosPage() {
             lineHeight: 1.0,
             marginBottom: '1.25rem',
           }}>
-            Apasionados por la{' '}
+            Tu aliado en{' '}
             <span style={{ color: '#9fd63a' }}>nutrición animal</span>
           </h1>
           <p style={{
@@ -142,11 +142,12 @@ export default function QuienesSomosPage() {
             fontSize: '1.05rem',
             color: 'rgba(255,255,255,0.68)',
             lineHeight: 1.75,
-            maxWidth: '560px',
+            maxWidth: '580px',
             margin: '0 auto',
           }}>
-            Desde 2015, en Medellín, Colombia, desarrollamos y fabricamos alimentos de alta calidad
-            para mascotas usando materias primas de grado humano y los más altos estándares de manufactura.
+            Desde 2015 en Medellín, somos el laboratorio de desarrollo y la planta de manufactura
+            que las marcas necesitan para lanzar productos de nutrición animal 99% naturales bajo
+            su propia marca.
           </p>
         </div>
       </div>
@@ -172,16 +173,15 @@ export default function QuienesSomosPage() {
                 lineHeight: 1.05,
                 marginBottom: '1.5rem',
               }}>
-                Nutrición que{' '}
-                <span style={{ color: 'var(--green-bright)' }}>transforma vidas animales</span>
+                Desarrollamos soluciones.<br />
+                <span style={{ color: 'var(--green-bright)' }}>Tú construyes la marca.</span>
               </h2>
 
-              {/* 3 puntos clave en lugar de párrafos densos */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem', marginBottom: '2.25rem' }}>
                 {[
-                  { icon: '🌿', txt: 'Fabricamos con materias primas de grado humano — proteínas, vitaminas y minerales de la más alta calidad.' },
-                  { icon: '🏭', txt: 'Atendemos a marcas y distribuidores mayoristas desde la fórmula hasta el registro ICA.' },
-                  { icon: '🤝', txt: 'Somos aliados estratégicos, no solo maquiladores — acompañamos cada etapa de tu lanzamiento.' },
+                  { icon: '🔒', txt: 'Cada fórmula co-desarrollada es propiedad exclusiva del cliente. Confidencialidad total garantizada desde el inicio.' },
+                  { icon: '🌿', txt: 'Usamos materias primas 99% naturales de grado humano, plantas medicinales y extractos botánicos. Sin subproductos.' },
+                  { icon: '🏭', txt: 'Planta propia certificada BPM ICA en Medellín. Fabricación trazable, documentada y lista para registro ICA.' },
                 ].map((pt) => (
                   <div key={pt.txt} style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
                     <span style={{ fontSize: '1.25rem', flexShrink: 0, marginTop: '1px' }}>{pt.icon}</span>

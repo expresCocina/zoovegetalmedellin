@@ -61,32 +61,10 @@ const categoryCards = [
     tag: '10+ productos',
   },
   {
-    id: 'avicola',
-    label: 'Aves',
-    emoji: '🐔',
-    desc: 'Alimentos y suplementos formulados para aves de corral, ponedoras y aves de engorde.',
-    accentColor: '#e8a020',
-    bgGradient: 'linear-gradient(135deg, #fffaed 0%, #fff0cc 100%)',
-    borderColor: 'rgba(232,160,32,0.2)',
-    href: '/contacto',
-    tag: 'Consultar',
-  },
-  {
-    id: 'porcino',
-    label: 'Porcinos',
-    emoji: '🐷',
-    desc: 'Nutrición especializada para cerdos en todas las etapas productivas: cría, levante y engorde.',
-    accentColor: '#e07090',
-    bgGradient: 'linear-gradient(135deg, #fff0f4 0%, #ffe4ec 100%)',
-    borderColor: 'rgba(224,112,144,0.2)',
-    href: '/contacto',
-    tag: 'Consultar',
-  },
-  {
-    id: 'cunicola',
-    label: 'Conejos',
-    emoji: '🐰',
-    desc: 'Pellets y suplementos nutricionales para conejos de producción y mascotas con ingredientes naturales.',
+    id: 'pequeños-mamiferos',
+    label: 'Pequeños Mamíferos',
+    emoji: '🐹',
+    desc: 'Nutrición específica para hámsters, cavia porcellus (cobayas) y oryctolagus cuniculus (conejos).',
     accentColor: '#a07cc5',
     bgGradient: 'linear-gradient(135deg, #f5f0ff 0%, #ede4ff 100%)',
     borderColor: 'rgba(160,124,197,0.2)',
@@ -97,73 +75,73 @@ const categoryCards = [
 
 // Stats más específicos y creíbles
 const stats = [
-  { value: '9+', label: 'Años fabricando', sub: 'Desde 2015 en Medellín', icon: '⏱️' },
-  { value: '53', label: 'Productos registrados', sub: 'Con registro ICA activo', icon: '📦' },
-  { value: '100%', label: 'Grado humano', sub: 'Todas las materias primas', icon: '🌿' },
-  { value: 'BPM', label: 'Cert. ICA vigente', sub: 'Auditada anualmente', icon: '🏆' },
+  { value: '9+', label: 'Años de experiencia', sub: 'Desde 2015 en Medellín', icon: '⏱️' },
+  { value: '99%', label: 'Ingredientes naturales', sub: 'Grado humano', icon: '🌿' },
+  { value: 'BPM', label: 'Certificación ICA', sub: 'Auditada anualmente', icon: '🏆' },
+  { value: '100%', label: 'Propiedad del cliente', sub: 'Fórmulas exclusivas', icon: '🤝' },
 ]
 
 const services = [
   {
     icon: Beaker,
-    title: 'Desarrollo de Producto',
-    desc: 'Formulamos y desarrollamos tu producto desde cero, adaptado a tu marca y mercado objetivo.',
+    title: 'Co-desarrollo de Fórmula',
+    desc: 'Diseñamos tu fórmula desde cero usando fitoterapia y nutrición avanzada. El desarrollo es 100% de tu propiedad.',
     color: '#7ec823',
     bg: 'rgba(126,200,35,0.12)',
   },
   {
     icon: Leaf,
-    title: 'Maquila con Registro ICA',
-    desc: 'Producción a escala con o sin registro ICA. Tú defines la marca, nosotros la fabricamos.',
+    title: 'Maquila Exclusiva BPM',
+    desc: 'Producción a escala bajo Buenas Prácticas de Manufactura. Tu marca, nuestra planta certificada.',
     color: '#f5a623',
     bg: 'rgba(245,166,35,0.12)',
   },
   {
     icon: Award,
-    title: 'Asesoría Especializada',
-    desc: 'Te acompañamos desde la concepción del producto hasta la comercialización final.',
+    title: 'Registro y Cumplimiento',
+    desc: 'Acompañamiento en el proceso de registro ICA y normatividad BPMAA para que puedas comercializar legalmente.',
     color: '#c8e88a',
     bg: 'rgba(200,232,138,0.15)',
   },
   {
     icon: Truck,
-    title: 'Logística Integral',
-    desc: 'Gestionamos toda la cadena de producción y te entregamos listo para vender.',
+    title: 'Entrega Producto Terminado',
+    desc: 'Recibas tu producto listo para la venta, empacado y etiquetado bajo tu marca. Sin complicaciones.',
     color: '#7ec823',
     bg: 'rgba(126,200,35,0.12)',
   },
 ]
 
-// Por qué elegirnos — cards visuales (estilo BeFrank)
+// Por qué elegirnos — ADN Zoovegetal B2B
 const whyUsCards = [
   {
-    icon: '🌿',
-    title: 'Ingredientes de grado humano',
-    desc: 'Proteínas animales y vegetales de la misma calidad que se usa en alimentos para personas.',
+    icon: '🔒',
+    title: 'Propiedad Intelectual del Cliente',
+    desc: 'Cada fórmula desarrollada es 100% de tu propiedad. Confidencialidad total y exclusividad garantizada.',
     color: '#7ec823',
     bg: '#f0f9e0',
     border: 'rgba(126,200,35,0.25)',
   },
   {
-    icon: '🔬',
-    title: 'Análisis por lote garantizado',
-    desc: 'Microbiológico y bromatológico en cada producción. Certificado, documentado, trazable.',
+    icon: '🌿',
+    title: 'Calidad Grado Humano · 99% Natural',
+    desc: 'Materias primas seleccionadas aptas para consumo humano e ingredientes botánicos. Sin subproductos de baja calidad.',
     color: '#f5a623',
     bg: '#fff8ec',
     border: 'rgba(245,166,35,0.25)',
   },
   {
     icon: '🏅',
-    title: 'Registro ICA individual',
-    desc: 'Cada producto sale con su propio registro. Puedes comercializarlo legalmente desde el primer día.',
+    title: 'Planta Certificada BPM',
+    desc: 'Rigor farmacéutico en cada lote. Procesos estandarizados bajo normatividad BPMAA que garantizan inocuidad.',
     color: '#7ec823',
     bg: '#edf7ec',
     border: 'rgba(126,200,35,0.25)',
   },
   {
     icon: '🤝',
-    title: 'Aliado estratégico, no solo maquilador',
-    desc: 'Desde la fórmula hasta la etiqueta. Te asesoramos en todo el proceso de lanzamiento.',
+    title: 'No competimos con nuestros clientes',
+    desc: 'No vendemos a granel ni al consumidor final. Zoovegetal fabrica para el éxito de tu marca, no para competir con ella.',
     color: '#063b05',
     bg: '#f0f9e0',
     border: 'rgba(6,59,5,0.2)',
@@ -173,24 +151,24 @@ const whyUsCards = [
 // FAQs
 const faqs = [
   {
-    q: '¿Cuál es el pedido mínimo para maquila?',
-    a: 'El mínimo depende del tipo de producto. Para snacks y galletas partimos desde 100 kg por lote. Para concentrado seco y pelletizados, desde 200 kg. Contáctanos para una cotización exacta según tu producto.',
+    q: '¿La fórmula desarrollada es de mi propiedad?',
+    a: 'Sí, absolutamente. Cada fórmula co-desarrollada es 100% propiedad del cliente. Firmamos acuerdo de confidencialidad y exclusividad desde el inicio del proyecto. Zoovegetal no replica ni vende tus desarrollos a terceros.',
   },
   {
-    q: '¿Puedo vender los productos bajo mi propia marca?',
-    a: 'Sí, es nuestro modelo principal. Fabricamos bajo tu marca (white label) con o sin registro ICA. Si no tienes registro, nosotros gestionamos el trámite ante el ICA para tu producto.',
+    q: '¿Trabajan con emprendedores o solo con grandes empresas?',
+    a: 'Atendemos marcas en todas las etapas: emprendedores con una idea clara, marcas medianas en expansión y grandes compañías del sector agroveterinario. Si tienes visión de mercado y un proyecto serio, podemos acompañarte.',
   },
   {
-    q: '¿Cuánto demora el desarrollo de un producto nuevo?',
-    a: 'El desarrollo de fórmula toma entre 4 y 8 semanas. El registro ICA puede demorar entre 2 y 4 meses adicionales según el tipo de producto y la carga del ICA en ese momento.',
+    q: '¿Cuánto demora el co-desarrollo de un producto nuevo?',
+    a: 'El diseño de fórmula y pruebas de palatabilidad toman entre 4 y 8 semanas. El registro ICA puede demorar entre 2 y 4 meses adicionales. Te acompañamos en todo el proceso.',
   },
   {
-    q: '¿Solo trabajan con empresas o también con emprendedores?',
-    a: 'Atendemos a marcas en etapa inicial y empresas consolidadas. Si tienes un proyecto serio, con visión de mercado, podemos acompañarte desde cero aunque seas un emprendedor individual.',
+    q: '¿Qué formatos galénicas pueden producir?',
+    a: 'Producimos bits y galletas (snacks funcionales), polvos solubles y palatables, cremosos y pastas de alta aceptación, y peletizados con extrusión en frío. Cada formato se adapta a la especie y objetivo del producto.',
   },
   {
-    q: '¿Los ingredientes son 100% naturales?',
-    a: 'Utilizamos materias primas de grado humano — proteínas animales (res, pollo, cerdo) y vegetales (garbanzo, lenteja, soya). Sin colorantes artificiales ni conservantes sintéticos en nuestras formulaciones base.',
+    q: '¿Qué tan naturales son los ingredientes?',
+    a: 'Nuestras formulaciones son 99% naturales. Usamos materias primas de grado humano (proteínas animales y vegetales, extractos botánicos y fitoterapéuticos). Sin colorantes artificiales, sin conservantes sintéticos, sin subproductos de baja calidad.',
   },
 ]
 
@@ -285,14 +263,14 @@ export default async function HomePage() {
               lineHeight: 1.0,
               marginBottom: '1.5rem',
             }}>
-              Tu marca de<br />
-              alimentos para<br />
+              Creamos los productos<br />
+              de tu marca.<br />
               <span style={{
                 background: 'linear-gradient(90deg, #8cd02b, #fbb03b)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-              }}>mascotas</span>, lista.
+              }}>Naturales. Certificados.</span>
             </h1>
 
             <p className="animate-fade-in-up delay-200" style={{
@@ -303,19 +281,19 @@ export default async function HomePage() {
               marginBottom: '2.5rem',
               maxWidth: '480px',
             }}>
-              Fabricamos y desarrollamos alimentos, snacks y suplementos premium con{' '}
-              <strong style={{ color: '#9fd63a', fontWeight: 600 }}>ingredientes de grado humano</strong>.
-              Maquila con o sin Registro ICA. Desde Medellín para el mundo.
+              Co-desarrollo y maquila exclusiva de suplementos y alimentos funcionales para mascotas.{' '}
+              <strong style={{ color: '#9fd63a', fontWeight: 600 }}>Fórmulas personalizadas 99% naturales</strong>,
+              de propiedad del cliente, elaboradas bajo estándares BPM en Medellín, Colombia.
             </p>
 
             {/* CTA buttons */}
             <div className="animate-fade-in-up delay-300" style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
-              <Link href="/productos" className="btn-primary" style={{ fontSize: '0.95rem', padding: '0.85rem 2rem' }}>
-                Ver Productos
+              <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.95rem', padding: '0.85rem 2rem' }}>
+                Cotiza tu proyecto
                 <ArrowRight size={17} />
               </Link>
-              <Link href="/contacto" className="btn-secondary" style={{ fontSize: '0.95rem', padding: '0.85rem 2rem' }}>
-                Hablar con un experto
+              <Link href="/servicios" className="btn-secondary" style={{ fontSize: '0.95rem', padding: '0.85rem 2rem' }}>
+                Ver cómo trabajamos
               </Link>
             </div>
 
@@ -415,38 +393,26 @@ export default async function HomePage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                 {[
                   {
-                    emoji: '🐕', label: 'Caninos', tag: '20+ productos',
-                    desc: 'Snacks, concentrado y suplementos para perros',
+                    emoji: '🐕', label: 'Caninos', tag: 'Línea activa',
+                    desc: 'Snacks, galletas, concentrado y suplementos funcionales',
                     color: '#8cd02b', bg: 'rgba(141,208,43,0.08)',
                     border: 'rgba(141,208,43,0.22)', href: '/productos?cat=canino',
                   },
                   {
-                    emoji: '🐈', label: 'Felinos', tag: '15+ productos',
-                    desc: 'Nutrición balanceada y snacks para gatos',
+                    emoji: '🐈', label: 'Felinos', tag: 'Línea activa',
+                    desc: 'Alimentos balanceados y suplementos especializados',
                     color: '#fbb03b', bg: 'rgba(251,176,59,0.08)',
                     border: 'rgba(251,176,59,0.22)', href: '/productos?cat=felino',
                   },
                   {
-                    emoji: '🐴', label: 'Equinos', tag: '10+ productos',
-                    desc: 'Suplementos y concentrado para caballos',
+                    emoji: '🐴', label: 'Equinos', tag: 'Línea activa',
+                    desc: 'Pelletizados, polvos y suplementos de alto rendimiento',
                     color: '#c0de7c', bg: 'rgba(192,222,124,0.08)',
                     border: 'rgba(192,222,124,0.18)', href: '/productos?cat=equino',
                   },
                   {
-                    emoji: '🐔', label: 'Aves', tag: 'Consultar',
-                    desc: 'Alimento para aves de corral y ponedoras',
-                    color: '#e8a020', bg: 'rgba(232,160,32,0.08)',
-                    border: 'rgba(232,160,32,0.2)', href: '/contacto',
-                  },
-                  {
-                    emoji: '🐷', label: 'Porcinos', tag: 'Consultar',
-                    desc: 'Nutrición para cerdos en etapas productivas',
-                    color: '#e07090', bg: 'rgba(224,112,144,0.08)',
-                    border: 'rgba(224,112,144,0.2)', href: '/contacto',
-                  },
-                  {
-                    emoji: '🐰', label: 'Conejos', tag: 'Consultar',
-                    desc: 'Pellets y suplementos para cunícolas',
+                    emoji: '🐹', label: 'Pequeños Mamíferos', tag: 'Desarrollamos',
+                    desc: 'Hámsters, cavia porcellus, oryctolagus cuniculus',
                     color: '#a07cc5', bg: 'rgba(160,124,197,0.08)',
                     border: 'rgba(160,124,197,0.2)', href: '/contacto',
                   },
@@ -650,7 +616,7 @@ export default async function HomePage() {
               lineHeight: 1.05,
               marginBottom: '1rem',
             }}>
-              Nutrición para{' '}
+              Desarrollamos para{' '}
               <span style={{ color: '#7ec823' }}>cada</span>{' '}
               <span style={{ color: '#f5a623' }}>especie</span>
             </h2>
@@ -662,8 +628,8 @@ export default async function HomePage() {
               margin: '0 auto',
               lineHeight: 1.7,
             }}>
-              Caninos, felinos, equinos, aves, porcinos, conejos y más.
-              Fórmulas con ingredientes de grado humano para cada etapa de vida.
+              Fabricamos para tu marca en todas las especies. Fórmulas personalizadas
+              con materias primas 99% naturales, de propiedad exclusiva del cliente.
             </p>
           </div>
 

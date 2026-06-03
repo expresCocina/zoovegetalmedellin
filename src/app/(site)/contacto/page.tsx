@@ -37,6 +37,7 @@ const contactInfo = [
 export default function ContactoPage() {
   const [form, setForm] = useState({
     name: '', email: '', phone: '', company: '', subject: '', message: '',
+    species: '', format: '', volume: '',
   })
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -50,11 +51,19 @@ export default function ContactoPage() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          message: [
+            form.species ? `Especie: ${form.species}` : '',
+            form.format ? `Formato: ${form.format}` : '',
+            form.volume ? `Volumen estimado: ${form.volume}` : '',
+            form.message,
+          ].filter(Boolean).join('\n'),
+        }),
       })
       if (!res.ok) throw new Error('Error al enviar')
       setSuccess(true)
-      setForm({ name: '', email: '', phone: '', company: '', subject: '', message: '' })
+      setForm({ name: '', email: '', phone: '', company: '', subject: '', message: '', species: '', format: '', volume: '' })
     } catch {
       setError('Hubo un error al enviar el mensaje. Por favor intenta de nuevo o escríbenos por WhatsApp.')
     } finally {
@@ -94,7 +103,7 @@ export default function ContactoPage() {
             textTransform: 'uppercase' as const,
             marginBottom: '1.25rem',
           }}>
-            Contáctanos
+            Cotiza tu Proyecto B2B
           </span>
           <h1 style={{
             fontFamily: "'Red Hat Display', sans-serif",
@@ -105,18 +114,19 @@ export default function ContactoPage() {
             lineHeight: 1.05,
             marginBottom: '1rem',
           }}>
-            Hablemos de tu{' '}
-            <span style={{ color: '#9fd63a' }}>proyecto</span>
+            Cuéntanos tu{' '}
+            <span style={{ color: '#9fd63a' }}>idea de marca</span>
           </h1>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
             fontSize: '1rem',
             color: 'rgba(255,255,255,0.68)',
             lineHeight: 1.7,
-            maxWidth: '480px',
+            maxWidth: '520px',
             margin: '0 auto',
           }}>
-            Atendemos a marcas y distribuidores mayoristas. Cuéntanos tu idea y te respondemos.
+            Atendemos emprendedores, marcas consolidadas y grandes compañías. En 24 horas hábiles
+            te enviamos una propuesta técnica inicial sin costo.
           </p>
         </div>
       </div>
@@ -296,10 +306,19 @@ export default function ContactoPage() {
                     fontSize: '1.4rem',
                     color: 'var(--green-dark)',
                     letterSpacing: '-0.02em',
-                    marginBottom: '1.75rem',
+                    marginBottom: '0.5rem',
                   }}>
-                    Envíanos un mensaje
+                    Cotiza tu proyecto
                   </h3>
+                  <p style={{
+                    fontFamily: "'Lexend Deca', sans-serif",
+                    fontSize: '0.84rem',
+                    color: 'var(--gray-500)',
+                    marginBottom: '1.75rem',
+                    lineHeight: 1.5,
+                  }}>
+                    Completa el formulario y te enviamos una propuesta técnica en 24 horas hábiles.
+                  </p>
 
                   <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
                     {/* Name + Email */}
@@ -413,12 +432,84 @@ export default function ContactoPage() {
                         style={{ cursor: 'pointer' }}
                       >
                         <option value="">Selecciona un asunto</option>
-                        <option value="Desarrollo de producto">Desarrollo de producto</option>
+                        <option value="Co-desarrollo de fórmula">Co-desarrollo de fórmula nueva</option>
                         <option value="Maquila con ICA">Maquila con registro ICA</option>
                         <option value="Maquila sin ICA">Maquila sin registro ICA</option>
-                        <option value="Asesoría">Asesoría especializada</option>
-                        <option value="Cotización productos">Cotización de productos</option>
+                        <option value="Asesoría técnica">Asesoría técnica / nutricional</option>
+                        <option value="Cotización">Cotización de proyecto</option>
                         <option value="Otro">Otro</option>
+                      </select>
+                    </div>
+
+                    {/* Especie + Formato */}
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                      <div>
+                        <label style={{
+                          display: 'block', fontFamily: "'Red Hat Display', sans-serif",
+                          fontWeight: 700, fontSize: '0.8rem', color: 'var(--gray-700)',
+                          marginBottom: '0.45rem', letterSpacing: '0.02em',
+                        }}>
+                          Especie de interés
+                        </label>
+                        <select
+                          value={form.species}
+                          onChange={(e) => setForm({ ...form, species: e.target.value })}
+                          className="input-field"
+                          style={{ cursor: 'pointer' }}
+                        >
+                          <option value="">Seleccionar</option>
+                          <option value="Caninos">🐕 Caninos</option>
+                          <option value="Felinos">🐈 Felinos</option>
+                          <option value="Equinos">🐴 Equinos</option>
+                          <option value="Pequeños Mamíferos">🐹 Pequeños Mamíferos</option>
+                          <option value="Varias especies">Varias especies</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label style={{
+                          display: 'block', fontFamily: "'Red Hat Display', sans-serif",
+                          fontWeight: 700, fontSize: '0.8rem', color: 'var(--gray-700)',
+                          marginBottom: '0.45rem', letterSpacing: '0.02em',
+                        }}>
+                          Formato deseado
+                        </label>
+                        <select
+                          value={form.format}
+                          onChange={(e) => setForm({ ...form, format: e.target.value })}
+                          className="input-field"
+                          style={{ cursor: 'pointer' }}
+                        >
+                          <option value="">Seleccionar</option>
+                          <option value="Bits / Galletas">🦴 Bits / Galletas</option>
+                          <option value="Polvos solubles">🌿 Polvos solubles</option>
+                          <option value="Cremosos / Pastas">🥄 Cremosos / Pastas</option>
+                          <option value="Peletizados">⚙️ Peletizados / Extrusión</option>
+                          <option value="No definido">Aún no definido</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Volumen estimado */}
+                    <div>
+                      <label style={{
+                        display: 'block', fontFamily: "'Red Hat Display', sans-serif",
+                        fontWeight: 700, fontSize: '0.8rem', color: 'var(--gray-700)',
+                        marginBottom: '0.45rem', letterSpacing: '0.02em',
+                      }}>
+                        Volumen estimado del proyecto
+                      </label>
+                      <select
+                        value={form.volume}
+                        onChange={(e) => setForm({ ...form, volume: e.target.value })}
+                        className="input-field"
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <option value="">Seleccionar</option>
+                        <option value="Menos de 100 kg">Menos de 100 kg por lote</option>
+                        <option value="100 - 500 kg">100 – 500 kg por lote</option>
+                        <option value="500 - 1000 kg">500 kg – 1 tonelada por lote</option>
+                        <option value="Más de 1 tonelada">Más de 1 tonelada por lote</option>
+                        <option value="No definido">Aún no definido</option>
                       </select>
                     </div>
 
