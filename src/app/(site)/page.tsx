@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, CheckCircle, Award, Leaf, Beaker, Truck, ChevronRight, Star, ChevronDown } from 'lucide-react'
+import { ArrowRight, CheckCircle, Award, Leaf, Beaker, Truck, ChevronRight, ChevronDown } from 'lucide-react'
 import { prisma } from '@/lib/prisma'
 
 async function getFeaturedProducts() {
@@ -225,43 +225,24 @@ export default async function HomePage() {
         <div style={{
           position: 'relative', zIndex: 10,
           maxWidth: '1280px', width: '100%', margin: '0 auto',
-          padding: 'clamp(5rem, 10vw, 8rem) 2rem clamp(4rem, 8vw, 6rem)',
+          padding: 'clamp(5.5rem, 8vw, 6.5rem) 2rem clamp(2.5rem, 4vw, 3.5rem)',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '3.5rem',
+          gap: '3rem',
           alignItems: 'center',
         }}>
 
           {/* ── LEFT: Text content ── */}
           <div>
-            {/* Badge */}
-            <div className="animate-fade-in-up" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              padding: '0.4rem 1rem',
-              borderRadius: '100px',
-              border: '1px solid rgba(141,208,43,0.4)',
-              background: 'rgba(141,208,43,0.1)',
-              color: '#9fd63a',
-              fontFamily: "'Red Hat Display', sans-serif",
-              fontWeight: 700,
-              fontSize: '0.72rem',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase' as const,
-              marginBottom: '2rem',
-            }}>
-              <Star size={11} fill="currentColor" />
-              Certificado BPM ICA · Medellín, Colombia
-            </div>
-
             {/* Headline */}
-            <h1 className="animate-fade-in-up delay-100" style={{
+            <h1 className="animate-fade-in-up" style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
-              fontSize: 'clamp(2.8rem, 5.5vw, 4.5rem)',
+              fontSize: 'clamp(2.6rem, 4.8vw, 4rem)',
               color: '#ffffff',
               letterSpacing: '-0.03em',
               lineHeight: 1.0,
-              marginBottom: '1.5rem',
+              marginBottom: '1.1rem',
             }}>
               Creamos los productos<br />
               de tu marca.<br />
@@ -273,21 +254,21 @@ export default async function HomePage() {
               }}>Naturales. Certificados.</span>
             </h1>
 
-            <p className="animate-fade-in-up delay-200" style={{
+            <p className="animate-fade-in-up delay-100" style={{
               fontFamily: "'Lexend Deca', sans-serif",
-              fontSize: 'clamp(1rem, 1.6vw, 1.15rem)',
-              color: 'rgba(255,255,255,0.68)',
-              lineHeight: 1.8,
-              marginBottom: '2.5rem',
-              maxWidth: '480px',
+              fontSize: 'clamp(0.92rem, 1.4vw, 1.05rem)',
+              color: 'rgba(255,255,255,0.72)',
+              lineHeight: 1.75,
+              marginBottom: '1.75rem',
+              maxWidth: '460px',
             }}>
-              Co-desarrollo y maquila exclusiva de suplementos y alimentos funcionales para mascotas.{' '}
-              <strong style={{ color: '#9fd63a', fontWeight: 600 }}>Fórmulas personalizadas 99% naturales</strong>,
-              de propiedad del cliente, elaboradas bajo estándares BPM en Medellín, Colombia.
+              Co-desarrollo y maquila exclusiva de alimentos y suplementos para mascotas.{' '}
+              <strong style={{ color: '#9fd63a', fontWeight: 600 }}>Fórmulas 99% naturales</strong>,
+              propiedad del cliente, bajo normas BPM — Medellín, Colombia.
             </p>
 
             {/* CTA buttons */}
-            <div className="animate-fade-in-up delay-300" style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
+            <div className="animate-fade-in-up delay-200" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
               <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.95rem', padding: '0.85rem 2rem' }}>
                 Cotiza tu proyecto
                 <ArrowRight size={17} />
@@ -297,20 +278,20 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            {/* Stats row — mejorado con subtítulos */}
-            <div className="animate-fade-in-up delay-400" style={{
+            {/* Stats row */}
+            <div className="animate-fade-in-up delay-300" style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(4, auto)',
               gap: '0',
               background: 'rgba(255,255,255,0.05)',
-              borderRadius: '16px',
+              borderRadius: '14px',
               overflow: 'hidden',
               border: '1px solid rgba(255,255,255,0.08)',
-              maxWidth: '520px',
+              maxWidth: '500px',
             }}>
               {stats.map((stat, i) => (
                 <div key={stat.label} style={{
-                  padding: '1.1rem 0.65rem',
+                  padding: '0.85rem 0.6rem',
                   textAlign: 'center',
                   borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none',
                 }}>
