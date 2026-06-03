@@ -645,7 +645,7 @@ export default async function HomePage() {
                     fontSize: '0.9rem',
                     color: cat.accentColor === '#063b05' ? cat.accentColor : cat.accentColor,
                   }}>
-                    Ver productos
+                    Solicitar esta línea
                     <ChevronRight size={16} />
                   </div>
                 </div>
@@ -667,7 +667,7 @@ export default async function HomePage() {
               flexWrap: 'wrap', gap: '1rem',
             }}>
               <div>
-                <span className="section-badge">Destacados</span>
+                <span className="section-badge">Portafolio</span>
                 <h2 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: 900,
@@ -675,7 +675,7 @@ export default async function HomePage() {
                   color: 'var(--green-dark)',
                   letterSpacing: '-0.03em',
                 }}>
-                  Productos estrella
+                  Capacidades de desarrollo
                 </h2>
               </div>
               <Link
@@ -770,7 +770,7 @@ export default async function HomePage() {
                           textDecoration: 'none',
                         }}
                       >
-                        Ver detalle <ChevronRight size={14} />
+                        Ver esta línea <ChevronRight size={14} />
                       </Link>
                     </div>
                   </div>
@@ -949,8 +949,8 @@ export default async function HomePage() {
               margin: '0 auto',
               lineHeight: 1.65,
             }}>
-              Descubre cómo elaboramos nuestros productos con ingredientes de grado humano,
-              en instalaciones certificadas BPM ICA en Medellín, Colombia.
+              Conoce la planta donde fabricamos los productos de nuestros clientes.
+              Instalaciones certificadas BPM ICA, procesos documentados y trazables.
             </p>
           </div>
 
@@ -1184,8 +1184,8 @@ export default async function HomePage() {
               margin: '0 auto',
               lineHeight: 1.7,
             }}>
-              Desde 2015, Zoovegetal ha desarrollado más de 53 productos con ingredientes
-              de grado humano. Estos son los pilares que nos diferencian.
+              Cuatro pilares que garantizan el éxito de cada proyecto de maquila.
+              Lo que nos hace el aliado estratégico ideal para tu marca.
             </p>
           </div>
 
@@ -1277,7 +1277,7 @@ export default async function HomePage() {
                   color: 'var(--green-dark)',
                   letterSpacing: '-0.03em',
                 }}>
-                  Nutrición y bienestar animal
+                  Conocimiento para marcas del sector animal
                 </h2>
               </div>
               <Link
@@ -1498,7 +1498,7 @@ export default async function HomePage() {
             lineHeight: 1.1,
             marginBottom: '1.25rem',
           }}>
-            ¿Listo para crear tu marca de alimentos para mascotas?
+            ¿Listo para lanzar tu línea de productos bajo tu propia marca?
           </h2>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
@@ -1507,11 +1507,11 @@ export default async function HomePage() {
             lineHeight: 1.75,
             marginBottom: '2.75rem',
           }}>
-            Atendemos exclusivamente a clientes mayoristas y marcas. Contáctanos hoy y cuéntanos tu proyecto.
+            Emprendedores, marcas consolidadas y grandes compañías. Cuéntanos tu proyecto y en 24 horas te enviamos una propuesta técnica sin costo.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/contacto" className="btn-dark" style={{ fontSize: '0.95rem', padding: '0.9rem 2rem' }}>
-              Hablar con un experto
+              Cotizar mi proyecto
               <ArrowRight size={17} />
             </Link>
             <a

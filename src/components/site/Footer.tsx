@@ -58,8 +58,8 @@ export default function Footer() {
               color: 'rgba(255,255,255,0.55)',
               marginBottom: '1.75rem',
             }}>
-              Empresa colombiana especializada en el desarrollo y fabricación de alimentos,
-              snacks y suplementos para mascotas desde 2017.
+              Co-desarrollo y maquila exclusiva de alimentos y suplementos para mascotas.
+              Fórmulas 99% naturales, propiedad del cliente, bajo normas BPM — desde 2015.
             </p>
 
             {/* Cert badge */}
