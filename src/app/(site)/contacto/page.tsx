@@ -21,7 +21,7 @@ const contactInfo = [
   {
     Icon: Mail,
     title: 'Email',
-    content: 'info@zoovegetal.com',
+    content: 'servicios@zoovegetal.com',
     color: '#f5a623',
     bg: '#fff8ec',
   },
@@ -209,7 +209,7 @@ export default function ContactoPage() {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/573136525779?text=Hola,%20quiero%20más%20información%20sobre%20los%20servicios%20de%20Zoovegetal."
+                href="https://wa.me/573206755306?text=Hola,%20quiero%20más%20información%20sobre%20los%20servicios%20de%20Zoovegetal."
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

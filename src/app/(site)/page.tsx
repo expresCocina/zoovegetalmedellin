@@ -1515,7 +1515,7 @@ export default async function HomePage() {
               <ArrowRight size={17} />
             </Link>
             <a
-              href="https://wa.me/573136525779?text=Hola,%20quiero%20desarrollar%20un%20producto%20con%20Zoovegetal."
+              href="https://wa.me/573206755306?text=Hola,%20quiero%20desarrollar%20un%20producto%20con%20Zoovegetal."
               target="_blank"
               rel="noopener noreferrer"
               style={{

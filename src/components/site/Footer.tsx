@@ -128,7 +128,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://wa.me/573136525779"
+                href="https://wa.me/573206755306"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
@@ -275,14 +275,14 @@ export default function Footer() {
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
                 <Phone size={15} style={{ color: '#9fd63a', flexShrink: 0 }} />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                  <a href="tel:3136525779" style={{
+                  <a href="tel:3206755306" style={{
                     fontFamily: "'Lexend Deca', sans-serif",
                     fontSize: '0.85rem',
                     color: 'rgba(255,255,255,0.6)',
                     textDecoration: 'none',
                     transition: 'color 0.2s ease',
                   }}>
-                    313 652 57 79
+                    320 675 53 06
                   </a>
                   <a href="tel:054 3221688" style={{
                     fontFamily: "'Lexend Deca', sans-serif",
@@ -298,7 +298,7 @@ export default function Footer() {
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
                 <Mail size={15} style={{ color: '#9fd63a', flexShrink: 0 }} />
                 <a
-                  href="mailto:info@zoovegetal.com"
+                  href="mailto:servicios@zoovegetal.com"
                   style={{
                     fontFamily: "'Lexend Deca', sans-serif",
                     fontSize: '0.85rem',
@@ -308,7 +308,7 @@ export default function Footer() {
                     wordBreak: 'break-all' as const,
                   }}
                 >
-                  info@zoovegetal.com
+                  servicios@zoovegetal.com
                 </a>
               </li>
             </ul>

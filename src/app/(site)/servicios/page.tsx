@@ -404,7 +404,7 @@ export default function ServiciosPage() {
             }}>
               Cotizar proyecto <ArrowRight size={17} />
             </Link>
-            <a href="https://wa.me/573136525779?text=Hola,%20quiero%20cotizar%20un%20proyecto%20de%20maquila%20con%20Zoovegetal." target="_blank" rel="noopener noreferrer" style={{
+            <a href="https://wa.me/573206755306?text=Hola,%20quiero%20cotizar%20un%20proyecto%20de%20maquila%20con%20Zoovegetal." target="_blank" rel="noopener noreferrer" style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
               background: '#25d366', color: 'white',
               padding: '0.95rem 2.2rem', borderRadius: '100px',

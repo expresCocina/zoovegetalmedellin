@@ -7,7 +7,7 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      href="https://wa.me/573136525779?text=Hola,%20estoy%20interesado%20en%20los%20productos%20de%20Zoovegetal."
+      href="https://wa.me/573206755306?text=Hola,%20estoy%20interesado%20en%20los%20productos%20de%20Zoovegetal."
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center gap-3 transition-all duration-300"

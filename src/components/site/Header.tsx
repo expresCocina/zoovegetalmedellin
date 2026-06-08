@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Phone, ChevronDown } from 'lucide-react'
+import { Menu, X, Phone } from 'lucide-react'
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -131,7 +131,7 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:flex" style={{ alignItems: 'center', gap: '0.75rem' }}>
             <a
-              href="tel:3136525779"
+              href="tel:3206755306"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -146,7 +146,7 @@ export default function Header() {
               }}
             >
               <Phone size={14} />
-              313 652 57 79
+              320 675 53 06
             </a>
             <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.84rem', padding: '0.55rem 1.3rem' }}>
               Contáctanos
@@ -215,7 +215,7 @@ export default function Header() {
           })}
           <div style={{ borderTop: '1px solid var(--gray-100)', marginTop: '0.75rem', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <a
-              href="tel:3136525779"
+              href="tel:3206755306"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -229,7 +229,7 @@ export default function Header() {
               }}
             >
               <Phone size={15} />
-              313 652 57 79
+              320 675 53 06
             </a>
             <Link href="/contacto" className="btn-primary" style={{ justifyContent: 'center' }}>
               Contáctanos

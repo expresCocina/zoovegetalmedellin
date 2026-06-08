@@ -250,7 +250,7 @@ export default async function ProductoPage({ params }: { params: Promise<{ slug:
               {/* CTA buttons */}
               <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
                 <a
-                  href={`https://wa.me/573136525779?text=Hola,%20quiero%20cotizar%20la%20maquila%20de%20${encodeURIComponent(product.name)}%20para%20mi%20marca.`}
+                  href={`https://wa.me/573206755306?text=Hola,%20quiero%20cotizar%20la%20maquila%20de%20${encodeURIComponent(product.name)}%20para%20mi%20marca.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
