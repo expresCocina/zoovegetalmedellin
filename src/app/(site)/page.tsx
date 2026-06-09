@@ -1031,7 +1031,7 @@ export default async function HomePage() {
 
           {/* Header */}
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <span className="section-badge">📸 Nuestras Instalaciones</span>
+            <span className="section-badge">⚙️ Nuestros Procesos</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
@@ -1041,8 +1041,8 @@ export default async function HomePage() {
               lineHeight: 1.1,
               marginBottom: '0.85rem',
             }}>
-              Planta de producción{' '}
-              <span style={{ color: 'var(--green-bright)' }}>certificada BPM</span>
+              Fabricación con{' '}
+              <span style={{ color: 'var(--green-bright)' }}>estándares de calidad</span>
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif",
@@ -1052,8 +1052,8 @@ export default async function HomePage() {
               margin: '0 auto',
               lineHeight: 1.7,
             }}>
-              Equipos de grado industrial, procesos controlados y estrictos estándares de higiene
-              en cada línea de producción en Medellín.
+              Planta certificada BPM, equipos de grado industrial y procesos controlados
+              para cada proyecto de maquila en Medellín.
             </p>
           </div>
 
@@ -1074,7 +1074,7 @@ export default async function HomePage() {
               minHeight: '420px',
             }}>
               <img
-                src="/locativo1 (1).jpg"
+                src="/DSC_8835.jpg"
                 alt="Planta de producción Zoovegetal - Vista general"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
@@ -1093,18 +1093,18 @@ export default async function HomePage() {
 
             {/* 3 fotos derechas */}
             {[
-              { n: 3, label: 'Equipos de producción' },
-              { n: 5, label: 'Zona de almacenamiento' },
-              { n: 8, label: 'Control de calidad' },
+              { src: '/DSC_8840.jpg', label: 'Equipos de producción' },
+              { src: '/DSC_8851.jpg', label: 'Zona de almacenamiento' },
+              { src: '/DSC_8860.jpg', label: 'Control de calidad' },
             ].map((photo) => (
-              <div key={photo.n} style={{
+              <div key={photo.src} style={{
                 borderRadius: '18px',
                 overflow: 'hidden',
                 position: 'relative',
                 boxShadow: '0 4px 16px rgba(0,0,0,0.09)',
               }}>
                 <img
-                  src={`/locativo1 (${photo.n}).jpg`}
+                  src={photo.src}
                   alt={photo.label}
                   style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }}
                 />
