@@ -1057,70 +1057,36 @@ export default async function HomePage() {
             </p>
           </div>
 
-          {/* ── 4 fotos limpias: 1 grande + 3 en columna ── */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1.4fr 1fr',
-            gridTemplateRows: 'auto auto',
-            gap: '1rem',
-          }}>
-            {/* Imagen grande izquierda */}
-            <div style={{
-              gridRow: '1 / 3',
-              borderRadius: '24px',
-              overflow: 'hidden',
-              position: 'relative',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
-              minHeight: '420px',
-            }}>
-              <img
-                src="/DSC_8835.jpg"
-                alt="Planta de producción Zoovegetal - Vista general"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
-              <div style={{
-                position: 'absolute', bottom: 0, left: 0, right: 0,
-                background: 'linear-gradient(to top, rgba(6,59,5,0.75) 0%, transparent 100%)',
-                padding: '1.5rem 1.5rem 1.25rem',
-              }}>
-                <span style={{
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  fontWeight: 700, fontSize: '0.85rem',
-                  color: '#ffffff',
-                }}>Zona de producción principal</span>
+          {/* ── 1 grande + 3 lado — responsive ── */}
+          <div className="process-gallery">
+
+            {/* Imagen principal izquierda */}
+            <div className="process-gallery-main">
+              <img src="/DSC_8835.jpg" alt="Planta de producción Zoovegetal — vista general" />
+              <div className="gallery-overlay">
+                <span style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 700, fontSize: '0.9rem', color: '#fff' }}>
+                  Zona de producción principal
+                </span>
               </div>
             </div>
 
-            {/* 3 fotos derechas */}
-            {[
-              { src: '/DSC_8840.jpg', label: 'Equipos de producción' },
-              { src: '/DSC_8851.jpg', label: 'Zona de almacenamiento' },
-              { src: '/DSC_8860.jpg', label: 'Control de calidad' },
-            ].map((photo) => (
-              <div key={photo.src} style={{
-                borderRadius: '18px',
-                overflow: 'hidden',
-                position: 'relative',
-                boxShadow: '0 4px 16px rgba(0,0,0,0.09)',
-              }}>
-                <img
-                  src={photo.src}
-                  alt={photo.label}
-                  style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', display: 'block' }}
-                />
-                <div style={{
-                  position: 'absolute', bottom: 0, left: 0, right: 0,
-                  background: 'linear-gradient(to top, rgba(6,59,5,0.65) 0%, transparent 100%)',
-                  padding: '0.75rem 1rem 0.6rem',
-                }}>
-                  <span style={{
-                    fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: 600, fontSize: '0.72rem',
-                    color: 'rgba(255,255,255,0.9)',
-                  }}>{photo.label}</span>
+            {/* 3 imágenes lado derecho */}
+            <div className="process-gallery-side">
+              {[
+                { src: '/DSC_8840.jpg', label: 'Equipos de producción' },
+                { src: '/DSC_8851.jpg', label: 'Zona de almacenamiento' },
+                { src: '/DSC_8860.jpg', label: 'Control de calidad' },
+              ].map((photo) => (
+                <div key={photo.src} className="process-gallery-item">
+                  <img src={photo.src} alt={photo.label} />
+                  <div className="gallery-overlay-sm">
+                    <span style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 600, fontSize: '0.72rem', color: 'rgba(255,255,255,0.92)' }}>
+                      {photo.label}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Bottom CTA strip */}
