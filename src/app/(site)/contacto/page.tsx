@@ -14,7 +14,7 @@ const contactInfo = [
   {
     Icon: Phone,
     title: 'Teléfonos',
-    content: '313 652 57 79\n(054) 322 16 88',
+    content: '320 675 53 06\n(054) 322 16 88',
     color: '#7ec823',
     bg: '#f0f9e0',
   },
