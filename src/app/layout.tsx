@@ -2,33 +2,34 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://zoovegetal.com'),
   title: {
-    default: 'Zoovegetal — Nutrición Animal Premium',
+    default: 'Zoovegetal — Maquila de Alimentos para Mascotas',
     template: '%s | Zoovegetal',
   },
   description:
-    'Empresa colombiana especializada en el desarrollo y fabricación de alimentos, snacks y suplementos nutricionales para mascotas. Calidad premium desde Medellín, Colombia.',
+    'Co-desarrollo y maquila exclusiva de alimentos y suplementos para mascotas bajo tu marca. Fórmulas 99% naturales, planta certificada BPM ICA, desde Medellín, Colombia.',
   keywords: [
-    'nutrición animal',
-    'alimentos para mascotas',
-    'snacks perros',
-    'suplementos animales',
     'maquila alimentos mascotas',
-    'Colombia',
-    'Medellín',
+    'co-desarrollo alimentos animales',
+    'fabricación bajo marca propia',
+    'maquila pet food Colombia',
+    'alimentos naturales mascotas',
+    'suplementos animales maquila',
+    'Medellín Colombia',
   ],
   openGraph: {
     type: 'website',
     locale: 'es_CO',
     url: 'https://zoovegetal.com',
     siteName: 'Zoovegetal',
-    title: 'Zoovegetal — Nutrición Animal Premium',
-    description: 'Desarrollamos y fabricamos alimentos, snacks y suplementos para mascotas con ingredientes de grado humano.',
+    title: 'Zoovegetal — Maquila de Alimentos para Mascotas',
+    description: 'Co-desarrollo y maquila exclusiva bajo tu marca. Fórmulas 99% naturales, planta BPM ICA, Medellín, Colombia.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zoovegetal — Nutrición Animal Premium',
-    description: 'Desarrollamos y fabricamos alimentos, snacks y suplementos para mascotas.',
+    title: 'Zoovegetal — Maquila de Alimentos para Mascotas',
+    description: 'Co-desarrollo y maquila exclusiva de alimentos para mascotas bajo tu marca.',
   },
   robots: { index: true, follow: true },
 }
