@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Award, Leaf, Beaker, Truck, ChevronRight, ChevronDown } from 'lucide-react'
 import { prisma } from '@/lib/prisma'
+import HeroHeadline from '@/components/site/HeroHeadline'
 
 async function getFeaturedProducts() {
   try {
@@ -234,25 +235,8 @@ export default async function HomePage() {
 
           {/* ── LEFT: Text content ── */}
           <div>
-            {/* Headline */}
-            <h1 className="animate-fade-in-up" style={{
-              fontFamily: "'Red Hat Display', sans-serif",
-              fontWeight: 900,
-              fontSize: 'clamp(2.6rem, 4.8vw, 4rem)',
-              color: '#ffffff',
-              letterSpacing: '-0.03em',
-              lineHeight: 1.0,
-              marginBottom: '1.1rem',
-            }}>
-              Creamos los productos<br />
-              de tu marca.<br />
-              <span style={{
-                background: 'linear-gradient(90deg, #8cd02b, #fbb03b)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>Naturales. Certificados.</span>
-            </h1>
+            {/* Headline animado */}
+            <HeroHeadline />
 
             <p className="animate-fade-in-up delay-100" style={{
               fontFamily: "'Lexend Deca', sans-serif",
@@ -298,48 +282,26 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Stats row */}
-            <div className="animate-fade-in-up delay-300" style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, auto)',
-              gap: '0',
-              background: 'rgba(255,255,255,0.05)',
-              borderRadius: '14px',
-              overflow: 'hidden',
-              border: '1px solid rgba(255,255,255,0.08)',
-              maxWidth: '500px',
-            }}>
-              {stats.map((stat, i) => (
-                <div key={stat.label} style={{
-                  padding: '0.85rem 0.6rem',
-                  textAlign: 'center',
-                  borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none',
-                }}>
+            {/* Stats row — responsive */}
+            <div className="animate-fade-in-up delay-300 hero-stats">
+              {stats.map((stat) => (
+                <div key={stat.label} className="hero-stats-cell">
                   <div style={{
                     fontFamily: "'Red Hat Display', sans-serif",
-                    fontWeight: 900,
-                    fontSize: '1.5rem',
-                    color: '#9fd63a',
-                    letterSpacing: '-0.03em',
-                    lineHeight: 1,
+                    fontWeight: 900, fontSize: '1.5rem',
+                    color: '#9fd63a', letterSpacing: '-0.03em', lineHeight: 1,
                   }}>
                     {stat.value}
                   </div>
                   <div style={{
-                    fontFamily: "'Lexend Deca', sans-serif",
-                    fontSize: '0.58rem',
-                    color: 'rgba(255,255,255,0.45)',
-                    marginTop: '0.3rem',
-                    lineHeight: 1.3,
+                    fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.58rem',
+                    color: 'rgba(255,255,255,0.45)', marginTop: '0.3rem', lineHeight: 1.3,
                   }}>
                     {stat.label}
                   </div>
                   <div style={{
-                    fontFamily: "'Lexend Deca', sans-serif",
-                    fontSize: '0.52rem',
-                    color: 'rgba(255,255,255,0.28)',
-                    marginTop: '0.15rem',
-                    lineHeight: 1.2,
+                    fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.52rem',
+                    color: 'rgba(255,255,255,0.28)', marginTop: '0.15rem', lineHeight: 1.2,
                   }}>
                     {stat.sub}
                   </div>

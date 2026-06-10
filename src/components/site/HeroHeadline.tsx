@@ -1,0 +1,50 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+
+export default function HeroHeadline() {
+  const [started, setStarted] = useState(false)
+
+  useEffect(() => {
+    const t = requestAnimationFrame(() => setStarted(true))
+    return () => cancelAnimationFrame(t)
+  }, [])
+
+  return (
+    <h1 style={{
+      fontFamily: "'Red Hat Display', sans-serif",
+      fontWeight: 900,
+      fontSize: 'clamp(2.6rem, 4.8vw, 4rem)',
+      color: '#ffffff',
+      letterSpacing: '-0.03em',
+      lineHeight: 1.05,
+      marginBottom: '1.1rem',
+      overflow: 'hidden',
+    }}>
+      {/* Línea 1 */}
+      <span className="hero-line-wrap">
+        <span className={`hero-line ${started ? 'hero-line--in' : ''}`} style={{ transitionDelay: '0ms' }}>
+          Creamos los productos
+        </span>
+      </span>
+      <br />
+      {/* Línea 2 */}
+      <span className="hero-line-wrap">
+        <span className={`hero-line ${started ? 'hero-line--in' : ''}`} style={{ transitionDelay: '120ms' }}>
+          de tu marca.
+        </span>
+      </span>
+      <br />
+      {/* Línea 3 — degradado animado */}
+      <span className="hero-line-wrap">
+        <span
+          className={`hero-line hero-gradient-text ${started ? 'hero-line--in' : ''}`}
+          style={{ transitionDelay: '260ms' }}
+        >
+          Naturales.{' '}
+          <span className={started ? 'hero-sweep' : ''}>Certificados.</span>
+        </span>
+      </span>
+    </h1>
+  )
+}
