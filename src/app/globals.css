@@ -509,14 +509,23 @@ details summary span:last-child {
 }
 
 /* ─── Hero Headline Animations ───────────────────────────────── */
+.hero-headline {
+  text-wrap: balance;
+}
+
 .hero-line-wrap {
   display: block;
   overflow: hidden;
-  line-height: 1.1;
+  line-height: 1.04;
+  padding-bottom: 0.04em;
+}
+.hero-line-wrap + .hero-line-wrap {
+  margin-top: 0.12em;
 }
 
 .hero-line {
   display: block;
+  text-wrap: balance;
   transform: translateY(110%);
   opacity: 0;
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
@@ -583,5 +592,63 @@ details summary span:last-child {
 /* ─── Hero grid responsive ───────────────────────────────────── */
 @media (max-width: 700px) {
   .hero-right-card { display: none; }
+}
+
+/* ─── Modelo de trabajo — process flow ───────────────────────── */
+.process-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.pf-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 0.55rem 0.65rem;
+  min-width: 54px;
+}
+.pf-icon { font-size: 1.2rem; line-height: 1; }
+.pf-label {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 0.58rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1;
+  text-align: center;
+}
+.pf-arrow {
+  color: rgba(141,208,43,0.5);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+@media (max-width: 560px) {
+  .process-flow {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .pf-step {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.7rem;
+    padding: 0.7rem 1rem;
+  }
+  .pf-icon { font-size: 1.35rem; }
+  .pf-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.78);
+    text-align: left;
+  }
+  .pf-arrow {
+    transform: rotate(90deg);
+    font-size: 0.95rem;
+  }
 }
 

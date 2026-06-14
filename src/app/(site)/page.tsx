@@ -353,7 +353,7 @@ export default async function HomePage() {
               </div>
 
               {/* Process flow */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+              <div className="process-flow">
                 {[
                   { icon: '💡', label: 'Tu idea' },
                   { icon: '→', label: '' },
@@ -363,15 +363,11 @@ export default async function HomePage() {
                   { icon: '→', label: '' },
                   { icon: '🏷️', label: 'Tu marca' },
                 ].map((s, i) => s.icon === '→' ? (
-                  <span key={i} style={{ color: 'rgba(141,208,43,0.5)', fontSize: '1rem', fontWeight: 300 }}>→</span>
+                  <span key={i} className="pf-arrow">→</span>
                 ) : (
-                  <div key={i} style={{
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem',
-                    background: 'rgba(255,255,255,0.06)', borderRadius: '12px',
-                    padding: '0.55rem 0.65rem', minWidth: '54px',
-                  }}>
-                    <span style={{ fontSize: '1.2rem' }}>{s.icon}</span>
-                    <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.58rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1, textAlign: 'center' }}>{s.label}</span>
+                  <div key={i} className="pf-step">
+                    <span className="pf-icon">{s.icon}</span>
+                    <span className="pf-label">{s.label}</span>
                   </div>
                 ))}
               </div>
