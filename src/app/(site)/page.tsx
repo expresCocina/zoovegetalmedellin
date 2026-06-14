@@ -212,19 +212,9 @@ export default async function HomePage() {
         {heroBg && (
           <>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={heroBg}
-              alt=""
-              style={{
-                position: 'absolute', inset: 0, width: '100%', height: '100%',
-                objectFit: 'cover', objectPosition: 'center', zIndex: 0,
-              }}
-            />
-            {/* Overlay verde para legibilidad del texto */}
-            <div style={{
-              position: 'absolute', inset: 0, zIndex: 1,
-              background: 'linear-gradient(105deg, rgba(2,31,1,0.92) 0%, rgba(4,45,3,0.82) 42%, rgba(10,74,8,0.55) 75%, rgba(13,92,11,0.42) 100%)',
-            }} />
+            <img src={heroBg} alt="" className="hero-bg-img" />
+            {/* Overlay verde para legibilidad del texto (responsive) */}
+            <div className="hero-bg-overlay" />
           </>
         )}
 
