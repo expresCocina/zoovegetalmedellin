@@ -104,20 +104,31 @@ export default async function ProductoPage({ params }: { params: Promise<{ slug:
               position: 'relative',
               overflow: 'hidden',
             }}>
-              {/* Decorative circles */}
-              <div style={{
-                position: 'absolute', top: '-30px', right: '-30px',
-                width: '160px', height: '160px', borderRadius: '50%',
-                background: catInfo.accent, opacity: 0.08,
-              }} />
-              <div style={{
-                position: 'absolute', bottom: '-20px', left: '-20px',
-                width: '100px', height: '100px', borderRadius: '50%',
-                background: catInfo.accent, opacity: 0.06,
-              }} />
-              <div style={{ fontSize: '8rem', lineHeight: 1, position: 'relative', zIndex: 1 }}>
-                {catInfo.emoji}
-              </div>
+              {product.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              ) : (
+                <>
+                  {/* Decorative circles */}
+                  <div style={{
+                    position: 'absolute', top: '-30px', right: '-30px',
+                    width: '160px', height: '160px', borderRadius: '50%',
+                    background: catInfo.accent, opacity: 0.08,
+                  }} />
+                  <div style={{
+                    position: 'absolute', bottom: '-20px', left: '-20px',
+                    width: '100px', height: '100px', borderRadius: '50%',
+                    background: catInfo.accent, opacity: 0.06,
+                  }} />
+                  <div style={{ fontSize: '8rem', lineHeight: 1, position: 'relative', zIndex: 1 }}>
+                    {catInfo.emoji}
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Product details */}

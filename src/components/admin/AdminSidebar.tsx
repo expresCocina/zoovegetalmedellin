@@ -6,7 +6,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import {
   LayoutDashboard, Package, FileText, MessageSquare,
   LogOut, Menu, X, ExternalLink, ChevronRight,
-  Leaf,
+  Palette,
 } from 'lucide-react'
 
 const navItems = [
@@ -45,6 +45,15 @@ const navItems = [
     color: '#8b5cf6',
     activeBg: 'rgba(139,92,246,0.08)',
     activeBorder: '#8b5cf6',
+  },
+  {
+    href: '/admin/apariencia',
+    label: 'Apariencia',
+    icon: Palette,
+    description: 'Imágenes del sitio',
+    color: '#ec4899',
+    activeBg: 'rgba(236,72,153,0.08)',
+    activeBorder: '#ec4899',
   },
 ]
 

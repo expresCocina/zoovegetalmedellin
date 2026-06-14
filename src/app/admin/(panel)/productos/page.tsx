@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Plus, Edit2, Trash2, Search, Star, X, Save, Package } from 'lucide-react'
 import { SUBCATEGORIES, CATEGORIES } from '@/lib/utils'
+import ImageUpload from '@/components/admin/ImageUpload'
 
 interface Product {
   id: string
@@ -12,6 +13,7 @@ interface Product {
   longDesc: string | null
   category: string
   subcategory: string
+  image: string | null
   featured: boolean
   active: boolean
   order: number
@@ -19,7 +21,7 @@ interface Product {
 
 const EMPTY: Omit<Product, 'id' | 'slug'> = {
   name: '', description: '', longDesc: '', category: 'canino',
-  subcategory: 'Snacks y Galletas', featured: false, active: true, order: 0,
+  subcategory: 'Snacks y Galletas', image: null, featured: false, active: true, order: 0,
 }
 
 const catBg: Record<string, string> = {
@@ -68,7 +70,7 @@ export default function AdminProductosPage() {
   const openEdit = (p: Product) => {
     setForm({
       name: p.name, description: p.description, longDesc: p.longDesc ?? '',
-      category: p.category, subcategory: p.subcategory,
+      category: p.category, subcategory: p.subcategory, image: p.image ?? null,
       featured: p.featured, active: p.active, order: p.order,
     })
     setModal({ open: true, editing: p })
@@ -249,24 +251,43 @@ export default function AdminProductosPage() {
                       }}
                     >
                       <td style={{ padding: '1rem 1.25rem' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                          <span style={{
-                            fontFamily: "'Red Hat Display', sans-serif",
-                            fontWeight: 700, fontSize: '0.875rem',
-                            color: 'var(--gray-900)',
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                          <div style={{
+                            width: '44px', height: '44px', borderRadius: '10px', flexShrink: 0,
+                            overflow: 'hidden', background: catBg[product.category] ?? '#f1f5f9',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            border: '1px solid var(--gray-100)',
                           }}>
-                            {product.name}
-                          </span>
-                          {product.featured && (
-                            <Star size={12} fill="#f5a623" style={{ color: '#f5a623', flexShrink: 0 }} />
-                          )}
-                        </div>
-                        <div style={{
-                          fontFamily: "'Lexend Deca', sans-serif",
-                          fontSize: '0.75rem', color: 'var(--gray-400)',
-                          marginTop: '0.15rem',
-                        }}>
-                          /{product.slug}
+                            {product.image ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img src={product.image} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            ) : (
+                              <span style={{ fontSize: '1.1rem', opacity: 0.5 }}>
+                                {CATEGORIES[product.category as keyof typeof CATEGORIES]?.emoji ?? '📦'}
+                              </span>
+                            )}
+                          </div>
+                          <div style={{ minWidth: 0 }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                              <span style={{
+                                fontFamily: "'Red Hat Display', sans-serif",
+                                fontWeight: 700, fontSize: '0.875rem',
+                                color: 'var(--gray-900)',
+                              }}>
+                                {product.name}
+                              </span>
+                              {product.featured && (
+                                <Star size={12} fill="#f5a623" style={{ color: '#f5a623', flexShrink: 0 }} />
+                              )}
+                            </div>
+                            <div style={{
+                              fontFamily: "'Lexend Deca', sans-serif",
+                              fontSize: '0.75rem', color: 'var(--gray-400)',
+                              marginTop: '0.15rem',
+                            }}>
+                              /{product.slug}
+                            </div>
+                          </div>
                         </div>
                       </td>
                       <td style={{ padding: '1rem 1.25rem' }}>
@@ -395,7 +416,14 @@ export default function AdminProductosPage() {
             </div>
 
             {/* Modal body */}
-            <form onSubmit={handleSave} style={{ padding: '1.5rem 2rem', overflow: 'y-auto', flex: 1, display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
+            <form onSubmit={handleSave} style={{ padding: '1.5rem 2rem', overflowY: 'auto', flex: 1, display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
+              <ImageUpload
+                label="Imagen del producto"
+                value={form.image}
+                onChange={(url) => setForm({ ...form, image: url })}
+                aspect="4 / 3"
+              />
+
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
                   <label style={labelStyle}>Nombre *</label>

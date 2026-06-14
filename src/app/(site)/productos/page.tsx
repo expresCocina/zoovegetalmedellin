@@ -220,12 +220,19 @@ export default async function ProductosPage({
                       position: 'relative',
                       overflow: 'hidden',
                     }}>
-                      <div style={{
-                        position: 'absolute', bottom: '-12px', right: '-12px',
-                        width: '70px', height: '70px', borderRadius: '50%',
-                        background: meta.accent, opacity: 0.1,
-                      }} />
-                      {emoji}
+                      {product.image ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={product.image} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <>
+                          <div style={{
+                            position: 'absolute', bottom: '-12px', right: '-12px',
+                            width: '70px', height: '70px', borderRadius: '50%',
+                            background: meta.accent, opacity: 0.1,
+                          }} />
+                          {emoji}
+                        </>
+                      )}
                     </div>
 
                     {/* Content */}

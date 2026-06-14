@@ -1,7 +1,12 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Award, Leaf, Beaker, Truck, ChevronRight, ChevronDown } from 'lucide-react'
 import { prisma } from '@/lib/prisma'
+import { getSetting } from '@/lib/settings'
 import HeroHeadline from '@/components/site/HeroHeadline'
+
+// Render dinámico: refleja al instante los cambios hechos desde el admin
+// (imagen del hero, productos destacados) sin necesidad de redesplegar.
+export const dynamic = 'force-dynamic'
 
 async function getFeaturedProducts() {
   try {
@@ -174,9 +179,10 @@ const faqs = [
 ]
 
 export default async function HomePage() {
-  const [featuredProducts, latestPosts] = await Promise.all([
+  const [featuredProducts, latestPosts, heroBg] = await Promise.all([
     getFeaturedProducts(),
     getLatestPosts(),
+    getSetting('hero_background'),
   ])
 
   return (
@@ -202,24 +208,38 @@ export default async function HomePage() {
           pointerEvents: 'none',
         }} />
 
+        {/* Imagen de fondo (configurable desde el admin) */}
+        {heroBg && (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={heroBg}
+              alt=""
+              style={{
+                position: 'absolute', inset: 0, width: '100%', height: '100%',
+                objectFit: 'cover', objectPosition: 'center', zIndex: 0,
+              }}
+            />
+            {/* Overlay verde para legibilidad del texto */}
+            <div style={{
+              position: 'absolute', inset: 0, zIndex: 1,
+              background: 'linear-gradient(105deg, rgba(2,31,1,0.92) 0%, rgba(4,45,3,0.82) 42%, rgba(10,74,8,0.55) 75%, rgba(13,92,11,0.42) 100%)',
+            }} />
+          </>
+        )}
+
         {/* Orbs */}
         <div style={{
-          position: 'absolute', top: '-5%', right: '-3%',
+          position: 'absolute', top: '-5%', right: '-3%', zIndex: 2,
           width: '600px', height: '600px', borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(141,208,43,0.14) 0%, transparent 65%)',
           filter: 'blur(50px)',
         }} />
         <div style={{
-          position: 'absolute', bottom: '-10%', left: '-5%',
+          position: 'absolute', bottom: '-10%', left: '-5%', zIndex: 2,
           width: '450px', height: '450px', borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(251,176,59,0.10) 0%, transparent 65%)',
           filter: 'blur(50px)',
-        }} />
-
-        {/* Paw prints pattern */}
-        <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cellipse cx='20' cy='20' rx='8' ry='10' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='12' cy='10' r='4' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='28' cy='10' r='4' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='9' cy='17' r='3.5' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='31' cy='17' r='3.5' fill='%23ffffff' opacity='0.04'/%3E%3Cellipse cx='70' cy='60' rx='8' ry='10' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='62' cy='50' r='4' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='78' cy='50' r='4' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='59' cy='57' r='3.5' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='81' cy='57' r='3.5' fill='%23ffffff' opacity='0.04'/%3E%3C/svg%3E")`,
         }} />
 
         {/* ── 2-column grid ── */}
@@ -671,12 +691,19 @@ export default async function HomePage() {
                       position: 'relative',
                       overflow: 'hidden',
                     }}>
-                      <div style={{
-                        position: 'absolute', bottom: '-15px', right: '-15px',
-                        width: '80px', height: '80px', borderRadius: '50%',
-                        background: catColor, opacity: 0.1,
-                      }} />
-                      {catEmoji}
+                      {product.image ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={product.image} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <>
+                          <div style={{
+                            position: 'absolute', bottom: '-15px', right: '-15px',
+                            width: '80px', height: '80px', borderRadius: '50%',
+                            background: catColor, opacity: 0.1,
+                          }} />
+                          {catEmoji}
+                        </>
+                      )}
                     </div>
 
                     <div style={{ padding: '1.25rem 1.5rem 1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
