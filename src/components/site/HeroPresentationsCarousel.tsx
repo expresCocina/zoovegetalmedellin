@@ -34,6 +34,10 @@ export default function HeroPresentationsCarousel({ images }: { images: string[]
         <div className="hpc-track" style={{ transform: `translateX(-${index * 100}%)` }}>
           {images.map((src, i) => (
             <div key={i} className="hpc-slide">
+              {/* Fondo difuminado (efecto espejo) — misma foto */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={src} alt="" aria-hidden className="hpc-bg" />
+              {/* Foto completa al frente */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={src} alt={`Presentación ${i + 1}`} className="hpc-img" />
             </div>
@@ -79,11 +83,19 @@ export default function HeroPresentationsCarousel({ images }: { images: string[]
           position: relative; flex: 0 0 100%;
           aspect-ratio: 4 / 3;
           overflow: hidden;
-          background: rgba(0,0,0,0.2);
+          background: #0a1f06;
         }
-        .hpc-img {
+        /* Fondo difuminado de la misma imagen (efecto espejo/vidrio) */
+        .hpc-bg {
           position: absolute; inset: 0;
           width: 100%; height: 100%; object-fit: cover; display: block;
+          filter: blur(22px) brightness(0.55) saturate(1.1);
+          transform: scale(1.2);
+        }
+        /* Foto completa, sin recortes, centrada al frente */
+        .hpc-img {
+          position: absolute; inset: 0; z-index: 1;
+          width: 100%; height: 100%; object-fit: contain; display: block;
         }
         .hpc-dots {
           display: flex; align-items: center; justify-content: center; gap: 0.4rem;
