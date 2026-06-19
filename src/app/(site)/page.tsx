@@ -3,7 +3,6 @@ import { ArrowRight, CheckCircle, Award, Leaf, Beaker, Truck, ChevronRight, Chev
 import { prisma } from '@/lib/prisma'
 import { getSetting } from '@/lib/settings'
 import HeroHeadline from '@/components/site/HeroHeadline'
-import HeroProductsCarousel from '@/components/site/HeroProductsCarousel'
 
 // Render dinámico: refleja al instante los cambios hechos desde el admin
 // (imagen del hero, productos destacados) sin necesidad de redesplegar.
@@ -15,19 +14,6 @@ async function getFeaturedProducts() {
       where: { active: true, featured: true },
       orderBy: { order: 'asc' },
       take: 6,
-    })
-  } catch {
-    return []
-  }
-}
-
-async function getCarouselProducts() {
-  try {
-    return await prisma.product.findMany({
-      where: { active: true },
-      orderBy: [{ featured: 'desc' }, { order: 'asc' }, { createdAt: 'desc' }],
-      take: 8,
-      select: { id: true, name: true, image: true, subcategory: true, category: true, slug: true },
     })
   } catch {
     return []
@@ -193,9 +179,8 @@ const faqs = [
 ]
 
 export default async function HomePage() {
-  const [featuredProducts, carouselProducts, latestPosts, heroBg] = await Promise.all([
+  const [featuredProducts, latestPosts, heroBg] = await Promise.all([
     getFeaturedProducts(),
-    getCarouselProducts(),
     getLatestPosts(),
     getSetting('hero_background'),
   ])
@@ -333,19 +318,6 @@ export default async function HomePage() {
                 </div>
               ))}
             </div>
-
-            {/* Pipeline de proceso — barra debajo de las estadísticas */}
-            <div className="animate-fade-in-up delay-300 hero-pipeline">
-              {['Tu idea', 'Fórmula', 'Fabricación', 'Empaque', 'Entrega'].map((step, i, arr) => (
-                <div key={step} className="hp-step-group">
-                  <span className="hp-step">
-                    <span className="hp-dot" />
-                    {step}
-                  </span>
-                  {i < arr.length - 1 && <span className="hp-sep">→</span>}
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* ── RIGHT: B2B Value Card ── */}
@@ -366,8 +338,87 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Carrusel de presentaciones de productos */}
-            <HeroProductsCarousel products={carouselProducts} />
+            {/* Main card */}
+            <div style={{
+              background: 'rgba(255,255,255,0.05)',
+              border: '1px solid rgba(141,208,43,0.22)',
+              borderRadius: '28px', padding: '2rem',
+              backdropFilter: 'blur(16px)',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)',
+            }}>
+              {/* Header */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <p style={{
+                  fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+                  fontSize: '0.72rem', color: '#9fd63a', letterSpacing: '0.1em',
+                  textTransform: 'uppercase' as const, marginBottom: '0.4rem',
+                }}>Modelo de trabajo</p>
+                <h3 style={{
+                  fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
+                  fontSize: '1.3rem', color: '#ffffff', lineHeight: 1.15, margin: 0,
+                  letterSpacing: '-0.02em',
+                }}>
+                  Tú pones la marca.<br />Nosotros ponemos todo lo demás.
+                </h3>
+              </div>
+
+              {/* Process flow */}
+              <div className="process-flow">
+                {[
+                  { icon: '💡', label: 'Tu idea' },
+                  { icon: '→', label: '' },
+                  { icon: '🔬', label: 'Fórmula' },
+                  { icon: '→', label: '' },
+                  { icon: '🏭', label: 'Planta BPM' },
+                  { icon: '→', label: '' },
+                  { icon: '🏷️', label: 'Tu marca' },
+                ].map((s, i) => s.icon === '→' ? (
+                  <span key={i} className="pf-arrow">→</span>
+                ) : (
+                  <div key={i} className="pf-step">
+                    <span className="pf-icon">{s.icon}</span>
+                    <span className="pf-label">{s.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* 4 deliverables */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem', marginBottom: '1.5rem' }}>
+                {[
+                  { icon: '🔒', text: 'Fórmula 100% de tu propiedad', color: '#9fd63a' },
+                  { icon: '🌿', text: 'Ingredientes 99% naturales · grado humano', color: '#9fd63a' },
+                  { icon: '🏆', text: 'Fabricación bajo normas BPM ICA', color: '#9fd63a' },
+                  { icon: '📦', text: 'Producto terminado listo para vender', color: '#9fd63a' },
+                ].map((item) => (
+                  <div key={item.text} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{
+                      width: '32px', height: '32px', borderRadius: '10px', flexShrink: 0,
+                      background: 'rgba(141,208,43,0.1)', border: '1px solid rgba(141,208,43,0.2)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.95rem',
+                    }}>{item.icon}</div>
+                    <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.83rem', color: 'rgba(255,255,255,0.82)', lineHeight: 1.4 }}>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Trust footer */}
+              <div style={{
+                paddingTop: '1.1rem', borderTop: '1px solid rgba(255,255,255,0.07)',
+                display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ade80', flexShrink: 0 }} />
+                  <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.75rem', color: 'rgba(255,255,255,0.55)' }}>
+                    Respondemos en menos de 24 horas
+                  </span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.75rem', color: 'rgba(255,255,255,0.55)' }}>
+                    🔒 Propuesta sin costo
+                  </span>
+                </div>
+              </div>
+            </div>
 
             {/* Floating badge bottom left */}
             <div style={{
