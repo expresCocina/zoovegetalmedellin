@@ -487,8 +487,8 @@ export default function ServiciosPage() {
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
               fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#ffffff', letterSpacing: '-0.01em',
             }}>
-              Maquila mínima por desarrollo:{' '}
-              <span style={{ color: '#9fd63a' }}>80 kg</span>
+              Mínimo por orden de compra:{' '}
+              <span style={{ color: '#9fd63a' }}>100 kg</span>
             </span>
           </div>
         </div>

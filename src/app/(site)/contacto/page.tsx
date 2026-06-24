@@ -508,8 +508,8 @@ export default function ContactoPage() {
                         style={{ cursor: 'pointer' }}
                       >
                         <option value="">Seleccionar</option>
-                        <option value="80 - 200 kg">80 – 200 kg por lote</option>
-                        <option value="200 - 500 kg">200 – 500 kg por lote</option>
+                        <option value="100 - 300 kg">100 – 300 kg por lote</option>
+                        <option value="300 - 500 kg">300 – 500 kg por lote</option>
                         <option value="500 - 1000 kg">500 kg – 1 tonelada por lote</option>
                         <option value="Más de 1 tonelada">Más de 1 tonelada por lote</option>
                         <option value="No definido">Aún no definido</option>
@@ -520,7 +520,7 @@ export default function ContactoPage() {
                         alignItems: 'center', gap: '0.35rem',
                       }}>
                         <span style={{ color: '#7ec823', fontWeight: 700 }}>●</span>
-                        Maquila mínima: <strong style={{ color: 'var(--green-dark)' }}>80 kg por desarrollo</strong>
+                        Pedido mínimo: <strong style={{ color: 'var(--green-dark)' }}>100 kg por orden de compra</strong>
                       </p>
                     </div>
 

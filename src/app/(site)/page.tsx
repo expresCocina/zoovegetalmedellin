@@ -609,7 +609,7 @@ export default async function HomePage() {
                   color: 'var(--gray-500)', lineHeight: 1.65,
                 }}>
                   Estos son ejemplos de fórmulas que co-desarrollamos y fabricamos para distintas marcas.
-                  No vendemos al consumidor final: lo hacemos para tu marca, con un mínimo de maquila de 80 kg.
+                  No vendemos al consumidor final: lo hacemos para tu marca, con un mínimo de 100 kg por orden de compra.
                 </p>
               </div>
               <Link
