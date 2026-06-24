@@ -9,10 +9,10 @@ const footerLinks = {
     { href: '/contacto', label: 'Contacto' },
   ],
   productos: [
-    { href: '/productos?cat=canino', label: '🐕 Caninos' },
-    { href: '/productos?cat=felino', label: '🐈 Felinos' },
-    { href: '/productos?cat=equino', label: '🐴 Equinos' },
-    { href: '/productos', label: 'Ver todos →' },
+    { href: '/productos', label: '🦴 Croqueta' },
+    { href: '/productos', label: '⚙️ Peletizado' },
+    { href: '/productos', label: '🥄 Polvo' },
+    { href: '/productos', label: 'Ver presentaciones →' },
   ],
   servicios: [
     { href: '/servicios#asesoria', label: 'Asesoría Especializada' },
@@ -194,7 +194,7 @@ export default function Footer() {
               color: '#9fd63a',
               marginBottom: '1.25rem',
             }}>
-              Productos
+              Presentaciones
             </h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '1.75rem' }}>
               {footerLinks.productos.map((link) => (

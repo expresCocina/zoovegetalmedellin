@@ -24,18 +24,6 @@ function parsePresentations(raw: string | null): string[] {
 // (imagen del hero, productos destacados) sin necesidad de redesplegar.
 export const dynamic = 'force-dynamic'
 
-async function getFeaturedProducts() {
-  try {
-    return await prisma.product.findMany({
-      where: { active: true, featured: true },
-      orderBy: { order: 'asc' },
-      take: 6,
-    })
-  } catch {
-    return []
-  }
-}
-
 async function getLatestPosts() {
   try {
     return await prisma.blogPost.findMany({
@@ -195,8 +183,7 @@ const faqs = [
 ]
 
 export default async function HomePage() {
-  const [featuredProducts, latestPosts, heroBg, heroPresentationsRaw] = await Promise.all([
-    getFeaturedProducts(),
+  const [latestPosts, heroBg, heroPresentationsRaw] = await Promise.all([
     getLatestPosts(),
     getSetting('hero_background'),
     getSetting('hero_presentations'),
@@ -584,8 +571,7 @@ export default async function HomePage() {
       {/* ══════════════════════════════════════════════════════
           PRODUCTOS DESTACADOS
       ══════════════════════════════════════════════════════ */}
-      {featuredProducts.length > 0 && (
-        <section style={{ padding: '6rem 1.5rem', background: 'var(--off-white)' }}>
+      <section style={{ padding: '6rem 1.5rem', background: 'var(--off-white)' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div style={{
               display: 'flex', alignItems: 'flex-end',
@@ -593,7 +579,7 @@ export default async function HomePage() {
               flexWrap: 'wrap', gap: '1rem',
             }}>
               <div style={{ maxWidth: '640px' }}>
-                <span className="section-badge">Ejemplos de desarrollo</span>
+                <span className="section-badge">Presentaciones</span>
                 <h2 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: 900,
@@ -602,14 +588,14 @@ export default async function HomePage() {
                   letterSpacing: '-0.03em',
                   marginBottom: '0.6rem',
                 }}>
-                  Algunos desarrollos que hemos creado
+                  Presentaciones que fabricamos
                 </h2>
                 <p style={{
                   fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.95rem',
                   color: 'var(--gray-500)', lineHeight: 1.65,
                 }}>
-                  Estos son ejemplos de fórmulas que co-desarrollamos y fabricamos para distintas marcas.
-                  No vendemos al consumidor final: lo hacemos para tu marca, con un mínimo de 100 kg por orden de compra.
+                  Maquilamos en distintos formatos según el objetivo de tu producto, con fórmula
+                  personalizada y propiedad exclusiva del cliente.
                 </p>
               </div>
               <Link
@@ -623,104 +609,60 @@ export default async function HomePage() {
                   textDecoration: 'none',
                 }}
               >
-                Ver más desarrollos <ArrowRight size={15} />
+                Ver presentaciones <ArrowRight size={15} />
               </Link>
             </div>
 
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              gap: '1.25rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1.5rem',
             }}>
-              {featuredProducts.map((product) => {
-                const catColor = product.category === 'canino' ? '#7ec823' : product.category === 'felino' ? '#f5a623' : '#063b05'
-                const catBg   = product.category === 'canino' ? '#f0f9e0' : product.category === 'felino' ? '#fff8ec' : '#edf7ec'
-                const catEmoji = product.category === 'canino' ? '🐕' : product.category === 'felino' ? '🐈' : '🐴'
-                return (
-                  <div key={product.id} className="card" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-                    {/* Product image area */}
+              {[
+                { emoji: '🦴', title: 'Croqueta', desc: 'Alimento balanceado en formato croqueta, con alta palatabilidad y densidad nutricional.', bg: '#f0f9e0', accent: '#7ec823' },
+                { emoji: '⚙️', title: 'Peletizado', desc: 'Peletizado por extrusión en frío. Alta concentración de nutrientes para suplementación.', bg: '#edf7ec', accent: '#063b05' },
+                { emoji: '🥄', title: 'Polvo', desc: 'Suplementos y mezclas en polvo, de fácil dosificación y alta absorción.', bg: '#fff8ec', accent: '#f5a623' },
+              ].map((p) => (
+                <Link key={p.title} href="/productos" className="card" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column', textDecoration: 'none' }}>
+                  <div style={{
+                    height: '150px', background: p.bg,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: '3.5rem', position: 'relative', overflow: 'hidden',
+                  }}>
                     <div style={{
-                      height: '160px',
-                      background: catBg,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '3.5rem',
-                      position: 'relative',
-                      overflow: 'hidden',
-                    }}>
-                      {product.image ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={product.image} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                      ) : (
-                        <>
-                          <div style={{
-                            position: 'absolute', bottom: '-15px', right: '-15px',
-                            width: '80px', height: '80px', borderRadius: '50%',
-                            background: catColor, opacity: 0.1,
-                          }} />
-                          {catEmoji}
-                        </>
-                      )}
-                    </div>
-
-                    <div style={{ padding: '1.25rem 1.5rem 1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                      <span style={{
-                        display: 'inline-block',
-                        background: catBg,
-                        color: catColor,
-                        border: `1px solid ${catColor}30`,
-                        borderRadius: '100px',
-                        fontSize: '0.68rem',
-                        fontFamily: "'Red Hat Display', sans-serif",
-                        fontWeight: 700,
-                        padding: '0.2rem 0.65rem',
-                        letterSpacing: '0.05em',
-                        marginBottom: '0.65rem',
-                        textTransform: 'uppercase' as const,
-                      }}>
-                        {product.subcategory}
-                      </span>
-                      <h3 style={{
-                        fontFamily: "'Red Hat Display', sans-serif",
-                        fontWeight: 800,
-                        fontSize: '1.05rem',
-                        color: 'var(--green-dark)',
-                        letterSpacing: '-0.02em',
-                        marginBottom: '0.5rem',
-                        lineHeight: 1.25,
-                      }}>
-                        {product.name}
-                      </h3>
-                      <p style={{
-                        fontFamily: "'Lexend Deca', sans-serif",
-                        fontSize: '0.85rem',
-                        color: 'var(--gray-500)',
-                        lineHeight: 1.6,
-                        flex: 1,
-                        marginBottom: '1.1rem',
-                      }}>
-                        {product.description.slice(0, 100)}…
-                      </p>
-                      <Link
-                        href={`/productos/${product.slug}`}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '0.3rem',
-                          fontFamily: "'Red Hat Display', sans-serif",
-                          fontWeight: 700,
-                          fontSize: '0.85rem',
-                          color: 'var(--green-bright)',
-                          textDecoration: 'none',
-                        }}
-                      >
-                        Ver desarrollo <ChevronRight size={14} />
-                      </Link>
-                    </div>
+                      position: 'absolute', bottom: '-15px', right: '-15px',
+                      width: '80px', height: '80px', borderRadius: '50%',
+                      background: p.accent, opacity: 0.1,
+                    }} />
+                    {p.emoji}
                   </div>
-                )
-              })}
+                  <div style={{ padding: '1.25rem 1.5rem 1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <h3 style={{
+                      fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+                      fontSize: '1.15rem', color: 'var(--green-dark)', letterSpacing: '-0.02em',
+                      marginBottom: '0.5rem',
+                    }}>
+                      {p.title}
+                    </h3>
+                    <p style={{
+                      fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.85rem',
+                      color: 'var(--gray-500)', lineHeight: 1.6, flex: 1, marginBottom: '1.1rem',
+                    }}>
+                      {p.desc}
+                    </p>
+                    <span style={{
+                      display: 'flex', alignItems: 'center', gap: '0.3rem',
+                      fontFamily: "'Red Hat Display', sans-serif", fontWeight: 700,
+                      fontSize: '0.85rem', color: 'var(--green-bright)',
+                    }}>
+                      Ver presentaciones <ChevronRight size={14} />
+                    </span>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
-      )}
 
       {/* ══════════════════════════════════════════════════════
           SERVICIOS — tarjetas en fondo verde oscuro
