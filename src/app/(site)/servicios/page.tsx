@@ -130,6 +130,38 @@ const sectors = [
   },
 ]
 
+const species = [
+  { emoji: '🐔', label: 'Aves' },
+  { emoji: '🐕', label: 'Caninos' },
+  { emoji: '🐷', label: 'Cerdos' },
+  { emoji: '🐰', label: 'Conejos' },
+  { emoji: '🐴', label: 'Equinos' },
+  { emoji: '🐈', label: 'Felinos' },
+  { emoji: '🐹', label: 'Roedores' },
+  { emoji: '🐄', label: 'Rumiantes' },
+]
+
+const developmentLines = [
+  'Aditivos zootécnicos',
+  'Alimentos completos o balanceados',
+  'Suplementos alimenticios',
+  'Núcleos y premezclas',
+  'Bloques nutricionales',
+  'Golosinas para animales',
+  'Sales mineralizadas para consumo animal',
+  'Estabilizadores de flora intestinal y digestivos',
+  'Aditivos organolépticos, nutricionales y tecnológicos',
+]
+
+const capabilities = [
+  { icon: '🧪', title: 'Asesoría experta', desc: 'Acompañamiento técnico y nutricional en cada etapa del desarrollo.' },
+  { icon: '📋', title: 'Registro ICA y BPMAA', desc: 'Cumplimiento normativo y acompañamiento en el trámite de registro.' },
+  { icon: '💡', title: 'Innovación y desarrollo', desc: 'I+D constante para crear productos diferenciados y funcionales.' },
+  { icon: '⚙️', title: 'Adaptación tecnológica y flexible', desc: 'Procesos que se ajustan a las necesidades de cada marca.' },
+  { icon: '📈', title: 'Escalabilidad y crecimiento', desc: 'Capacidad para crecer contigo, desde el lote piloto hasta el volumen industrial.' },
+  { icon: '⭐', title: 'Garantía en alta palatabilidad', desc: 'Desarrollos formulados para máxima aceptación — que les encante de verdad.', highlight: true },
+]
+
 export default function ServiciosPage() {
   return (
     <div>
@@ -366,6 +398,150 @@ export default function ServiciosPage() {
                   fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.84rem',
                   color: 'var(--gray-500)', lineHeight: 1.65, margin: 0,
                 }}>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Especies + Líneas de desarrollo */}
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#f8faf5' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span className="section-badge">Alcance de desarrollo</span>
+            <h2 style={{
+              fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'var(--green-dark)',
+              letterSpacing: '-0.03em', marginBottom: '0.75rem',
+            }}>
+              Para cada especie, lo que tu marca necesite
+            </h2>
+            <p style={{
+              fontFamily: "'Lexend Deca', sans-serif", fontSize: '1rem',
+              color: 'var(--gray-500)', maxWidth: '560px', margin: '0 auto',
+            }}>
+              Desarrollamos y maquilamos para las especies de nuestro certificado de habilitación,
+              en una amplia gama de líneas y formatos.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+            {/* Especies */}
+            <div style={{
+              background: '#ffffff', borderRadius: '20px', padding: '2rem',
+              border: '1px solid var(--gray-100)', boxShadow: 'var(--shadow-sm)',
+            }}>
+              <h3 style={{
+                fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+                fontSize: '1.1rem', color: 'var(--green-dark)', marginBottom: '1.25rem',
+              }}>
+                Especies que desarrollamos
+              </h3>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+                {species.map((s) => (
+                  <span key={s.label} style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                    background: '#f0f9e0', border: '1px solid rgba(126,200,35,0.25)',
+                    borderRadius: '100px', padding: '0.45rem 0.9rem',
+                    fontFamily: "'Red Hat Display', sans-serif", fontWeight: 700,
+                    fontSize: '0.85rem', color: 'var(--green-dark)',
+                  }}>
+                    <span style={{ fontSize: '1.05rem' }}>{s.emoji}</span>{s.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Líneas de desarrollo */}
+            <div style={{
+              background: '#ffffff', borderRadius: '20px', padding: '2rem',
+              border: '1px solid var(--gray-100)', boxShadow: 'var(--shadow-sm)',
+            }}>
+              <h3 style={{
+                fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+                fontSize: '1.1rem', color: 'var(--green-dark)', marginBottom: '1.25rem',
+              }}>
+                Líneas que fabricamos
+              </h3>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                {developmentLines.map((line) => (
+                  <li key={line} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                    <CheckCircle size={15} style={{ color: '#7ec823', flexShrink: 0, marginTop: '2px' }} />
+                    <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.88rem', color: 'var(--gray-700)', lineHeight: 1.5 }}>{line}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Mínimo de maquila destacado */}
+          <div style={{
+            marginTop: '1.5rem',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
+            flexWrap: 'wrap', textAlign: 'center',
+            background: 'linear-gradient(135deg, #063b05, #0a4a08)',
+            borderRadius: '20px', padding: '1.5rem 2rem',
+          }}>
+            <span style={{ fontSize: '1.6rem' }}>⚖️</span>
+            <span style={{
+              fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+              fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#ffffff', letterSpacing: '-0.01em',
+            }}>
+              Maquila mínima por desarrollo:{' '}
+              <span style={{ color: '#9fd63a' }}>80 kg</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Capacidades de desarrollo */}
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#ffffff' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span className="section-badge">Capacidades de desarrollo</span>
+            <h2 style={{
+              fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'var(--green-dark)',
+              letterSpacing: '-0.03em', marginBottom: '0.75rem',
+            }}>
+              Por qué desarrollar con nosotros
+            </h2>
+            <p style={{
+              fontFamily: "'Lexend Deca', sans-serif", fontSize: '1rem',
+              color: 'var(--gray-500)', maxWidth: '520px', margin: '0 auto',
+            }}>
+              Capacidad técnica, cumplimiento normativo y un sello que nos diferencia: la palatabilidad.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
+            {capabilities.map((c) => (
+              <div key={c.title} style={{
+                background: c.highlight ? 'linear-gradient(135deg, #fff8ec, #fff3d6)' : '#f8faf5',
+                borderRadius: '20px', padding: '1.75rem',
+                border: c.highlight ? '1.5px solid rgba(245,166,35,0.4)' : '1px solid var(--gray-100)',
+                position: 'relative',
+              }}>
+                {c.highlight && (
+                  <span style={{
+                    position: 'absolute', top: '1rem', right: '1rem',
+                    background: '#f5a623', color: '#fff', borderRadius: '100px',
+                    fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+                    fontSize: '0.6rem', letterSpacing: '0.08em', textTransform: 'uppercase' as const,
+                    padding: '0.2rem 0.6rem',
+                  }}>
+                    Nuestro sello
+                  </span>
+                )}
+                <div style={{ fontSize: '2rem', marginBottom: '0.85rem' }}>{c.icon}</div>
+                <h3 style={{
+                  fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+                  fontSize: '1.02rem', color: c.highlight ? '#b07210' : 'var(--green-dark)',
+                  marginBottom: '0.5rem', lineHeight: 1.25,
+                }}>{c.title}</h3>
+                <p style={{
+                  fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.85rem',
+                  color: 'var(--gray-600)', lineHeight: 1.65, margin: 0,
+                }}>{c.desc}</p>
               </div>
             ))}
           </div>

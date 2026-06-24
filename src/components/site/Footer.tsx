@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { MapPin, Phone, Mail } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 
 const footerLinks = {
   empresa: [
@@ -282,18 +282,30 @@ export default function Footer() {
                     textDecoration: 'none',
                     transition: 'color 0.2s ease',
                   }}>
-                    320 675 53 06
+                    Móvil: 320 675 53 06
                   </a>
-                  <a href="tel:054 3221688" style={{
+                  <a href="tel:6045825989" style={{
                     fontFamily: "'Lexend Deca', sans-serif",
                     fontSize: '0.85rem',
                     color: 'rgba(255,255,255,0.6)',
                     textDecoration: 'none',
                     transition: 'color 0.2s ease',
                   }}>
-                    (054) 322 16 88
+                    Fijo: 604 582 5989
                   </a>
                 </div>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.7rem' }}>
+                <Clock size={15} style={{ color: '#9fd63a', flexShrink: 0, marginTop: '2px' }} />
+                <span style={{
+                  fontFamily: "'Lexend Deca', sans-serif",
+                  fontSize: '0.85rem',
+                  color: 'rgba(255,255,255,0.6)',
+                  lineHeight: 1.6,
+                }}>
+                  Lun – Vie: 8:00am – 4:00pm<br />
+                  Sábado: 8:00am – 1:00pm
+                </span>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
                 <Mail size={15} style={{ color: '#9fd63a', flexShrink: 0 }} />

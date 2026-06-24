@@ -316,7 +316,7 @@ export default async function ProductosPage({
                         fontSize: '0.85rem',
                         color: 'var(--green-bright)',
                       }}>
-                        Ver detalle <ChevronRight size={14} />
+                        Ver desarrollo <ChevronRight size={14} />
                       </span>
                     </div>
                   </Link>

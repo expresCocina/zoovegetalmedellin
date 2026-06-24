@@ -58,7 +58,7 @@ const categoryCards = [
     bgGradient: 'linear-gradient(135deg, #f0f9e0 0%, #e8f5d0 100%)',
     borderColor: 'rgba(126,200,35,0.2)',
     href: '/productos?cat=canino',
-    tag: '20+ productos',
+    tag: 'Desarrollo a medida',
   },
   {
     id: 'felino',
@@ -69,7 +69,7 @@ const categoryCards = [
     bgGradient: 'linear-gradient(135deg, #fffbf0 0%, #fff3d6 100%)',
     borderColor: 'rgba(245,166,35,0.2)',
     href: '/productos?cat=felino',
-    tag: '15+ productos',
+    tag: 'Desarrollo a medida',
   },
   {
     id: 'equino',
@@ -80,7 +80,7 @@ const categoryCards = [
     bgGradient: 'linear-gradient(135deg, #edf7ec 0%, #dff0de 100%)',
     borderColor: 'rgba(6,59,5,0.15)',
     href: '/productos?cat=equino',
-    tag: '10+ productos',
+    tag: 'Desarrollo a medida',
   },
   {
     id: 'pequeños-mamiferos',
@@ -271,14 +271,31 @@ export default async function HomePage() {
             <p className="animate-fade-in-up delay-100" style={{
               fontFamily: "'Lexend Deca', sans-serif",
               fontSize: 'clamp(0.92rem, 1.4vw, 1.05rem)',
-              color: 'rgba(255,255,255,0.72)',
+              color: 'rgba(255,255,255,0.78)',
               lineHeight: 1.75,
-              marginBottom: '1.75rem',
-              maxWidth: '460px',
+              marginBottom: '1.25rem',
+              maxWidth: '480px',
             }}>
-              Co-desarrollo y maquila exclusiva de alimentos y suplementos para mascotas.{' '}
-              <strong style={{ color: '#9fd63a', fontWeight: 600 }}>Fórmulas 99% naturales</strong>,
-              propiedad del cliente, bajo normas BPM — Medellín, Colombia.
+              Inspirados en su bienestar, creamos desde el origen{' '}
+              <strong style={{ color: '#9fd63a', fontWeight: 600 }}>fórmulas naturales hechas con el corazón</strong>.
+              Co-desarrollo y maquila exclusiva de alimentos y suplementos para mascotas, propiedad del cliente y bajo normas BPM.
+            </p>
+
+            {/* Nota emotiva */}
+            <p className="animate-fade-in-up delay-100" style={{
+              fontFamily: "'Lexend Deca', sans-serif",
+              fontSize: 'clamp(0.82rem, 1.2vw, 0.92rem)',
+              color: 'rgba(255,255,255,0.62)',
+              fontStyle: 'italic',
+              lineHeight: 1.7,
+              marginBottom: '1.75rem',
+              maxWidth: '480px',
+              paddingLeft: '0.9rem',
+              borderLeft: '2px solid rgba(141,208,43,0.5)',
+            }}>
+              No solo fabricamos; nos sumamos al compromiso de protegerlos. Cada ingrediente que
+              seleccionamos y cada lote que producimos está pensado para devolverles un poco del
+              amor incondicional que ellos nos dan.
             </p>
 
             {/* CTA */}
@@ -575,17 +592,25 @@ export default async function HomePage() {
               justifyContent: 'space-between', marginBottom: '2.75rem',
               flexWrap: 'wrap', gap: '1rem',
             }}>
-              <div>
-                <span className="section-badge">Portafolio</span>
+              <div style={{ maxWidth: '640px' }}>
+                <span className="section-badge">Ejemplos de desarrollo</span>
                 <h2 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: 900,
                   fontSize: 'clamp(1.9rem, 3.5vw, 2.75rem)',
                   color: 'var(--green-dark)',
                   letterSpacing: '-0.03em',
+                  marginBottom: '0.6rem',
                 }}>
-                  Capacidades de desarrollo
+                  Algunos desarrollos que hemos creado
                 </h2>
+                <p style={{
+                  fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.95rem',
+                  color: 'var(--gray-500)', lineHeight: 1.65,
+                }}>
+                  Estos son ejemplos de fórmulas que co-desarrollamos y fabricamos para distintas marcas.
+                  No vendemos al consumidor final: lo hacemos para tu marca, con un mínimo de maquila de 80 kg.
+                </p>
               </div>
               <Link
                 href="/productos"
@@ -598,7 +623,7 @@ export default async function HomePage() {
                   textDecoration: 'none',
                 }}
               >
-                Ver todos <ArrowRight size={15} />
+                Ver más desarrollos <ArrowRight size={15} />
               </Link>
             </div>
 
@@ -686,7 +711,7 @@ export default async function HomePage() {
                           textDecoration: 'none',
                         }}
                       >
-                        Ver esta línea <ChevronRight size={14} />
+                        Ver desarrollo <ChevronRight size={14} />
                       </Link>
                     </div>
                   </div>

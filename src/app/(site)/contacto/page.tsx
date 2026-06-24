@@ -14,7 +14,7 @@ const contactInfo = [
   {
     Icon: Phone,
     title: 'Teléfonos',
-    content: '320 675 53 06\n(054) 322 16 88',
+    content: 'Móvil: 320 675 53 06\nFijo: 604 582 5989',
     color: '#7ec823',
     bg: '#f0f9e0',
   },
@@ -28,7 +28,7 @@ const contactInfo = [
   {
     Icon: Clock,
     title: 'Horario',
-    content: 'Lunes a Viernes: 8:00am – 6:00pm\nSábado: 8:00am – 1:00pm',
+    content: 'Lunes a Viernes: 8:00am – 4:00pm\nSábado: 8:00am – 1:00pm',
     color: '#f5a623',
     bg: '#fff8ec',
   },
@@ -250,7 +250,7 @@ export default function ContactoPage() {
                     opacity: 0.9,
                     marginTop: '0.15rem',
                   }}>
-                    Respuesta inmediata · 313 652 57 79
+                    Respuesta inmediata · 320 675 53 06
                   </div>
                 </div>
               </a>
@@ -434,7 +434,6 @@ export default function ContactoPage() {
                         <option value="">Selecciona un asunto</option>
                         <option value="Co-desarrollo de fórmula">Co-desarrollo de fórmula nueva</option>
                         <option value="Maquila con ICA">Maquila con registro ICA</option>
-                        <option value="Maquila sin ICA">Maquila sin registro ICA</option>
                         <option value="Asesoría técnica">Asesoría técnica / nutricional</option>
                         <option value="Cotización">Cotización de proyecto</option>
                         <option value="Otro">Otro</option>
@@ -458,10 +457,14 @@ export default function ContactoPage() {
                           style={{ cursor: 'pointer' }}
                         >
                           <option value="">Seleccionar</option>
+                          <option value="Aves">🐔 Aves</option>
                           <option value="Caninos">🐕 Caninos</option>
-                          <option value="Felinos">🐈 Felinos</option>
+                          <option value="Cerdos">🐷 Cerdos</option>
+                          <option value="Conejos">🐰 Conejos</option>
                           <option value="Equinos">🐴 Equinos</option>
-                          <option value="Pequeños Mamíferos">🐹 Pequeños Mamíferos</option>
+                          <option value="Felinos">🐈 Felinos</option>
+                          <option value="Roedores">🐹 Roedores</option>
+                          <option value="Rumiantes">🐄 Rumiantes</option>
                           <option value="Varias especies">Varias especies</option>
                         </select>
                       </div>
@@ -505,12 +508,20 @@ export default function ContactoPage() {
                         style={{ cursor: 'pointer' }}
                       >
                         <option value="">Seleccionar</option>
-                        <option value="Menos de 100 kg">Menos de 100 kg por lote</option>
-                        <option value="100 - 500 kg">100 – 500 kg por lote</option>
+                        <option value="80 - 200 kg">80 – 200 kg por lote</option>
+                        <option value="200 - 500 kg">200 – 500 kg por lote</option>
                         <option value="500 - 1000 kg">500 kg – 1 tonelada por lote</option>
                         <option value="Más de 1 tonelada">Más de 1 tonelada por lote</option>
                         <option value="No definido">Aún no definido</option>
                       </select>
+                      <p style={{
+                        fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.74rem',
+                        color: 'var(--gray-500)', marginTop: '0.4rem', display: 'flex',
+                        alignItems: 'center', gap: '0.35rem',
+                      }}>
+                        <span style={{ color: '#7ec823', fontWeight: 700 }}>●</span>
+                        Maquila mínima: <strong style={{ color: 'var(--green-dark)' }}>80 kg por desarrollo</strong>
+                      </p>
                     </div>
 
                     {/* Message */}
