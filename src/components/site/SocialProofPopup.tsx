@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useT } from '@/components/i18n/LanguageProvider'
 
 const notifications = [
   { name: 'Laura M.', city: 'Medellín', product: 'Galletas Naturales para Perros', emoji: '🐾', time: 'hace 2 min' },
@@ -16,6 +17,7 @@ const notifications = [
 ]
 
 export default function SocialProofPopup() {
+  const t = useT()
   const [visible, setVisible] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [exiting, setExiting] = useState(false)
@@ -118,9 +120,9 @@ export default function SocialProofPopup() {
             }}
           >
             <strong style={{ color: '#1a1a1a', fontWeight: 600 }}>{notif.name}</strong>
-            {' de '}
+            {t(' de ')}
             <strong style={{ color: '#1a1a1a', fontWeight: 600 }}>{notif.city}</strong>
-            {' adquirió'}
+            {t(' adquirió')}
           </p>
           <p
             style={{
@@ -135,7 +137,7 @@ export default function SocialProofPopup() {
               textOverflow: 'ellipsis',
             }}
           >
-            {notif.product}
+            {t(notif.product)}
           </p>
           <p
             style={{
@@ -149,7 +151,7 @@ export default function SocialProofPopup() {
             }}
           >
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4ade80', display: 'inline-block', flexShrink: 0 }} />
-            {notif.time} · Verificado
+            {t(notif.time)} · {t('Verificado')}
           </p>
         </div>
       </div>

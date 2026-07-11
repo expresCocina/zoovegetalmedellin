@@ -1,8 +1,10 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { useT } from '@/components/i18n/LanguageProvider'
 
 export default function HeroPresentationsCarousel({ images }: { images: string[] }) {
+  const t = useT()
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const count = images.length
@@ -26,7 +28,7 @@ export default function HeroPresentationsCarousel({ images }: { images: string[]
       {/* Etiqueta superior */}
       <div className="hpc-tag">
         <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#9fd63a', display: 'inline-block' }} />
-        Presentaciones que fabricamos
+        {t('Presentaciones que fabricamos')}
       </div>
 
       {/* Pista de slides */}

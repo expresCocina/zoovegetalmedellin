@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { getLocale } from '@/lib/i18n/server'
+import { LanguageProvider } from '@/components/i18n/LanguageProvider'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://zoovegetal.com'),
@@ -34,10 +36,15 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale()
   return (
-    <html lang="es" className="h-full scroll-smooth" data-scroll-behavior="smooth">
-      <body className="min-h-full flex flex-col antialiased" style={{ overflowX: 'hidden' }}>{children}</body>
+    <html lang={locale} className="h-full scroll-smooth" data-scroll-behavior="smooth">
+      <body className="min-h-full flex flex-col antialiased" style={{ overflowX: 'hidden' }}>
+        <LanguageProvider initialLocale={locale}>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   )
 }

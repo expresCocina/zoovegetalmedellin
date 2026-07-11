@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { getT } from '@/lib/i18n/server'
 
 const footerLinks = {
   empresa: [
@@ -21,7 +22,8 @@ const footerLinks = {
   ],
 }
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getT()
   return (
     <footer style={{ background: 'linear-gradient(180deg, #021f01 0%, #063b05 100%)', color: 'white' }}>
       
@@ -58,8 +60,7 @@ export default function Footer() {
               color: 'rgba(255,255,255,0.55)',
               marginBottom: '1.75rem',
             }}>
-              Co-desarrollo y maquila exclusiva de alimentos y suplementos para mascotas.
-              Fórmulas 99% naturales, propiedad del cliente, bajo normas BPM — desde 2015.
+              {t('Co-desarrollo y maquila exclusiva de alimentos y suplementos para mascotas. Fórmulas 99% naturales, propiedad del cliente, bajo normas BPM — desde 2015.')}
             </p>
 
             {/* Cert badge */}
@@ -81,7 +82,7 @@ export default function Footer() {
                 color: '#9fd63a',
                 letterSpacing: '0.04em',
               }}>
-                Certificado BPM ICA
+                {t('Certificado BPM ICA')}
               </span>
             </div>
 
@@ -161,7 +162,7 @@ export default function Footer() {
               color: '#9fd63a',
               marginBottom: '1.25rem',
             }}>
-              Empresa
+              {t('Empresa')}
             </h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
               {footerLinks.empresa.map((link) => (
@@ -176,7 +177,7 @@ export default function Footer() {
                       transition: 'color 0.2s ease',
                     }}
                   >
-                    {link.label}
+                    {t(link.label)}
                   </Link>
                 </li>
               ))}
@@ -194,7 +195,7 @@ export default function Footer() {
               color: '#9fd63a',
               marginBottom: '1.25rem',
             }}>
-              Presentaciones
+              {t('Presentaciones')}
             </h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '1.75rem' }}>
               {footerLinks.productos.map((link) => (
@@ -209,7 +210,7 @@ export default function Footer() {
                       transition: 'color 0.2s ease',
                     }}
                   >
-                    {link.label}
+                    {t(link.label)}
                   </Link>
                 </li>
               ))}
@@ -223,7 +224,7 @@ export default function Footer() {
               color: '#9fd63a',
               marginBottom: '1.25rem',
             }}>
-              Servicios
+              {t('Servicios')}
             </h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
               {footerLinks.servicios.map((link) => (
@@ -238,7 +239,7 @@ export default function Footer() {
                       transition: 'color 0.2s ease',
                     }}
                   >
-                    {link.label}
+                    {t(link.label)}
                   </Link>
                 </li>
               ))}
@@ -256,7 +257,7 @@ export default function Footer() {
               color: '#9fd63a',
               marginBottom: '1.25rem',
             }}>
-              Contacto
+              {t('Contacto')}
             </h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
               <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.7rem' }}>
@@ -282,7 +283,7 @@ export default function Footer() {
                     textDecoration: 'none',
                     transition: 'color 0.2s ease',
                   }}>
-                    Móvil: 320 675 53 06
+                    {t('Móvil: 320 675 53 06')}
                   </a>
                   <a href="tel:6045825989" style={{
                     fontFamily: "'Lexend Deca', sans-serif",
@@ -291,7 +292,7 @@ export default function Footer() {
                     textDecoration: 'none',
                     transition: 'color 0.2s ease',
                   }}>
-                    Fijo: 604 582 5989
+                    {t('Fijo: 604 582 5989')}
                   </a>
                 </div>
               </li>
@@ -303,8 +304,8 @@ export default function Footer() {
                   color: 'rgba(255,255,255,0.6)',
                   lineHeight: 1.6,
                 }}>
-                  Lun – Vie: 8:00am – 4:00pm<br />
-                  Sábado: 8:00am – 1:00pm
+                  {t('Lun – Vie: 8:00am – 4:00pm')}<br />
+                  {t('Sábado: 8:00am – 1:00pm')}
                 </span>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
@@ -342,14 +343,14 @@ export default function Footer() {
             fontSize: '0.78rem',
             color: 'rgba(255,255,255,0.35)',
           }}>
-            © {new Date().getFullYear()} Zoovegetal SAS. Todos los derechos reservados.
+            © {new Date().getFullYear()} Zoovegetal SAS. {t('Todos los derechos reservados.')}
           </p>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
             fontSize: '0.78rem',
             color: 'rgba(255,255,255,0.35)',
           }}>
-            Medellín, Colombia · Fundada 2017
+            {t('Medellín, Colombia · Fundada 2017')}
           </p>
         </div>
       </div>

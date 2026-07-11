@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import { ArrowRight, CheckCircle, Award, Leaf, Beaker, Truck, ChevronRight, ChevronDown } from 'lucide-react'
+import { ArrowRight, Award, Leaf, Beaker, Truck, ChevronRight, ChevronDown } from 'lucide-react'
 import { prisma } from '@/lib/prisma'
 import { getSetting } from '@/lib/settings'
+import { getT } from '@/lib/i18n/server'
 import HeroHeadline from '@/components/site/HeroHeadline'
 import HeroPresentationsCarousel from '@/components/site/HeroPresentationsCarousel'
 
@@ -144,6 +145,7 @@ export default async function HomePage() {
 
   const presentations = parsePresentations(heroPresentationsRaw)
   const carouselImages = presentations.length > 0 ? presentations : DEFAULT_PRESENTATIONS
+  const t = await getT()
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -216,9 +218,9 @@ export default async function HomePage() {
               marginBottom: '1.25rem',
               maxWidth: '480px',
             }}>
-              Inspirados en su bienestar, creamos desde el origen{' '}
-              <strong style={{ color: '#9fd63a', fontWeight: 600 }}>fórmulas naturales hechas con el corazón</strong>.
-              Co-desarrollo y maquila exclusiva de alimentos y suplementos para mascotas, propiedad del cliente y bajo normas BPM.
+              {t('Inspirados en su bienestar, creamos desde el origen')}{' '}
+              <strong style={{ color: '#9fd63a', fontWeight: 600 }}>{t('fórmulas naturales hechas con el corazón')}</strong>.{' '}
+              {t('Co-desarrollo y maquila exclusiva de alimentos y suplementos para mascotas, propiedad del cliente y bajo normas BPM.')}
             </p>
 
             {/* Nota emotiva */}
@@ -233,9 +235,7 @@ export default async function HomePage() {
               paddingLeft: '0.9rem',
               borderLeft: '2px solid rgba(141,208,43,0.5)',
             }}>
-              No solo fabricamos; nos sumamos al compromiso de protegerlos. Cada ingrediente que
-              seleccionamos y cada lote que producimos está pensado para devolverles un poco del
-              amor incondicional que ellos nos dan.
+              {t('No solo fabricamos; nos sumamos al compromiso de protegerlos. Cada ingrediente que seleccionamos y cada lote que producimos está pensado para devolverles un poco del amor incondicional que ellos nos dan.')}
             </p>
 
             {/* CTA */}
@@ -250,7 +250,7 @@ export default async function HomePage() {
                 boxShadow: '0 8px 32px rgba(126,200,35,0.45), 0 2px 8px rgba(0,0,0,0.2)',
                 letterSpacing: '-0.01em',
               }}>
-                Cotiza tu proyecto de maquila
+                {t('Cotiza tu proyecto de maquila')}
                 <ArrowRight size={18} />
               </Link>
               <div style={{ marginTop: '0.85rem' }}>
@@ -264,7 +264,7 @@ export default async function HomePage() {
                   paddingBottom: '1px',
                   transition: 'color 0.2s',
                 }}>
-                  Ver cómo trabajamos <ChevronRight size={13} />
+                  {t('Ver cómo trabajamos')} <ChevronRight size={13} />
                 </Link>
               </div>
             </div>
@@ -284,13 +284,13 @@ export default async function HomePage() {
                     fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.58rem',
                     color: 'rgba(255,255,255,0.45)', marginTop: '0.3rem', lineHeight: 1.3,
                   }}>
-                    {stat.label}
+                    {t(stat.label)}
                   </div>
                   <div style={{
                     fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.52rem',
                     color: 'rgba(255,255,255,0.28)', marginTop: '0.15rem', lineHeight: 1.2,
                   }}>
-                    {stat.sub}
+                    {t(stat.sub)}
                   </div>
                 </div>
               ))}
@@ -310,8 +310,8 @@ export default async function HomePage() {
             }}>
               <span style={{ fontSize: '0.95rem' }}>🌿</span>
               <div>
-                <div style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900, fontSize: '0.7rem', color: '#063b05', lineHeight: 1 }}>99% Natural</div>
-                <div style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.58rem', color: 'rgba(6,59,5,0.7)', lineHeight: 1.2 }}>Grado humano certificado</div>
+                <div style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900, fontSize: '0.7rem', color: '#063b05', lineHeight: 1 }}>{t('99% Natural')}</div>
+                <div style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.58rem', color: 'rgba(6,59,5,0.7)', lineHeight: 1.2 }}>{t('Grado humano certificado')}</div>
               </div>
             </div>
 
@@ -329,8 +329,8 @@ export default async function HomePage() {
             }}>
               <span style={{ fontSize: '0.95rem' }}>🏅</span>
               <div>
-                <div style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900, fontSize: '0.7rem', color: '#9fd63a', lineHeight: 1 }}>BPM ICA</div>
-                <div style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.58rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.2 }}>Planta certificada · Medellín</div>
+                <div style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900, fontSize: '0.7rem', color: '#9fd63a', lineHeight: 1 }}>{t('BPM ICA')}</div>
+                <div style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.58rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.2 }}>{t('Planta certificada · Medellín')}</div>
               </div>
             </div>
           </div>
@@ -343,7 +343,7 @@ export default async function HomePage() {
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem',
         }} className="animate-fade-in delay-500">
           <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: "'Lexend Deca', sans-serif" }}>
-            Scroll
+            {t('Scroll')}
           </span>
           <div style={{
             width: '1px', height: '40px',
@@ -383,12 +383,12 @@ export default async function HomePage() {
                   fontWeight: 700, fontSize: '0.78rem',
                   color: '#063b05',
                   lineHeight: 1,
-                }}>{cert.label}</div>
+                }}>{t(cert.label)}</div>
                 <div style={{
                   fontFamily: "'Lexend Deca', sans-serif",
                   fontSize: '0.65rem', color: '#6b7280',
                   marginTop: '0.1rem',
-                }}>{cert.sub}</div>
+                }}>{t(cert.sub)}</div>
               </div>
             </div>
           ))}
@@ -407,7 +407,7 @@ export default async function HomePage() {
               flexWrap: 'wrap', gap: '1rem',
             }}>
               <div style={{ maxWidth: '640px' }}>
-                <span className="section-badge">Presentaciones</span>
+                <span className="section-badge">{t('Presentaciones')}</span>
                 <h2 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: 900,
@@ -416,14 +416,13 @@ export default async function HomePage() {
                   letterSpacing: '-0.03em',
                   marginBottom: '0.6rem',
                 }}>
-                  Presentaciones que fabricamos
+                  {t('Presentaciones que fabricamos')}
                 </h2>
                 <p style={{
                   fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.95rem',
                   color: 'var(--gray-500)', lineHeight: 1.65,
                 }}>
-                  Maquilamos en distintos formatos según el objetivo de tu producto, con fórmula
-                  personalizada y propiedad exclusiva del cliente.
+                  {t('Maquilamos en distintos formatos según el objetivo de tu producto, con fórmula personalizada y propiedad exclusiva del cliente.')}
                 </p>
               </div>
               <Link
@@ -437,7 +436,7 @@ export default async function HomePage() {
                   textDecoration: 'none',
                 }}
               >
-                Ver presentaciones <ArrowRight size={15} />
+                {t('Ver presentaciones')} <ArrowRight size={15} />
               </Link>
             </div>
 
@@ -470,20 +469,20 @@ export default async function HomePage() {
                       fontSize: '1.15rem', color: 'var(--green-dark)', letterSpacing: '-0.02em',
                       marginBottom: '0.5rem',
                     }}>
-                      {p.title}
+                      {t(p.title)}
                     </h3>
                     <p style={{
                       fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.85rem',
                       color: 'var(--gray-500)', lineHeight: 1.6, flex: 1, marginBottom: '1.1rem',
                     }}>
-                      {p.desc}
+                      {t(p.desc)}
                     </p>
                     <span style={{
                       display: 'flex', alignItems: 'center', gap: '0.3rem',
                       fontFamily: "'Red Hat Display', sans-serif", fontWeight: 700,
                       fontSize: '0.85rem', color: 'var(--green-bright)',
                     }}>
-                      Ver presentaciones <ChevronRight size={14} />
+                      {t('Ver presentaciones')} <ChevronRight size={14} />
                     </span>
                   </div>
                 </Link>
@@ -525,7 +524,7 @@ export default async function HomePage() {
               textTransform: 'uppercase' as const,
               marginBottom: '1.2rem',
             }}>
-              Nuestros Servicios
+              {t('Nuestros Servicios')}
             </span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
@@ -535,8 +534,8 @@ export default async function HomePage() {
               letterSpacing: '-0.03em',
               lineHeight: 1.05,
             }}>
-              Hacemos realidad{' '}
-              <span style={{ color: '#9fd63a' }}>tu marca de alimentos</span>
+              {t('Hacemos realidad')}{' '}
+              <span style={{ color: '#9fd63a' }}>{t('tu marca de alimentos')}</span>
             </h2>
             <p style={{
               marginTop: '1.25rem',
@@ -547,7 +546,7 @@ export default async function HomePage() {
               margin: '1.25rem auto 0',
               lineHeight: 1.7,
             }}>
-              Desde la fórmula hasta el producto terminado, somos tu aliado estratégico en nutrición animal.
+              {t('Desde la fórmula hasta el producto terminado, somos tu aliado estratégico en nutrición animal.')}
             </p>
           </div>
 
@@ -576,7 +575,7 @@ export default async function HomePage() {
                   marginBottom: '0.75rem',
                   lineHeight: 1.2,
                 }}>
-                  {svc.title}
+                  {t(svc.title)}
                 </h3>
                 <p style={{
                   fontFamily: "'Lexend Deca', sans-serif",
@@ -584,7 +583,7 @@ export default async function HomePage() {
                   color: 'rgba(255,255,255,0.58)',
                   lineHeight: 1.7,
                 }}>
-                  {svc.desc}
+                  {t(svc.desc)}
                 </p>
               </div>
             ))}
@@ -638,7 +637,7 @@ export default async function HomePage() {
               textTransform: 'uppercase' as const,
               marginBottom: '1.25rem',
             }}>
-              🎬 Así lo hacemos
+              {t('🎬 Así lo hacemos')}
             </span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
@@ -649,8 +648,8 @@ export default async function HomePage() {
               lineHeight: 1.1,
               marginBottom: '1rem',
             }}>
-              Conoce el proceso{' '}
-              <span style={{ color: '#9fd63a' }}>detrás de la calidad</span>
+              {t('Conoce el proceso')}{' '}
+              <span style={{ color: '#9fd63a' }}>{t('detrás de la calidad')}</span>
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif",
@@ -660,8 +659,7 @@ export default async function HomePage() {
               margin: '0 auto',
               lineHeight: 1.65,
             }}>
-              Conoce la planta donde fabricamos los productos de nuestros clientes.
-              Instalaciones certificadas BPM ICA, procesos documentados y trazables.
+              {t('Conoce la planta donde fabricamos los productos de nuestros clientes. Instalaciones certificadas BPM ICA, procesos documentados y trazables.')}
             </p>
           </div>
 
@@ -727,7 +725,7 @@ export default async function HomePage() {
                 color: 'rgba(255,255,255,0.65)',
               }}>
                 <span style={{ fontSize: '1.2rem' }}>{item.icon}</span>
-                {item.label}
+                {t(item.label)}
               </div>
             ))}
           </div>
@@ -742,7 +740,7 @@ export default async function HomePage() {
 
           {/* Header */}
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <span className="section-badge">⚙️ Nuestros Procesos</span>
+            <span className="section-badge">{t('⚙️ Nuestros Procesos')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
@@ -752,8 +750,8 @@ export default async function HomePage() {
               lineHeight: 1.1,
               marginBottom: '0.85rem',
             }}>
-              Fabricación con{' '}
-              <span style={{ color: 'var(--green-bright)' }}>estándares de calidad</span>
+              {t('Fabricación con')}{' '}
+              <span style={{ color: 'var(--green-bright)' }}>{t('estándares de calidad')}</span>
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif",
@@ -763,8 +761,7 @@ export default async function HomePage() {
               margin: '0 auto',
               lineHeight: 1.7,
             }}>
-              Planta certificada BPM, equipos de grado industrial y procesos controlados
-              para cada proyecto de maquila en Medellín.
+              {t('Planta certificada BPM, equipos de grado industrial y procesos controlados para cada proyecto de maquila en Medellín.')}
             </p>
           </div>
 
@@ -776,7 +773,7 @@ export default async function HomePage() {
               <img src="/DSC_8835.jpg" alt="Planta de producción Zoovegetal — vista general" />
               <div className="gallery-overlay">
                 <span style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 700, fontSize: '0.9rem', color: '#fff' }}>
-                  Zona de producción principal
+                  {t('Zona de producción principal')}
                 </span>
               </div>
             </div>
@@ -792,7 +789,7 @@ export default async function HomePage() {
                   <img src={photo.src} alt={photo.label} />
                   <div className="gallery-overlay-sm">
                     <span style={{ fontFamily: "'Red Hat Display', sans-serif", fontWeight: 600, fontSize: '0.72rem', color: 'rgba(255,255,255,0.92)' }}>
-                      {photo.label}
+                      {t(photo.label)}
                     </span>
                   </div>
                 </div>
@@ -818,14 +815,14 @@ export default async function HomePage() {
                 fontFamily: "'Red Hat Display', sans-serif",
                 fontWeight: 900, fontSize: '1.15rem',
                 color: 'var(--green-dark)', letterSpacing: '-0.02em',
-              }}>¿Quieres conocer nuestra planta en persona?</div>
+              }}>{t('¿Quieres conocer nuestra planta en persona?')}</div>
               <div style={{
                 fontFamily: "'Lexend Deca', sans-serif",
                 fontSize: '0.88rem', color: 'var(--gray-600)', marginTop: '0.3rem',
-              }}>Agenda una visita y te mostramos todo el proceso de fabricación.</div>
+              }}>{t('Agenda una visita y te mostramos todo el proceso de fabricación.')}</div>
             </div>
             <Link href="/contacto" className="btn-primary" style={{ whiteSpace: 'nowrap' as const }}>
-              Agendar visita
+              {t('Agendar visita')}
               <ArrowRight size={17} />
             </Link>
           </div>
@@ -840,7 +837,7 @@ export default async function HomePage() {
 
           {/* Header */}
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span className="section-badge">¿Por qué elegirnos?</span>
+            <span className="section-badge">{t('¿Por qué elegirnos?')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
@@ -850,8 +847,8 @@ export default async function HomePage() {
               lineHeight: 1.05,
               marginBottom: '1rem',
             }}>
-              Calidad que{' '}
-              <span style={{ color: 'var(--green-bright)' }}>se puede medir</span>
+              {t('Calidad que')}{' '}
+              <span style={{ color: 'var(--green-bright)' }}>{t('se puede medir')}</span>
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif",
@@ -861,8 +858,7 @@ export default async function HomePage() {
               margin: '0 auto',
               lineHeight: 1.7,
             }}>
-              Cuatro pilares que garantizan el éxito de cada proyecto de maquila.
-              Lo que nos hace el aliado estratégico ideal para tu marca.
+              {t('Cuatro pilares que garantizan el éxito de cada proyecto de maquila. Lo que nos hace el aliado estratégico ideal para tu marca.')}
             </p>
           </div>
 
@@ -906,7 +902,7 @@ export default async function HomePage() {
                   lineHeight: 1.2,
                   marginBottom: '0.75rem',
                 }}>
-                  {card.title}
+                  {t(card.title)}
                 </h3>
                 <p style={{
                   fontFamily: "'Lexend Deca', sans-serif",
@@ -915,7 +911,7 @@ export default async function HomePage() {
                   lineHeight: 1.7,
                   flex: 1,
                 }}>
-                  {card.desc}
+                  {t(card.desc)}
                 </p>
               </div>
             ))}
@@ -924,11 +920,11 @@ export default async function HomePage() {
           {/* CTA row */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/quienes-somos" className="btn-primary">
-              Conocer más sobre nosotros
+              {t('Conocer más sobre nosotros')}
               <ArrowRight size={17} />
             </Link>
             <Link href="/contacto" className="btn-amber">
-              Hablar con un experto
+              {t('Hablar con un experto')}
             </Link>
           </div>
         </div>
@@ -946,7 +942,7 @@ export default async function HomePage() {
               flexWrap: 'wrap', gap: '1rem',
             }}>
               <div>
-                <span className="section-badge">Blog</span>
+                <span className="section-badge">{t('Blog')}</span>
                 <h2 style={{
                   fontFamily: "'Red Hat Display', sans-serif",
                   fontWeight: 900,
@@ -954,7 +950,7 @@ export default async function HomePage() {
                   color: 'var(--green-dark)',
                   letterSpacing: '-0.03em',
                 }}>
-                  Conocimiento para marcas del sector animal
+                  {t('Conocimiento para marcas del sector animal')}
                 </h2>
               </div>
               <Link
@@ -968,7 +964,7 @@ export default async function HomePage() {
                   textDecoration: 'none',
                 }}
               >
-                Ver todos <ArrowRight size={15} />
+                {t('Ver todos')} <ArrowRight size={15} />
               </Link>
             </div>
 
@@ -1028,7 +1024,7 @@ export default async function HomePage() {
                       fontSize: '0.85rem',
                       color: 'var(--green-bright)',
                     }}>
-                      Leer más <ChevronRight size={14} />
+                      {t('Leer más')} <ChevronRight size={14} />
                     </span>
                   </div>
                 </Link>
@@ -1047,7 +1043,7 @@ export default async function HomePage() {
       }}>
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span className="section-badge">FAQ</span>
+            <span className="section-badge">{t('FAQ')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
@@ -1057,7 +1053,7 @@ export default async function HomePage() {
               lineHeight: 1.05,
               marginBottom: '1rem',
             }}>
-              Preguntas frecuentes
+              {t('Preguntas frecuentes')}
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif",
@@ -1065,7 +1061,7 @@ export default async function HomePage() {
               color: 'var(--gray-500)',
               lineHeight: 1.7,
             }}>
-              Todo lo que necesitas saber antes de empezar tu proyecto con nosotros.
+              {t('Todo lo que necesitas saber antes de empezar tu proyecto con nosotros.')}
             </p>
           </div>
 
@@ -1097,7 +1093,7 @@ export default async function HomePage() {
                   userSelect: 'none' as const,
                   gap: '1rem',
                 }}>
-                  <span>{faq.q}</span>
+                  <span>{t(faq.q)}</span>
                   <span style={{
                     flexShrink: 0,
                     width: '28px', height: '28px',
@@ -1119,7 +1115,7 @@ export default async function HomePage() {
                   borderTop: '1px solid rgba(126,200,35,0.1)',
                   paddingTop: '1.25rem',
                 }}>
-                  {faq.a}
+                  {t(faq.a)}
                 </div>
               </details>
             ))}
@@ -1132,10 +1128,10 @@ export default async function HomePage() {
               color: 'var(--gray-500)',
               marginBottom: '1.25rem',
             }}>
-              ¿Tienes otra pregunta? Escríbenos directamente.
+              {t('¿Tienes otra pregunta? Escríbenos directamente.')}
             </p>
             <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.92rem' }}>
-              Contactar ahora
+              {t('Contactar ahora')}
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -1175,7 +1171,7 @@ export default async function HomePage() {
             lineHeight: 1.1,
             marginBottom: '1.25rem',
           }}>
-            ¿Listo para lanzar tu línea de productos bajo tu propia marca?
+            {t('¿Listo para lanzar tu línea de productos bajo tu propia marca?')}
           </h2>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
@@ -1184,11 +1180,11 @@ export default async function HomePage() {
             lineHeight: 1.75,
             marginBottom: '2.75rem',
           }}>
-            Emprendedores, marcas consolidadas y grandes compañías. Cuéntanos tu proyecto y en 24 horas te enviamos una propuesta técnica sin costo.
+            {t('Emprendedores, marcas consolidadas y grandes compañías. Cuéntanos tu proyecto y en 24 horas te enviamos una propuesta técnica sin costo.')}
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/contacto" className="btn-dark" style={{ fontSize: '0.95rem', padding: '0.9rem 2rem' }}>
-              Cotizar mi proyecto
+              {t('Cotizar mi proyecto')}
               <ArrowRight size={17} />
             </Link>
             <a

@@ -1,8 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useT } from '@/components/i18n/LanguageProvider'
 
 export default function WhatsAppButton() {
+  const t = useT()
   const [hovered, setHovered] = useState(false)
   const [visible, setVisible] = useState(false)
 
@@ -93,7 +95,7 @@ export default function WhatsAppButton() {
                 color: '#1a1a1a',
                 lineHeight: 1.3,
               }}>
-                ¡Hola! ¿Tienes un proyecto?
+                {t('¡Hola! ¿Tienes un proyecto?')}
               </p>
               <p style={{
                 margin: '2px 0 0',
@@ -101,7 +103,7 @@ export default function WhatsAppButton() {
                 fontSize: '11px',
                 color: '#6b7280',
               }}>
-                Respuesta en minutos 🚀
+                {t('Respuesta en minutos 🚀')}
               </p>
               {/* Flecha */}
               <div style={{

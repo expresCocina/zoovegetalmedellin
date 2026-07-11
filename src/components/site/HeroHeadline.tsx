@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useT } from '@/components/i18n/LanguageProvider'
 
 export default function HeroHeadline() {
+  const t = useT()
   const [started, setStarted] = useState(false)
 
   useEffect(() => {
@@ -24,13 +26,13 @@ export default function HeroHeadline() {
       {/* Línea 1 */}
       <span className="hero-line-wrap">
         <span className={`hero-line ${started ? 'hero-line--in' : ''}`} style={{ transitionDelay: '0ms' }}>
-          Creamos los productos
+          {t('Creamos los productos')}
         </span>
       </span>
       {/* Línea 2 */}
       <span className="hero-line-wrap">
         <span className={`hero-line ${started ? 'hero-line--in' : ''}`} style={{ transitionDelay: '120ms' }}>
-          de tu marca.
+          {t('de tu marca.')}
         </span>
       </span>
       {/* Línea 3 — degradado animado */}
@@ -39,8 +41,8 @@ export default function HeroHeadline() {
           className={`hero-line hero-gradient-text ${started ? 'hero-line--in' : ''}`}
           style={{ transitionDelay: '260ms' }}
         >
-          Naturales.{' '}
-          <span className={started ? 'hero-sweep' : ''}>Certificados.</span>
+          {t('Naturales.')}{' '}
+          <span className={started ? 'hero-sweep' : ''}>{t('Certificados.')}</span>
         </span>
       </span>
     </h1>

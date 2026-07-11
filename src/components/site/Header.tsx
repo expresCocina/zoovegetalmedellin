@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Phone } from 'lucide-react'
+import { useT } from '@/components/i18n/LanguageProvider'
+import LanguageToggle from '@/components/i18n/LanguageToggle'
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -18,6 +20,7 @@ export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const t = useT()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40)
@@ -122,7 +125,7 @@ export default function Header() {
                     }
                   }}
                 >
-                  {link.label}
+                  {t(link.label)}
                 </Link>
               )
             })}
@@ -130,6 +133,7 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex" style={{ alignItems: 'center', gap: '0.75rem' }}>
+            <LanguageToggle solid={solid} />
             <a
               href="tel:3206755306"
               style={{
@@ -149,7 +153,7 @@ export default function Header() {
               320 675 53 06
             </a>
             <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.84rem', padding: '0.55rem 1.3rem' }}>
-              Contáctanos
+              {t('Contáctanos')}
             </Link>
           </div>
 
@@ -209,11 +213,14 @@ export default function Header() {
                   display: 'block',
                 }}
               >
-                {link.label}
+                {t(link.label)}
               </Link>
             )
           })}
           <div style={{ borderTop: '1px solid var(--gray-100)', marginTop: '0.75rem', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div style={{ padding: '0 1rem' }}>
+              <LanguageToggle solid />
+            </div>
             <a
               href="tel:3206755306"
               style={{
@@ -232,7 +239,7 @@ export default function Header() {
               320 675 53 06
             </a>
             <Link href="/contacto" className="btn-primary" style={{ justifyContent: 'center' }}>
-              Contáctanos
+              {t('Contáctanos')}
             </Link>
           </div>
         </div>
