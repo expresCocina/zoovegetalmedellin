@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ChevronRight, Calendar, User } from 'lucide-react'
 import { prisma } from '@/lib/prisma'
 import { formatDate } from '@/lib/utils'
+import { getT } from '@/lib/i18n/server'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -22,6 +23,7 @@ async function getPosts() {
 
 export default async function BlogPage() {
   const posts = await getPosts()
+  const t = await getT()
 
   return (
     <div>
@@ -55,7 +57,7 @@ export default async function BlogPage() {
             textTransform: 'uppercase' as const,
             marginBottom: '1.25rem',
           }}>
-            Blog
+            {t('Blog')}
           </span>
           <h1 style={{
             fontFamily: "'Red Hat Display', sans-serif",
@@ -66,8 +68,8 @@ export default async function BlogPage() {
             lineHeight: 1.05,
             marginBottom: '1rem',
           }}>
-            Nutrición y bienestar{' '}
-            <span style={{ color: '#9fd63a' }}>animal</span>
+            {t('Nutrición y bienestar')}{' '}
+            <span style={{ color: '#9fd63a' }}>{t('animal')}</span>
           </h1>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
@@ -77,7 +79,7 @@ export default async function BlogPage() {
             maxWidth: '520px',
             margin: '0 auto',
           }}>
-            Artículos, consejos y tendencias sobre nutrición animal escritos por nuestros expertos.
+            {t('Artículos, consejos y tendencias sobre nutrición animal escritos por nuestros expertos.')}
           </p>
         </div>
       </div>
@@ -96,14 +98,14 @@ export default async function BlogPage() {
                 letterSpacing: '-0.02em',
                 marginBottom: '0.6rem',
               }}>
-                Blog en construcción
+                {t('Blog en construcción')}
               </h3>
               <p style={{
                 fontFamily: "'Lexend Deca', sans-serif",
                 fontSize: '0.95rem',
                 color: 'var(--gray-500)',
               }}>
-                Pronto publicaremos artículos sobre nutrición y bienestar animal.
+                {t('Pronto publicaremos artículos sobre nutrición y bienestar animal.')}
               </p>
             </div>
           ) : (
@@ -157,7 +159,7 @@ export default async function BlogPage() {
                     color: 'var(--green-bright)',
                     marginBottom: '0.85rem',
                   }}>
-                    ✦ Artículo destacado
+                    {t('✦ Artículo destacado')}
                   </span>
                   <h2 style={{
                     fontFamily: "'Red Hat Display', sans-serif",
@@ -215,7 +217,7 @@ export default async function BlogPage() {
                       fontSize: '0.88rem',
                       color: 'var(--green-bright)',
                     }}>
-                      Leer artículo <ChevronRight size={15} />
+                      {t('Leer artículo')} <ChevronRight size={15} />
                     </span>
                   </div>
                 </div>
@@ -303,7 +305,7 @@ export default async function BlogPage() {
                             fontSize: '0.82rem',
                             color: 'var(--green-bright)',
                           }}>
-                            Leer <ChevronRight size={13} />
+                            {t('Leer')} <ChevronRight size={13} />
                           </span>
                         </div>
                       </div>

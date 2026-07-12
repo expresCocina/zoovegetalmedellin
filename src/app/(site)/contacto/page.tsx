@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react'
+import { useT } from '@/components/i18n/LanguageProvider'
 
 const contactInfo = [
   {
@@ -35,6 +36,7 @@ const contactInfo = [
 ]
 
 export default function ContactoPage() {
+  const t = useT()
   const [form, setForm] = useState({
     name: '', email: '', phone: '', company: '', subject: '', message: '',
     species: '', format: '', volume: '',
@@ -65,7 +67,7 @@ export default function ContactoPage() {
       setSuccess(true)
       setForm({ name: '', email: '', phone: '', company: '', subject: '', message: '', species: '', format: '', volume: '' })
     } catch {
-      setError('Hubo un error al enviar el mensaje. Por favor intenta de nuevo o escríbenos por WhatsApp.')
+      setError(t('Hubo un error al enviar el mensaje. Por favor intenta de nuevo o escríbenos por WhatsApp.'))
     } finally {
       setLoading(false)
     }
@@ -103,7 +105,7 @@ export default function ContactoPage() {
             textTransform: 'uppercase' as const,
             marginBottom: '1.25rem',
           }}>
-            Cotiza tu Proyecto B2B
+            {t('Cotiza tu Proyecto B2B')}
           </span>
           <h1 style={{
             fontFamily: "'Red Hat Display', sans-serif",
@@ -114,8 +116,8 @@ export default function ContactoPage() {
             lineHeight: 1.05,
             marginBottom: '1rem',
           }}>
-            Cuéntanos tu{' '}
-            <span style={{ color: '#9fd63a' }}>idea de marca</span>
+            {t('Cuéntanos tu')}{' '}
+            <span style={{ color: '#9fd63a' }}>{t('idea de marca')}</span>
           </h1>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
@@ -125,8 +127,7 @@ export default function ContactoPage() {
             maxWidth: '520px',
             margin: '0 auto',
           }}>
-            Atendemos emprendedores, marcas consolidadas y grandes compañías. En 24 horas hábiles
-            te enviamos una propuesta técnica inicial sin costo.
+            {t('Atendemos emprendedores, marcas consolidadas y grandes compañías. En 24 horas hábiles te enviamos una propuesta técnica inicial sin costo.')}
           </p>
         </div>
       </div>
@@ -151,7 +152,7 @@ export default function ContactoPage() {
                 letterSpacing: '-0.03em',
                 marginBottom: '2rem',
               }}>
-                Información de contacto
+                {t('Información de contacto')}
               </h2>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
@@ -191,7 +192,7 @@ export default function ContactoPage() {
                         letterSpacing: '0.02em',
                         textTransform: 'uppercase' as const,
                       }}>
-                        {title}
+                        {t(title)}
                       </div>
                       <div style={{
                         fontFamily: "'Lexend Deca', sans-serif",
@@ -200,7 +201,7 @@ export default function ContactoPage() {
                         lineHeight: 1.6,
                         whiteSpace: 'pre-line' as const,
                       }}>
-                        {content}
+                        {t(content)}
                       </div>
                     </div>
                   </div>
@@ -242,7 +243,7 @@ export default function ContactoPage() {
                     fontSize: '1rem',
                     letterSpacing: '-0.01em',
                   }}>
-                    Escríbenos por WhatsApp
+                    {t('Escríbenos por WhatsApp')}
                   </div>
                   <div style={{
                     fontFamily: "'Lexend Deca', sans-serif",
@@ -250,7 +251,7 @@ export default function ContactoPage() {
                     opacity: 0.9,
                     marginTop: '0.15rem',
                   }}>
-                    Respuesta inmediata · 320 675 53 06
+                    {t('Respuesta inmediata · 320 675 53 06')}
                   </div>
                 </div>
               </a>
@@ -283,7 +284,7 @@ export default function ContactoPage() {
                     letterSpacing: '-0.02em',
                     marginBottom: '0.5rem',
                   }}>
-                    ¡Mensaje enviado!
+                    {t('¡Mensaje enviado!')}
                   </h3>
                   <p style={{
                     fontFamily: "'Lexend Deca', sans-serif",
@@ -292,10 +293,10 @@ export default function ContactoPage() {
                     lineHeight: 1.6,
                     marginBottom: '2rem',
                   }}>
-                    Te responderemos en menos de 24 horas hábiles.
+                    {t('Te responderemos en menos de 24 horas hábiles.')}
                   </p>
                   <button onClick={() => setSuccess(false)} className="btn-primary">
-                    Enviar otro mensaje
+                    {t('Enviar otro mensaje')}
                   </button>
                 </div>
               ) : (
@@ -308,7 +309,7 @@ export default function ContactoPage() {
                     letterSpacing: '-0.02em',
                     marginBottom: '0.5rem',
                   }}>
-                    Cotiza tu proyecto
+                    {t('Cotiza tu proyecto')}
                   </h3>
                   <p style={{
                     fontFamily: "'Lexend Deca', sans-serif",
@@ -317,7 +318,7 @@ export default function ContactoPage() {
                     marginBottom: '1.75rem',
                     lineHeight: 1.5,
                   }}>
-                    Completa el formulario y te enviamos una propuesta técnica en 24 horas hábiles.
+                    {t('Completa el formulario y te enviamos una propuesta técnica en 24 horas hábiles.')}
                   </p>
 
                   <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
@@ -333,7 +334,7 @@ export default function ContactoPage() {
                           marginBottom: '0.45rem',
                           letterSpacing: '0.02em',
                         }}>
-                          Nombre *
+                          {t('Nombre *')}
                         </label>
                         <input
                           type="text"
@@ -341,7 +342,7 @@ export default function ContactoPage() {
                           value={form.name}
                           onChange={(e) => setForm({ ...form, name: e.target.value })}
                           className="input-field"
-                          placeholder="Tu nombre"
+                          placeholder={t('Tu nombre')}
                         />
                       </div>
                       <div>
@@ -354,7 +355,7 @@ export default function ContactoPage() {
                           marginBottom: '0.45rem',
                           letterSpacing: '0.02em',
                         }}>
-                          Email *
+                          {t('Email *')}
                         </label>
                         <input
                           type="email"
@@ -379,7 +380,7 @@ export default function ContactoPage() {
                           marginBottom: '0.45rem',
                           letterSpacing: '0.02em',
                         }}>
-                          Teléfono
+                          {t('Teléfono')}
                         </label>
                         <input
                           type="tel"
@@ -399,14 +400,14 @@ export default function ContactoPage() {
                           marginBottom: '0.45rem',
                           letterSpacing: '0.02em',
                         }}>
-                          Empresa / Marca
+                          {t('Empresa / Marca')}
                         </label>
                         <input
                           type="text"
                           value={form.company}
                           onChange={(e) => setForm({ ...form, company: e.target.value })}
                           className="input-field"
-                          placeholder="Tu empresa"
+                          placeholder={t('Tu empresa')}
                         />
                       </div>
                     </div>
@@ -422,7 +423,7 @@ export default function ContactoPage() {
                         marginBottom: '0.45rem',
                         letterSpacing: '0.02em',
                       }}>
-                        Asunto *
+                        {t('Asunto *')}
                       </label>
                       <select
                         required
@@ -431,12 +432,12 @@ export default function ContactoPage() {
                         className="input-field"
                         style={{ cursor: 'pointer' }}
                       >
-                        <option value="">Selecciona un asunto</option>
-                        <option value="Co-desarrollo de fórmula">Co-desarrollo de fórmula nueva</option>
-                        <option value="Maquila con ICA">Maquila con registro ICA</option>
-                        <option value="Asesoría técnica">Asesoría técnica / nutricional</option>
-                        <option value="Cotización">Cotización de proyecto</option>
-                        <option value="Otro">Otro</option>
+                        <option value="">{t('Selecciona un asunto')}</option>
+                        <option value="Co-desarrollo de fórmula">{t('Co-desarrollo de fórmula nueva')}</option>
+                        <option value="Maquila con ICA">{t('Maquila con registro ICA')}</option>
+                        <option value="Asesoría técnica">{t('Asesoría técnica / nutricional')}</option>
+                        <option value="Cotización">{t('Cotización de proyecto')}</option>
+                        <option value="Otro">{t('Otro')}</option>
                       </select>
                     </div>
 
@@ -448,7 +449,7 @@ export default function ContactoPage() {
                           fontWeight: 700, fontSize: '0.8rem', color: 'var(--gray-700)',
                           marginBottom: '0.45rem', letterSpacing: '0.02em',
                         }}>
-                          Especie de interés
+                          {t('Especie de interés')}
                         </label>
                         <select
                           value={form.species}
@@ -456,16 +457,16 @@ export default function ContactoPage() {
                           className="input-field"
                           style={{ cursor: 'pointer' }}
                         >
-                          <option value="">Seleccionar</option>
-                          <option value="Aves">🐔 Aves</option>
-                          <option value="Caninos">🐕 Caninos</option>
-                          <option value="Cerdos">🐷 Cerdos</option>
-                          <option value="Conejos">🐰 Conejos</option>
-                          <option value="Equinos">🐴 Equinos</option>
-                          <option value="Felinos">🐈 Felinos</option>
-                          <option value="Roedores">🐹 Roedores</option>
-                          <option value="Rumiantes">🐄 Rumiantes</option>
-                          <option value="Varias especies">Varias especies</option>
+                          <option value="">{t('Seleccionar')}</option>
+                          <option value="Aves">{t('🐔 Aves')}</option>
+                          <option value="Caninos">{t('🐕 Caninos')}</option>
+                          <option value="Cerdos">{t('🐷 Cerdos')}</option>
+                          <option value="Conejos">{t('🐰 Conejos')}</option>
+                          <option value="Equinos">{t('🐴 Equinos')}</option>
+                          <option value="Felinos">{t('🐈 Felinos')}</option>
+                          <option value="Roedores">{t('🐹 Roedores')}</option>
+                          <option value="Rumiantes">{t('🐄 Rumiantes')}</option>
+                          <option value="Varias especies">{t('Varias especies')}</option>
                         </select>
                       </div>
                       <div>
@@ -474,7 +475,7 @@ export default function ContactoPage() {
                           fontWeight: 700, fontSize: '0.8rem', color: 'var(--gray-700)',
                           marginBottom: '0.45rem', letterSpacing: '0.02em',
                         }}>
-                          Formato deseado
+                          {t('Formato deseado')}
                         </label>
                         <select
                           value={form.format}
@@ -482,12 +483,12 @@ export default function ContactoPage() {
                           className="input-field"
                           style={{ cursor: 'pointer' }}
                         >
-                          <option value="">Seleccionar</option>
-                          <option value="Bits / Galletas">🦴 Bits / Galletas</option>
-                          <option value="Polvos solubles">🌿 Polvos solubles</option>
-                          <option value="Cremosos / Pastas">🥄 Cremosos / Pastas</option>
-                          <option value="Peletizados">⚙️ Peletizados / Extrusión</option>
-                          <option value="No definido">Aún no definido</option>
+                          <option value="">{t('Seleccionar')}</option>
+                          <option value="Bits / Galletas">{t('🦴 Bits / Galletas')}</option>
+                          <option value="Polvos solubles">{t('🌿 Polvos solubles')}</option>
+                          <option value="Cremosos / Pastas">{t('🥄 Cremosos / Pastas')}</option>
+                          <option value="Peletizados">{t('⚙️ Peletizados / Extrusión')}</option>
+                          <option value="No definido">{t('Aún no definido')}</option>
                         </select>
                       </div>
                     </div>
@@ -499,7 +500,7 @@ export default function ContactoPage() {
                         fontWeight: 700, fontSize: '0.8rem', color: 'var(--gray-700)',
                         marginBottom: '0.45rem', letterSpacing: '0.02em',
                       }}>
-                        Volumen estimado del proyecto
+                        {t('Volumen estimado del proyecto')}
                       </label>
                       <select
                         value={form.volume}
@@ -507,12 +508,12 @@ export default function ContactoPage() {
                         className="input-field"
                         style={{ cursor: 'pointer' }}
                       >
-                        <option value="">Seleccionar</option>
-                        <option value="100 - 300 kg">100 – 300 kg por lote</option>
-                        <option value="300 - 500 kg">300 – 500 kg por lote</option>
-                        <option value="500 - 1000 kg">500 kg – 1 tonelada por lote</option>
-                        <option value="Más de 1 tonelada">Más de 1 tonelada por lote</option>
-                        <option value="No definido">Aún no definido</option>
+                        <option value="">{t('Seleccionar')}</option>
+                        <option value="100 - 300 kg">{t('100 – 300 kg por lote')}</option>
+                        <option value="300 - 500 kg">{t('300 – 500 kg por lote')}</option>
+                        <option value="500 - 1000 kg">{t('500 kg – 1 tonelada por lote')}</option>
+                        <option value="Más de 1 tonelada">{t('Más de 1 tonelada por lote')}</option>
+                        <option value="No definido">{t('Aún no definido')}</option>
                       </select>
                       <p style={{
                         fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.74rem',
@@ -520,7 +521,7 @@ export default function ContactoPage() {
                         alignItems: 'center', gap: '0.35rem',
                       }}>
                         <span style={{ color: '#7ec823', fontWeight: 700 }}>●</span>
-                        Pedido mínimo: <strong style={{ color: 'var(--green-dark)' }}>100 kg por orden de compra</strong>
+                        {t('Pedido mínimo:')} <strong style={{ color: 'var(--green-dark)' }}>{t('100 kg por orden de compra')}</strong>
                       </p>
                     </div>
 
@@ -535,7 +536,7 @@ export default function ContactoPage() {
                         marginBottom: '0.45rem',
                         letterSpacing: '0.02em',
                       }}>
-                        Mensaje *
+                        {t('Mensaje *')}
                       </label>
                       <textarea
                         required
@@ -544,7 +545,7 @@ export default function ContactoPage() {
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
                         className="input-field"
                         style={{ resize: 'none' as const }}
-                        placeholder="Cuéntanos sobre tu proyecto o consulta..."
+                        placeholder={t('Cuéntanos sobre tu proyecto o consulta...')}
                       />
                     </div>
 
@@ -577,12 +578,12 @@ export default function ContactoPage() {
                             borderRadius: '50%',
                             animation: 'spin 0.8s linear infinite',
                           }} />
-                          Enviando...
+                          {t('Enviando...')}
                         </>
                       ) : (
                         <>
                           <Send size={17} />
-                          Enviar mensaje
+                          {t('Enviar mensaje')}
                         </>
                       )}
                     </button>

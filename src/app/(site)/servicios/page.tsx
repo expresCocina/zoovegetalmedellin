@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
+import { getT } from '@/lib/i18n/server'
 
 export const metadata: Metadata = {
   title: 'Maquila y Co-Desarrollo | Zoovegetal',
@@ -162,7 +163,8 @@ const capabilities = [
   { icon: '⭐', title: 'Garantía en alta palatabilidad', desc: 'Desarrollos formulados para máxima aceptación — que les encante de verdad.', highlight: true },
 ]
 
-export default function ServiciosPage() {
+export default async function ServiciosPage() {
+  const t = await getT()
   return (
     <div>
 
@@ -186,22 +188,21 @@ export default function ServiciosPage() {
             fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em',
             textTransform: 'uppercase' as const, marginBottom: '1.5rem',
           }}>
-            Maquila y Co-Desarrollo B2B
+            {t('Maquila y Co-Desarrollo B2B')}
           </span>
           <h1 style={{
             fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
             fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', color: '#ffffff',
             letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: '1.25rem',
           }}>
-            Nosotros fabricamos.<br />
-            <span style={{ color: '#9fd63a' }}>Tú construyes tu marca.</span>
+            {t('Nosotros fabricamos.')}<br />
+            <span style={{ color: '#9fd63a' }}>{t('Tú construyes tu marca.')}</span>
           </h1>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif", fontSize: '1.05rem',
             color: 'rgba(255,255,255,0.65)', lineHeight: 1.8, maxWidth: '620px', margin: '0 auto 2.5rem',
           }}>
-            Co-desarrollo y maquila exclusiva de alimentos y suplementos funcionales para mascotas.
-            Fórmulas 99% naturales, de propiedad del cliente, elaboradas bajo normas BPM.
+            {t('Co-desarrollo y maquila exclusiva de alimentos y suplementos funcionales para mascotas. Fórmulas 99% naturales, de propiedad del cliente, elaboradas bajo normas BPM.')}
           </p>
           <Link href="/contacto" style={{
             display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
@@ -211,7 +212,7 @@ export default function ServiciosPage() {
             fontSize: '0.95rem', textDecoration: 'none',
             boxShadow: '0 8px 32px rgba(126,200,35,0.35)',
           }}>
-            Cotiza tu proyecto de maquila <ArrowRight size={17} />
+            {t('Cotiza tu proyecto de maquila')} <ArrowRight size={17} />
           </Link>
         </div>
       </section>
@@ -220,19 +221,19 @@ export default function ServiciosPage() {
       <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#ffffff' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span className="section-badge">¿Para quién trabajamos?</span>
+            <span className="section-badge">{t('¿Para quién trabajamos?')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
               fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'var(--green-dark)',
               letterSpacing: '-0.03em', marginBottom: '0.75rem',
             }}>
-              Atendemos marcas en todas las etapas
+              {t('Atendemos marcas en todas las etapas')}
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif", fontSize: '1rem',
               color: 'var(--gray-500)', maxWidth: '520px', margin: '0 auto',
             }}>
-              Desde la primera idea hasta el portafolio consolidado. Tu tamaño no importa, tu compromiso sí.
+              {t('Desde la primera idea hasta el portafolio consolidado. Tu tamaño no importa, tu compromiso sí.')}
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
@@ -245,11 +246,11 @@ export default function ServiciosPage() {
                 <h3 style={{
                   fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
                   fontSize: '1.15rem', color: 'var(--green-dark)', marginBottom: '0.6rem',
-                }}>{s.title}</h3>
+                }}>{t(s.title)}</h3>
                 <p style={{
                   fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.88rem',
                   color: 'var(--gray-600)', lineHeight: 1.7, margin: 0,
-                }}>{s.desc}</p>
+                }}>{t(s.desc)}</p>
               </div>
             ))}
           </div>
@@ -260,19 +261,19 @@ export default function ServiciosPage() {
       <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#f8faf5' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span className="section-badge">Proceso de Co-Desarrollo</span>
+            <span className="section-badge">{t('Proceso de Co-Desarrollo')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
               fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'var(--green-dark)',
               letterSpacing: '-0.03em', marginBottom: '0.75rem',
             }}>
-              Del concepto al producto terminado
+              {t('Del concepto al producto terminado')}
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif", fontSize: '1rem',
               color: 'var(--gray-500)', maxWidth: '520px', margin: '0 auto',
             }}>
-              Un proceso transparente, documentado y diseñado para que tu marca llegue al mercado con confianza.
+              {t('Un proceso transparente, documentado y diseñado para que tu marca llegue al mercado con confianza.')}
             </p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -321,7 +322,7 @@ export default function ServiciosPage() {
                     fontSize: '0.75rem', color: phase.accentColor,
                     fontWeight: 600,
                   }}>
-                    Fase {phase.number}
+                    {t('Fase')} {phase.number}
                   </div>
                 </div>
 
@@ -331,21 +332,21 @@ export default function ServiciosPage() {
                     fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.78rem',
                     color: phase.accentColor, fontWeight: 600, letterSpacing: '0.08em',
                     textTransform: 'uppercase' as const, marginBottom: '0.4rem',
-                  }}>{phase.subtitle}</p>
+                  }}>{t(phase.subtitle)}</p>
                   <h3 style={{
                     fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
                     fontSize: '1.4rem', color: 'var(--green-dark)',
                     letterSpacing: '-0.02em', marginBottom: '0.85rem',
-                  }}>{phase.title}</h3>
+                  }}>{t(phase.title)}</h3>
                   <p style={{
                     fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.88rem',
                     color: 'var(--gray-600)', lineHeight: 1.75, marginBottom: '1.25rem',
-                  }}>{phase.desc}</p>
+                  }}>{t(phase.desc)}</p>
                   <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {phase.features.map((f) => (
                       <li key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
                         <CheckCircle size={15} style={{ color: phase.accentColor, flexShrink: 0, marginTop: '2px' }} />
-                        <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.84rem', color: 'var(--gray-700)', lineHeight: 1.5 }}>{f}</span>
+                        <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.84rem', color: 'var(--gray-700)', lineHeight: 1.5 }}>{t(f)}</span>
                       </li>
                     ))}
                   </ul>
@@ -355,7 +356,7 @@ export default function ServiciosPage() {
                     fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.78rem',
                     color: 'var(--gray-600)', lineHeight: 1.5,
                   }}>
-                    <strong style={{ color: phase.accentColor }}>Nota: </strong>{phase.note}
+                    <strong style={{ color: phase.accentColor }}>{t('Nota: ')}</strong>{t(phase.note)}
                   </div>
                 </div>
               </div>
@@ -368,19 +369,19 @@ export default function ServiciosPage() {
       <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#ffffff' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span className="section-badge">Capacidades de Producción</span>
+            <span className="section-badge">{t('Capacidades de Producción')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
               fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'var(--green-dark)',
               letterSpacing: '-0.03em', marginBottom: '0.75rem',
             }}>
-              Formatos que fabricamos para tu marca
+              {t('Formatos que fabricamos para tu marca')}
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif", fontSize: '1rem',
               color: 'var(--gray-500)', maxWidth: '520px', margin: '0 auto',
             }}>
-              Cada formato está diseñado para maximizar la palatabilidad y el valor nutricional según la especie y el objetivo del producto.
+              {t('Cada formato está diseñado para maximizar la palatabilidad y el valor nutricional según la especie y el objetivo del producto.')}
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem' }}>
@@ -393,11 +394,11 @@ export default function ServiciosPage() {
                 <h3 style={{
                   fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
                   fontSize: '1rem', color: 'var(--green-dark)', marginBottom: '0.5rem',
-                }}>{f.title}</h3>
+                }}>{t(f.title)}</h3>
                 <p style={{
                   fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.84rem',
                   color: 'var(--gray-500)', lineHeight: 1.65, margin: 0,
-                }}>{f.desc}</p>
+                }}>{t(f.desc)}</p>
               </div>
             ))}
           </div>
@@ -408,20 +409,19 @@ export default function ServiciosPage() {
       <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#f8faf5' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span className="section-badge">Alcance de desarrollo</span>
+            <span className="section-badge">{t('Alcance de desarrollo')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
               fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'var(--green-dark)',
               letterSpacing: '-0.03em', marginBottom: '0.75rem',
             }}>
-              Para cada especie, lo que tu marca necesite
+              {t('Para cada especie, lo que tu marca necesite')}
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif", fontSize: '1rem',
               color: 'var(--gray-500)', maxWidth: '560px', margin: '0 auto',
             }}>
-              Desarrollamos y maquilamos para las especies de nuestro certificado de habilitación,
-              en una amplia gama de líneas y formatos.
+              {t('Desarrollamos y maquilamos para las especies de nuestro certificado de habilitación, en una amplia gama de líneas y formatos.')}
             </p>
           </div>
 
@@ -435,7 +435,7 @@ export default function ServiciosPage() {
                 fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
                 fontSize: '1.1rem', color: 'var(--green-dark)', marginBottom: '1.25rem',
               }}>
-                Especies que desarrollamos
+                {t('Especies que desarrollamos')}
               </h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
                 {species.map((s) => (
@@ -446,7 +446,7 @@ export default function ServiciosPage() {
                     fontFamily: "'Red Hat Display', sans-serif", fontWeight: 700,
                     fontSize: '0.85rem', color: 'var(--green-dark)',
                   }}>
-                    <span style={{ fontSize: '1.05rem' }}>{s.emoji}</span>{s.label}
+                    <span style={{ fontSize: '1.05rem' }}>{s.emoji}</span>{t(s.label)}
                   </span>
                 ))}
               </div>
@@ -461,13 +461,13 @@ export default function ServiciosPage() {
                 fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
                 fontSize: '1.1rem', color: 'var(--green-dark)', marginBottom: '1.25rem',
               }}>
-                Líneas que fabricamos
+                {t('Líneas que fabricamos')}
               </h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                 {developmentLines.map((line) => (
                   <li key={line} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
                     <CheckCircle size={15} style={{ color: '#7ec823', flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.88rem', color: 'var(--gray-700)', lineHeight: 1.5 }}>{line}</span>
+                    <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.88rem', color: 'var(--gray-700)', lineHeight: 1.5 }}>{t(line)}</span>
                   </li>
                 ))}
               </ul>
@@ -487,7 +487,7 @@ export default function ServiciosPage() {
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
               fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#ffffff', letterSpacing: '-0.01em',
             }}>
-              Mínimo por orden de compra:{' '}
+              {t('Mínimo por orden de compra:')}{' '}
               <span style={{ color: '#9fd63a' }}>100 kg</span>
             </span>
           </div>
@@ -498,19 +498,19 @@ export default function ServiciosPage() {
       <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem', background: '#ffffff' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span className="section-badge">Capacidades de desarrollo</span>
+            <span className="section-badge">{t('Capacidades de desarrollo')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
               fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'var(--green-dark)',
               letterSpacing: '-0.03em', marginBottom: '0.75rem',
             }}>
-              Por qué desarrollar con nosotros
+              {t('Por qué desarrollar con nosotros')}
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif", fontSize: '1rem',
               color: 'var(--gray-500)', maxWidth: '520px', margin: '0 auto',
             }}>
-              Capacidad técnica, cumplimiento normativo y un sello que nos diferencia: la palatabilidad.
+              {t('Capacidad técnica, cumplimiento normativo y un sello que nos diferencia: la palatabilidad.')}
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
@@ -529,7 +529,7 @@ export default function ServiciosPage() {
                     fontSize: '0.6rem', letterSpacing: '0.08em', textTransform: 'uppercase' as const,
                     padding: '0.2rem 0.6rem',
                   }}>
-                    Nuestro sello
+                    {t('Nuestro sello')}
                   </span>
                 )}
                 <div style={{ fontSize: '2rem', marginBottom: '0.85rem' }}>{c.icon}</div>
@@ -537,11 +537,11 @@ export default function ServiciosPage() {
                   fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
                   fontSize: '1.02rem', color: c.highlight ? '#b07210' : 'var(--green-dark)',
                   marginBottom: '0.5rem', lineHeight: 1.25,
-                }}>{c.title}</h3>
+                }}>{t(c.title)}</h3>
                 <p style={{
                   fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.85rem',
                   color: 'var(--gray-600)', lineHeight: 1.65, margin: 0,
-                }}>{c.desc}</p>
+                }}>{t(c.desc)}</p>
               </div>
             ))}
           </div>
@@ -561,13 +561,13 @@ export default function ServiciosPage() {
             fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'var(--green-dark)',
             letterSpacing: '-0.03em', marginBottom: '1rem',
           }}>
-            ¿Listo para crear tu producto?
+            {t('¿Listo para crear tu producto?')}
           </h2>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif", fontSize: '1rem',
             color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: '2rem',
           }}>
-            Cuéntanos tu idea. En 24 horas te respondemos con una propuesta técnica inicial sin costo.
+            {t('Cuéntanos tu idea. En 24 horas te respondemos con una propuesta técnica inicial sin costo.')}
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/contacto" style={{
@@ -578,7 +578,7 @@ export default function ServiciosPage() {
               fontSize: '0.95rem', textDecoration: 'none',
               boxShadow: '0 8px 32px rgba(126,200,35,0.3)',
             }}>
-              Cotizar proyecto <ArrowRight size={17} />
+              {t('Cotizar proyecto')} <ArrowRight size={17} />
             </Link>
             <a href="https://wa.me/573206755306?text=Hola,%20quiero%20cotizar%20un%20proyecto%20de%20maquila%20con%20Zoovegetal." target="_blank" rel="noopener noreferrer" style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
@@ -587,7 +587,7 @@ export default function ServiciosPage() {
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
               fontSize: '0.95rem', textDecoration: 'none',
             }}>
-              WhatsApp directo
+              {t('WhatsApp directo')}
             </a>
           </div>
         </div>

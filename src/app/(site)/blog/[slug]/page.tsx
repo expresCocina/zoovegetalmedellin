@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, Calendar, User } from 'lucide-react'
 import { prisma } from '@/lib/prisma'
 import { formatDate } from '@/lib/utils'
+import { getT } from '@/lib/i18n/server'
 
 async function getPost(slug: string) {
   try {
@@ -27,6 +28,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params
   const post = await getPost(slug)
   if (!post) notFound()
+  const t = await getT()
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--off-white)' }}>
@@ -64,7 +66,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             }}
           >
             <ArrowLeft size={15} />
-            Volver al blog
+            {t('Volver al blog')}
           </Link>
 
           <h1 style={{
@@ -152,7 +154,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             style={{ display: 'inline-flex', fontSize: '0.9rem' }}
           >
             <ArrowLeft size={16} />
-            Volver al blog
+            {t('Volver al blog')}
           </Link>
         </div>
       </div>

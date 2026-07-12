@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import { getSetting } from '@/lib/settings'
+import { getT } from '@/lib/i18n/server'
 
 export const metadata: Metadata = {
   title: 'Presentaciones | Zoovegetal',
@@ -49,6 +50,7 @@ function parsePresentations(raw: string | null): string[] {
 
 export default async function PresentacionesPage() {
   const gallery = parsePresentations(await getSetting('hero_presentations'))
+  const t = await getT()
 
   return (
     <div>
@@ -75,21 +77,20 @@ export default async function PresentacionesPage() {
             fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.12em',
             textTransform: 'uppercase' as const, marginBottom: '1.25rem',
           }}>
-            Presentaciones
+            {t('Presentaciones')}
           </span>
           <h1 style={{
             fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
             fontSize: 'clamp(2.5rem, 6vw, 4rem)', color: '#ffffff',
             letterSpacing: '-0.04em', lineHeight: 1.05, marginBottom: '1rem',
           }}>
-            Presentaciones que<br />fabricamos para tu marca
+            {t('Presentaciones que')}<br />{t('fabricamos para tu marca')}
           </h1>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif", fontSize: '1rem',
             color: 'rgba(255,255,255,0.68)', lineHeight: 1.7, maxWidth: '560px', margin: '0 auto',
           }}>
-            Maquilamos en distintos formatos según el objetivo de tu producto. Cada presentación
-            es personalizable, 99% natural y de propiedad exclusiva del cliente.
+            {t('Maquilamos en distintos formatos según el objetivo de tu producto. Cada presentación es personalizable, 99% natural y de propiedad exclusiva del cliente.')}
           </p>
         </div>
       </div>
@@ -116,7 +117,7 @@ export default async function PresentacionesPage() {
                     fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
                     fontSize: '1.5rem', color: 'var(--green-dark)', letterSpacing: '-0.02em',
                   }}>
-                    {p.title}
+                    {t(p.title)}
                   </h3>
                 </div>
                 <div style={{
@@ -127,13 +128,13 @@ export default async function PresentacionesPage() {
                     fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.92rem',
                     color: 'var(--gray-600)', lineHeight: 1.7, marginBottom: '1.25rem',
                   }}>
-                    {p.desc}
+                    {t(p.desc)}
                   </p>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {p.points.map((pt) => (
                       <li key={pt} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
                         <CheckCircle size={15} style={{ color: p.accent, flexShrink: 0 }} />
-                        <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.85rem', color: 'var(--gray-700)' }}>{pt}</span>
+                        <span style={{ fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.85rem', color: 'var(--gray-700)' }}>{t(pt)}</span>
                       </li>
                     ))}
                   </ul>
@@ -155,7 +156,7 @@ export default async function PresentacionesPage() {
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
               fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: '#ffffff', letterSpacing: '-0.01em',
             }}>
-              Mínimo por orden de compra: <span style={{ color: '#9fd63a' }}>100 kg</span>
+              {t('Mínimo por orden de compra:')} <span style={{ color: '#9fd63a' }}>100 kg</span>
             </span>
           </div>
         </div>
@@ -166,13 +167,13 @@ export default async function PresentacionesPage() {
         <section style={{ padding: 'clamp(3.5rem, 7vw, 5rem) 1.5rem', background: '#f8faf5' }}>
           <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-              <span className="section-badge">Galería</span>
+              <span className="section-badge">{t('Galería')}</span>
               <h2 style={{
                 fontFamily: "'Red Hat Display', sans-serif", fontWeight: 900,
                 fontSize: 'clamp(1.7rem, 3.5vw, 2.5rem)', color: 'var(--green-dark)',
                 letterSpacing: '-0.03em',
               }}>
-                Algunas presentaciones que hemos creado
+                {t('Algunas presentaciones que hemos creado')}
               </h2>
             </div>
             <div style={{
@@ -215,7 +216,7 @@ export default async function PresentacionesPage() {
             letterSpacing: '-0.03em',
             marginBottom: '0.75rem',
           }}>
-            ¿Quieres tu marca en estas presentaciones?
+            {t('¿Quieres tu marca en estas presentaciones?')}
           </h2>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
@@ -224,10 +225,10 @@ export default async function PresentacionesPage() {
             marginBottom: '2rem',
             lineHeight: 1.65,
           }}>
-            Co-desarrollamos y maquilamos tu línea con fórmula personalizada, ingredientes 99% naturales y propiedad exclusiva del cliente.
+            {t('Co-desarrollamos y maquilamos tu línea con fórmula personalizada, ingredientes 99% naturales y propiedad exclusiva del cliente.')}
           </p>
           <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.95rem' }}>
-            Cotiza tu proyecto de maquila
+            {t('Cotiza tu proyecto de maquila')}
             <ArrowRight size={17} />
           </Link>
         </div>

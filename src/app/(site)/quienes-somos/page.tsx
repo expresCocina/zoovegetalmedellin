@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { CheckCircle, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { getT } from '@/lib/i18n/server'
 
 export const metadata: Metadata = {
   title: 'Quiénes Somos | Zoovegetal',
@@ -90,7 +91,8 @@ const team = [
   },
 ]
 
-export default function QuienesSomosPage() {
+export default async function QuienesSomosPage() {
+  const t = await getT()
   return (
     <div>
       {/* ── Hero ── */}
@@ -123,7 +125,7 @@ export default function QuienesSomosPage() {
             textTransform: 'uppercase' as const,
             marginBottom: '1.5rem',
           }}>
-            Nuestra Historia
+            {t('Nuestra Historia')}
           </span>
           <h1 style={{
             fontFamily: "'Red Hat Display', sans-serif",
@@ -134,8 +136,8 @@ export default function QuienesSomosPage() {
             lineHeight: 1.0,
             marginBottom: '1.25rem',
           }}>
-            Tu aliado en{' '}
-            <span style={{ color: '#9fd63a' }}>nutrición animal</span>
+            {t('Tu aliado en')}{' '}
+            <span style={{ color: '#9fd63a' }}>{t('nutrición animal')}</span>
           </h1>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
@@ -145,9 +147,7 @@ export default function QuienesSomosPage() {
             maxWidth: '580px',
             margin: '0 auto',
           }}>
-            Desde 2015 en Medellín, somos el laboratorio de desarrollo y la planta de manufactura
-            que las marcas necesitan para lanzar productos de nutrición animal 99% naturales bajo
-            su propia marca.
+            {t('Desde 2015 en Medellín, somos el laboratorio de desarrollo y la planta de manufactura que las marcas necesitan para lanzar productos de nutrición animal 99% naturales bajo su propia marca.')}
           </p>
         </div>
       </div>
@@ -163,7 +163,7 @@ export default function QuienesSomosPage() {
           }}>
             {/* Left — mission text — CONDENSADO */}
             <div>
-              <span className="section-badge">Misión</span>
+              <span className="section-badge">{t('Misión')}</span>
               <h2 style={{
                 fontFamily: "'Red Hat Display', sans-serif",
                 fontWeight: 900,
@@ -173,8 +173,8 @@ export default function QuienesSomosPage() {
                 lineHeight: 1.05,
                 marginBottom: '1.5rem',
               }}>
-                Desarrollamos soluciones.<br />
-                <span style={{ color: 'var(--green-bright)' }}>Tú construyes la marca.</span>
+                {t('Desarrollamos soluciones.')}<br />
+                <span style={{ color: 'var(--green-bright)' }}>{t('Tú construyes la marca.')}</span>
               </h2>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem', marginBottom: '2.25rem' }}>
@@ -190,18 +190,18 @@ export default function QuienesSomosPage() {
                       fontSize: '0.95rem',
                       color: 'var(--gray-600)',
                       lineHeight: 1.75,
-                    }}>{pt.txt}</p>
+                    }}>{t(pt.txt)}</p>
                   </div>
                 ))}
               </div>
 
               <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
                 <Link href="/contacto" className="btn-primary">
-                  Trabajar con nosotros
+                  {t('Trabajar con nosotros')}
                   <ArrowRight size={17} />
                 </Link>
                 <Link href="/servicios" className="btn-amber">
-                  Ver servicios
+                  {t('Ver servicios')}
                 </Link>
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function QuienesSomosPage() {
                     letterSpacing: '-0.01em',
                     marginBottom: '0.5rem',
                   }}>
-                    {v.title}
+                    {t(v.title)}
                   </h3>
                   <p style={{
                     fontFamily: "'Lexend Deca', sans-serif",
@@ -235,7 +235,7 @@ export default function QuienesSomosPage() {
                     color: 'var(--gray-600)',
                     lineHeight: 1.65,
                   }}>
-                    {v.desc}
+                    {t(v.desc)}
                   </p>
                 </div>
               ))}
@@ -248,7 +248,7 @@ export default function QuienesSomosPage() {
       <section style={{ padding: '7rem 1.5rem', background: 'var(--off-white)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span className="section-badge">Nuestro Equipo</span>
+            <span className="section-badge">{t('Nuestro Equipo')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
@@ -258,8 +258,8 @@ export default function QuienesSomosPage() {
               lineHeight: 1.05,
               marginBottom: '1rem',
             }}>
-              Las personas detrás{' '}
-              <span style={{ color: 'var(--green-bright)' }}>de cada producto</span>
+              {t('Las personas detrás')}{' '}
+              <span style={{ color: 'var(--green-bright)' }}>{t('de cada producto')}</span>
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif",
@@ -269,7 +269,7 @@ export default function QuienesSomosPage() {
               margin: '0 auto',
               lineHeight: 1.7,
             }}>
-              Somos un equipo pequeño y apasionado. La transparencia comienza aquí.
+              {t('Somos un equipo pequeño y apasionado. La transparencia comienza aquí.')}
             </p>
           </div>
 
@@ -312,7 +312,7 @@ export default function QuienesSomosPage() {
                     letterSpacing: '-0.02em',
                     marginBottom: '0.25rem',
                   }}>
-                    {member.name}
+                    {t(member.name)}
                   </h3>
                   <span style={{
                     fontFamily: "'Red Hat Display', sans-serif",
@@ -322,7 +322,7 @@ export default function QuienesSomosPage() {
                     letterSpacing: '0.05em',
                     textTransform: 'uppercase' as const,
                   }}>
-                    {member.role}
+                    {t(member.role)}
                   </span>
                 </div>
                 <p style={{
@@ -331,7 +331,7 @@ export default function QuienesSomosPage() {
                   color: 'var(--gray-600)',
                   lineHeight: 1.7,
                 }}>
-                  {member.bio}
+                  {t(member.bio)}
                 </p>
               </div>
             ))}
@@ -343,7 +343,7 @@ export default function QuienesSomosPage() {
       <section style={{ padding: '7rem 1.5rem', background: '#ffffff' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <span className="section-badge">Ingredientes</span>
+            <span className="section-badge">{t('Ingredientes')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
@@ -352,8 +352,8 @@ export default function QuienesSomosPage() {
               letterSpacing: '-0.03em',
               lineHeight: 1.1,
             }}>
-              Solo ingredientes de{' '}
-              <span style={{ color: 'var(--green-bright)' }}>grado humano</span>
+              {t('Solo ingredientes de')}{' '}
+              <span style={{ color: 'var(--green-bright)' }}>{t('grado humano')}</span>
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif",
@@ -363,7 +363,7 @@ export default function QuienesSomosPage() {
               margin: '1rem auto 0',
               lineHeight: 1.7,
             }}>
-              Las mismas materias primas que se usan en alimentos para personas. Sin atajos.
+              {t('Las mismas materias primas que se usan en alimentos para personas. Sin atajos.')}
             </p>
           </div>
 
@@ -388,7 +388,7 @@ export default function QuienesSomosPage() {
                   color: 'var(--green-dark)',
                   letterSpacing: '-0.01em',
                 }}>
-                  {p.name}
+                  {t(p.name)}
                 </div>
                 <div style={{
                   fontFamily: "'Lexend Deca', sans-serif",
@@ -397,7 +397,7 @@ export default function QuienesSomosPage() {
                   marginTop: '0.2rem',
                   fontWeight: 500,
                 }}>
-                  Proteína {p.type}
+                  {t('Proteína')} {t(p.type)}
                 </div>
               </div>
             ))}
@@ -428,7 +428,7 @@ export default function QuienesSomosPage() {
                   letterSpacing: '-0.01em',
                   marginBottom: '0.6rem',
                 }}>
-                  {item.title}
+                  {t(item.title)}
                 </h3>
                 <p style={{
                   fontFamily: "'Lexend Deca', sans-serif",
@@ -436,7 +436,7 @@ export default function QuienesSomosPage() {
                   color: 'var(--gray-500)',
                   lineHeight: 1.7,
                 }}>
-                  {item.desc}
+                  {t(item.desc)}
                 </p>
               </div>
             ))}
@@ -474,7 +474,7 @@ export default function QuienesSomosPage() {
               textTransform: 'uppercase' as const,
               marginBottom: '1.2rem',
             }}>
-              Calidad Garantizada
+              {t('Calidad Garantizada')}
             </span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
@@ -483,7 +483,7 @@ export default function QuienesSomosPage() {
               color: '#ffffff',
               letterSpacing: '-0.03em',
             }}>
-              Certificaciones y estándares
+              {t('Certificaciones y estándares')}
             </h2>
             <p style={{
               fontFamily: "'Lexend Deca', sans-serif",
@@ -494,7 +494,7 @@ export default function QuienesSomosPage() {
               margin: '1rem auto 0',
               lineHeight: 1.65,
             }}>
-              No es marketing. Es documentación verificable que protege a tu marca y a los animales.
+              {t('No es marketing. Es documentación verificable que protege a tu marca y a los animales.')}
             </p>
           </div>
 
@@ -514,7 +514,7 @@ export default function QuienesSomosPage() {
                   letterSpacing: '-0.01em',
                   marginBottom: '0.5rem',
                 }}>
-                  {cert.title}
+                  {t(cert.title)}
                 </h3>
                 <p style={{
                   fontFamily: "'Lexend Deca', sans-serif",
@@ -522,7 +522,7 @@ export default function QuienesSomosPage() {
                   color: 'rgba(255,255,255,0.58)',
                   lineHeight: 1.6,
                 }}>
-                  {cert.sub}
+                  {t(cert.sub)}
                 </p>
               </div>
             ))}
@@ -534,7 +534,7 @@ export default function QuienesSomosPage() {
       <section style={{ padding: '7rem 1.5rem', background: '#ffffff' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <span className="section-badge">Historia</span>
+            <span className="section-badge">{t('Historia')}</span>
             <h2 style={{
               fontFamily: "'Red Hat Display', sans-serif",
               fontWeight: 900,
@@ -542,7 +542,7 @@ export default function QuienesSomosPage() {
               color: 'var(--green-dark)',
               letterSpacing: '-0.03em',
             }}>
-              Nuestro camino
+              {t('Nuestro camino')}
             </h2>
           </div>
 
@@ -595,7 +595,7 @@ export default function QuienesSomosPage() {
                       lineHeight: 1.65,
                       fontWeight: item.active ? 600 : 400,
                     }}>
-                      {item.event}
+                      {t(item.event)}
                     </p>
                   </div>
                 </div>
@@ -620,7 +620,7 @@ export default function QuienesSomosPage() {
             letterSpacing: '-0.03em',
             marginBottom: '1rem',
           }}>
-            ¿Quieres crecer tu marca con nosotros?
+            {t('¿Quieres crecer tu marca con nosotros?')}
           </h2>
           <p style={{
             fontFamily: "'Lexend Deca', sans-serif",
@@ -629,10 +629,10 @@ export default function QuienesSomosPage() {
             lineHeight: 1.75,
             marginBottom: '2.5rem',
           }}>
-            Somos el aliado que tu marca de alimentos para mascotas necesita.
+            {t('Somos el aliado que tu marca de alimentos para mascotas necesita.')}
           </p>
           <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.95rem' }}>
-            Contactar ahora
+            {t('Contactar ahora')}
             <ArrowRight size={17} />
           </Link>
         </div>
