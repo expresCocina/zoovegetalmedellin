@@ -612,7 +612,7 @@ export default async function HomePage() {
 
           <div style={{ textAlign: 'center', marginTop: '3rem' }}>
             <Link href="/servicios" className="btn-primary" style={{ fontSize: '0.95rem' }}>
-              Conocer todos los servicios
+              {t('Conocer todos los servicios')}
               <ArrowRight size={17} />
             </Link>
           </div>

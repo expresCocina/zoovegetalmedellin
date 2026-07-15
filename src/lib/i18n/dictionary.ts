@@ -196,6 +196,7 @@ export const en: Record<string, string> = {
   'Cuatro pilares que garantizan el éxito de cada proyecto de maquila. Lo que nos hace el aliado estratégico ideal para tu marca.':
     'Four pillars that guarantee the success of every manufacturing project. What makes us the ideal strategic partner for your brand.',
   'Conocer más sobre nosotros': 'Learn more about us',
+  'Conocer todos los servicios': 'See all services',
   'Hablar con un experto': 'Talk to an expert',
   'Conocimiento para marcas del sector animal': 'Knowledge for brands in the animal sector',
   'Ver todos': 'See all',
@@ -572,6 +573,21 @@ const morePages: Record<string, string> = {
   '¿Quieres crecer tu marca con nosotros?': 'Want to grow your brand with us?',
   'Somos el aliado que tu marca de alimentos para mascotas necesita.':
     'We are the partner your pet food brand needs.',
+
+  // ── Detalle de producto ──
+  'Volver a productos': 'Back to products',
+  'Destacado': 'Featured',
+  'Descripción detallada': 'Detailed description',
+  'Lo que incluye la maquila': 'What the manufacturing includes',
+  'Fórmula 100% de propiedad del cliente': 'Formula 100% owned by the client',
+  'Ingredientes 99% naturales · grado humano': '99% natural ingredients · human grade',
+  'Fabricación bajo normas BPM ICA': 'Manufacturing under GMP ICA standards',
+  'Maquila exclusiva bajo tu marca': 'Exclusive manufacturing under your brand',
+  'Acompañamiento técnico en registro ICA': 'Technical support with ICA registration',
+  'Cotizar maquila por WhatsApp': 'Quote manufacturing via WhatsApp',
+  'Solicitar cotización': 'Request a quote',
+  'Pequeños Mamíferos': 'Small Mammals',
+  'Porcinos': 'Pigs',
 
   // ── Blog / genéricos ──
   'Ver todos los artículos': 'See all articles',
