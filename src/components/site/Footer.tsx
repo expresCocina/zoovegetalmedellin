@@ -10,9 +10,10 @@ const footerLinks = {
     { href: '/contacto', label: 'Contacto' },
   ],
   productos: [
-    { href: '/productos', label: '🦴 Croqueta' },
+    { href: '/productos', label: '🦴 Bits o galletas' },
+    { href: '/productos', label: '🥄 Polvos funcionales' },
+    { href: '/productos', label: '❄️ Prensado en frío' },
     { href: '/productos', label: '⚙️ Peletizado' },
-    { href: '/productos', label: '🥄 Polvo' },
     { href: '/productos', label: 'Ver presentaciones →' },
   ],
   servicios: [

@@ -1,39 +1,33 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useT } from '@/components/i18n/LanguageProvider'
 
-const notifications = [
-  { name: 'Laura M.', city: 'Medellín', product: 'Galletas Naturales para Perros', emoji: '🐾', time: 'hace 2 min' },
-  { name: 'Carlos R.', city: 'Bogotá', product: 'Snacks de Pollo Deshidratado', emoji: '🐶', time: 'hace 5 min' },
-  { name: 'Sofía V.', city: 'Cali', product: 'Concentrado Premium Canino', emoji: '🐕', time: 'hace 8 min' },
-  { name: 'Andrés P.', city: 'Barranquilla', product: 'Snacks Naturales para Gatos', emoji: '🐱', time: 'hace 3 min' },
-  { name: 'Valentina G.', city: 'Pereira', product: 'Concentrado Premium Felino', emoji: '🐈', time: 'hace 6 min' },
-  { name: 'Jorge H.', city: 'Bucaramanga', product: 'Snacks de Avena y Miel para Caballos', emoji: '🐴', time: 'hace 4 min' },
-  { name: 'Natalia C.', city: 'Manizales', product: 'Suplemento Articular Canino', emoji: '💊', time: 'hace 7 min' },
-  { name: 'Felipe O.', city: 'Santa Marta', product: 'Concentrado Equino Premium', emoji: '🌾', time: 'hace 9 min' },
-  { name: 'Daniela T.', city: 'Cartagena', product: 'Comida Cocida Congelada Canina', emoji: '🥩', time: 'hace 1 min' },
-  { name: 'Sebastián L.', city: 'Ibagué', product: 'Multivitamínico en Polvo Canino', emoji: '✨', time: 'hace 11 min' },
+// Mensajes por defecto (si el admin no configura ninguno).
+// Reafirman la alimentación y suplementación natural de alta palatabilidad.
+const DEFAULT_MESSAGES = [
+  'Alimentación natural de alta palatabilidad',
+  'Suplementación natural para tu mascota',
+  'Proteína animal real · sin harinas de sangre',
+  'Fórmulas 99% naturales, grado humano',
+  'Desarrollos con garantía de palatabilidad',
 ]
 
-export default function SocialProofPopup() {
-  const t = useT()
+export default function SocialProofPopup({ messages }: { messages: string[] }) {
+  const list = messages.length > 0 ? messages : DEFAULT_MESSAGES
   const [visible, setVisible] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [exiting, setExiting] = useState(false)
 
   useEffect(() => {
-    const shuffledIndexes = notifications
-      .map((_, i) => i)
-      .sort(() => Math.random() - 0.5)
+    if (list.length === 0) return
+    const order = list.map((_, i) => i).sort(() => Math.random() - 0.5)
     let pos = 0
     let interval: ReturnType<typeof setInterval>
 
     const show = () => {
-      setCurrentIndex(shuffledIndexes[pos % shuffledIndexes.length])
+      setCurrentIndex(order[pos % order.length])
       setExiting(false)
       setVisible(true)
-
       setTimeout(() => {
         setExiting(true)
         setTimeout(() => {
@@ -52,11 +46,12 @@ export default function SocialProofPopup() {
       clearTimeout(initialDelay)
       clearInterval(interval)
     }
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [messages])
 
-  const notif = notifications[currentIndex]
+  if (list.length === 0 || !visible) return null
 
-  if (!visible) return null
+  const message = list[currentIndex]
 
   return (
     <div
@@ -87,7 +82,7 @@ export default function SocialProofPopup() {
           display: 'flex',
           alignItems: 'center',
           gap: '12px',
-          maxWidth: '300px',
+          maxWidth: '320px',
           border: '1px solid rgba(0,0,0,0.06)',
         }}
       >
@@ -105,7 +100,7 @@ export default function SocialProofPopup() {
             flexShrink: 0,
           }}
         >
-          {notif.emoji}
+          🌿
         </div>
 
         {/* Texto */}
@@ -113,45 +108,29 @@ export default function SocialProofPopup() {
           <p
             style={{
               margin: 0,
-              fontSize: '12px',
-              color: '#6b7280',
-              fontFamily: "'Lexend Deca', sans-serif",
-              lineHeight: 1.3,
-            }}
-          >
-            <strong style={{ color: '#1a1a1a', fontWeight: 600 }}>{notif.name}</strong>
-            {t(' de ')}
-            <strong style={{ color: '#1a1a1a', fontWeight: 600 }}>{notif.city}</strong>
-            {t(' adquirió')}
-          </p>
-          <p
-            style={{
-              margin: '2px 0 0',
               fontSize: '13px',
               fontWeight: 700,
-              color: '#2d6a00',
-              fontFamily: "'Lexend Deca', sans-serif",
-              lineHeight: 1.3,
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
+              color: '#1a1a1a',
+              fontFamily: "'Red Hat Display', sans-serif",
+              lineHeight: 1.35,
             }}
           >
-            {t(notif.product)}
+            {message}
           </p>
           <p
             style={{
-              margin: '3px 0 0',
+              margin: '4px 0 0',
               fontSize: '11px',
-              color: '#9ca3af',
+              color: '#2d6a00',
               fontFamily: "'Lexend Deca', sans-serif",
+              fontWeight: 600,
               display: 'flex',
               alignItems: 'center',
               gap: '4px',
             }}
           >
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4ade80', display: 'inline-block', flexShrink: 0 }} />
-            {t(notif.time)} · {t('Verificado')}
+            Zoovegetal · Nutrición Animal
           </p>
         </div>
       </div>

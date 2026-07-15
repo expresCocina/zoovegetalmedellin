@@ -281,21 +281,10 @@ export default async function ServiciosPage() {
               <div
                 key={phase.id}
                 id={phase.id}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: i % 2 === 0 ? '1fr 1.1fr' : '1.1fr 1fr',
-                  gap: '2.5rem',
-                  alignItems: 'center',
-                  background: '#ffffff',
-                  borderRadius: '24px',
-                  overflow: 'hidden',
-                  border: '1px solid var(--gray-100)',
-                  boxShadow: 'var(--shadow-sm)',
-                }}
+                className={`svc-phase ${i % 2 === 0 ? '' : 'svc-phase--reverse'}`}
               >
                 {/* Visual side */}
-                <div style={{
-                  order: i % 2 === 0 ? 0 : 1,
+                <div className="svc-phase-visual" style={{
                   background: phase.bgColor,
                   padding: '3rem 2.5rem',
                   display: 'flex', flexDirection: 'column',
@@ -327,7 +316,7 @@ export default async function ServiciosPage() {
                 </div>
 
                 {/* Content side */}
-                <div style={{ order: i % 2 === 0 ? 1 : 0, padding: '2.5rem' }}>
+                <div className="svc-phase-content" style={{ padding: '2.5rem' }}>
                   <p style={{
                     fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.78rem',
                     color: phase.accentColor, fontWeight: 600, letterSpacing: '0.08em',
@@ -487,8 +476,9 @@ export default async function ServiciosPage() {
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
               fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#ffffff', letterSpacing: '-0.01em',
             }}>
-              {t('Mínimo por orden de compra:')}{' '}
-              <span style={{ color: '#9fd63a' }}>100 kg</span>
+              {t('Mínimo de producción:')}{' '}
+              <span style={{ color: '#9fd63a' }}>100 kg</span>{' '}
+              {t('por referencia en orden de compra')}
             </span>
           </div>
         </div>

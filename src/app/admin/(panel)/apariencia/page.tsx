@@ -1,13 +1,15 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { Palette, Save, Check, Info, Images } from 'lucide-react'
+import { Palette, Save, Check, Info, Images, Tag } from 'lucide-react'
 import ImageUpload from '@/components/admin/ImageUpload'
 import MultiImageUpload from '@/components/admin/MultiImageUpload'
+import StringListInput from '@/components/admin/StringListInput'
 
 export default function AdminAparienciaPage() {
   const [heroBg, setHeroBg] = useState<string | null>(null)
   const [presentations, setPresentations] = useState<string[]>([])
+  const [messages, setMessages] = useState<string[]>([])
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -24,6 +26,12 @@ export default function AdminAparienciaPage() {
         setPresentations(Array.isArray(parsed) ? parsed : [])
       } catch {
         setPresentations([])
+      }
+      try {
+        const parsedM = data.social_messages ? JSON.parse(data.social_messages) : []
+        setMessages(Array.isArray(parsedM) ? parsedM : [])
+      } catch {
+        setMessages([])
       }
     } finally {
       setLoading(false)
@@ -43,6 +51,7 @@ export default function AdminAparienciaPage() {
         body: JSON.stringify({
           hero_background: heroBg ?? '',
           hero_presentations: JSON.stringify(presentations),
+          social_messages: JSON.stringify(messages),
         }),
       })
       if (!res.ok) {
@@ -188,6 +197,45 @@ export default function AdminAparienciaPage() {
             El recuadro las recorta a proporción 4:3.
           </p>
         </div>
+      </div>
+
+      {/* Card: Marcas (habladores) */}
+      <div style={{
+        background: '#ffffff', borderRadius: '20px', padding: '1.75rem', marginTop: '1.25rem',
+        border: '1px solid var(--gray-100)', boxShadow: 'var(--shadow-sm)', maxWidth: '640px',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
+          <Tag size={17} style={{ color: '#ec4899' }} />
+          <h2 style={{
+            fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+            fontSize: '1.05rem', color: 'var(--gray-900)',
+          }}>
+            Mensajes del aviso (habladores)
+          </h2>
+        </div>
+        <p style={{
+          fontFamily: "'Lexend Deca', sans-serif", fontSize: '0.82rem',
+          color: 'var(--gray-500)', lineHeight: 1.55, marginBottom: '1.25rem',
+        }}>
+          Frases que aparecen en el aviso animado (abajo a la izquierda del sitio), rotando una por
+          una. Ideal para reafirmar la alimentación y suplementación natural de alta palatabilidad.
+          Si no agregas ninguna, se muestran unos mensajes por defecto.
+        </p>
+
+        {loading ? (
+          <div style={{
+            height: '54px', borderRadius: '12px', background: '#f1f5f9',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <div style={{
+              width: '28px', height: '28px', border: '3px solid var(--gray-200)',
+              borderTopColor: 'var(--green-bright)', borderRadius: '50%',
+              animation: 'spin 0.8s linear infinite',
+            }} />
+          </div>
+        ) : (
+          <StringListInput value={messages} onChange={setMessages} placeholder="Ej: Alimentación natural de alta palatabilidad" max={40} />
+        )}
       </div>
 
       {error && (

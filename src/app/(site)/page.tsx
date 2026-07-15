@@ -446,9 +446,10 @@ export default async function HomePage() {
               gap: '1.5rem',
             }}>
               {[
-                { emoji: '🦴', title: 'Croqueta', desc: 'Alimento balanceado en formato croqueta, con alta palatabilidad y densidad nutricional.', bg: '#f0f9e0', accent: '#7ec823' },
-                { emoji: '⚙️', title: 'Peletizado', desc: 'Peletizado por extrusión en frío. Alta concentración de nutrientes para suplementación.', bg: '#edf7ec', accent: '#063b05' },
-                { emoji: '🥄', title: 'Polvo', desc: 'Suplementos y mezclas en polvo, de fácil dosificación y alta absorción.', bg: '#fff8ec', accent: '#f5a623' },
+                { emoji: '🦴', title: 'Bits o galletas', desc: 'Snacks funcionales de alta palatabilidad, ideales como premios con propósito nutricional.', bg: '#f0f9e0', accent: '#7ec823' },
+                { emoji: '🥄', title: 'Polvos funcionales', desc: 'Suplementos y mezclas en polvo, de fácil dosificación y alta absorción.', bg: '#fff8ec', accent: '#f5a623' },
+                { emoji: '❄️', title: 'Prensado en frío', desc: 'Elaborado por prensado en frío, preservando al máximo los nutrientes y la palatabilidad.', bg: '#edf7ec', accent: '#063b05' },
+                { emoji: '⚙️', title: 'Peletizado', desc: 'Formato peletizado de alta densidad nutricional, ideal para líneas especializadas.', bg: '#f0f9e0', accent: '#7ec823' },
               ].map((p) => (
                 <Link key={p.title} href="/productos" className="card" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column', textDecoration: 'none' }}>
                   <div style={{
@@ -487,6 +488,26 @@ export default async function HomePage() {
                   </div>
                 </Link>
               ))}
+            </div>
+
+            {/* Resalte: palatabilidad y proteína animal real */}
+            <div style={{
+              marginTop: '1.75rem',
+              display: 'flex', alignItems: 'center', gap: '1rem',
+              flexWrap: 'wrap', justifyContent: 'center', textAlign: 'center',
+              background: 'linear-gradient(135deg, #fff8ec 0%, #fff3d6 100%)',
+              border: '1.5px solid rgba(245,166,35,0.4)',
+              borderRadius: '20px', padding: '1.5rem 2rem',
+            }}>
+              <span style={{ fontSize: '1.75rem' }}>🥩</span>
+              <span style={{
+                fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+                fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: '#b07210', letterSpacing: '-0.01em', lineHeight: 1.4,
+              }}>
+                {t('Productos altamente palatables, con proteína animal real')}
+                {' — '}
+                <span style={{ color: '#c0392b' }}>{t('no harinas de sangre')}</span>
+              </span>
             </div>
           </div>
         </section>

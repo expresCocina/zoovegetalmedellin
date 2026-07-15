@@ -521,7 +521,7 @@ export default function ContactoPage() {
                         alignItems: 'center', gap: '0.35rem',
                       }}>
                         <span style={{ color: '#7ec823', fontWeight: 700 }}>●</span>
-                        {t('Pedido mínimo:')} <strong style={{ color: 'var(--green-dark)' }}>{t('100 kg por orden de compra')}</strong>
+                        {t('Mínimo de producción:')} <strong style={{ color: 'var(--green-dark)' }}>100 kg</strong> {t('por referencia en orden de compra')}
                       </p>
                     </div>
 

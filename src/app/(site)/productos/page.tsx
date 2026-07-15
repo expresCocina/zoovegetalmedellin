@@ -14,27 +14,35 @@ export const dynamic = 'force-dynamic'
 const presentations = [
   {
     emoji: '🦴',
-    title: 'Croqueta',
-    desc: 'Alimento balanceado en formato croqueta, con la palatabilidad y densidad nutricional que tu marca necesita.',
+    title: 'Bits o galletas',
+    desc: 'Snacks funcionales de alta palatabilidad, ideales como premios con propósito nutricional.',
     points: ['Alta palatabilidad', 'Fórmula personalizada', 'Empacado bajo tu marca'],
     bg: 'linear-gradient(135deg, #f0f9e0 0%, #e8f5d0 100%)',
     accent: '#7ec823',
   },
   {
-    emoji: '⚙️',
-    title: 'Peletizado',
-    desc: 'Peletizado por extrusión en frío. Alta concentración de nutrientes, ideal para suplementación especializada.',
-    points: ['Extrusión en frío', 'Alta densidad nutricional', 'Ideal para suplementos'],
-    bg: 'linear-gradient(135deg, #edf7ec 0%, #dff0de 100%)',
-    accent: '#063b05',
-  },
-  {
     emoji: '🥄',
-    title: 'Polvo',
+    title: 'Polvos funcionales',
     desc: 'Suplementos y mezclas en polvo, de fácil dosificación y alta absorción para el día a día.',
     points: ['Fácil dosificación', 'Alta absorción', 'Mezcla con el alimento'],
     bg: 'linear-gradient(135deg, #fff8ec 0%, #fff3d6 100%)',
     accent: '#f5a623',
+  },
+  {
+    emoji: '❄️',
+    title: 'Prensado en frío',
+    desc: 'Elaborado por prensado en frío, preservando al máximo los nutrientes y la palatabilidad.',
+    points: ['Preserva nutrientes', 'Sin altas temperaturas', 'Alta palatabilidad'],
+    bg: 'linear-gradient(135deg, #edf7ec 0%, #dff0de 100%)',
+    accent: '#063b05',
+  },
+  {
+    emoji: '⚙️',
+    title: 'Peletizado',
+    desc: 'Formato peletizado de alta densidad nutricional, ideal para líneas especializadas.',
+    points: ['Alta densidad nutricional', 'Líneas especializadas', 'Formato uniforme'],
+    bg: 'linear-gradient(135deg, #f0f9e0 0%, #dff0cc 100%)',
+    accent: '#7ec823',
   },
 ]
 
@@ -143,9 +151,29 @@ export default async function PresentacionesPage() {
             ))}
           </div>
 
-          {/* Mínimo por orden de compra */}
+          {/* Resalte: palatabilidad y proteína animal real */}
           <div style={{
             marginTop: '1.75rem',
+            display: 'flex', alignItems: 'center', gap: '1rem',
+            flexWrap: 'wrap', justifyContent: 'center', textAlign: 'center',
+            background: 'linear-gradient(135deg, #fff8ec 0%, #fff3d6 100%)',
+            border: '1.5px solid rgba(245,166,35,0.4)',
+            borderRadius: '20px', padding: '1.5rem 2rem',
+          }}>
+            <span style={{ fontSize: '1.75rem' }}>🥩</span>
+            <span style={{
+              fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
+              fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: '#b07210', letterSpacing: '-0.01em', lineHeight: 1.4,
+            }}>
+              {t('Productos altamente palatables, con proteína animal real')}
+              {' — '}
+              <span style={{ color: '#c0392b' }}>{t('no harinas de sangre')}</span>
+            </span>
+          </div>
+
+          {/* Mínimo por orden de compra */}
+          <div style={{
+            marginTop: '1rem',
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
             flexWrap: 'wrap', textAlign: 'center',
             background: 'linear-gradient(135deg, #063b05, #0a4a08)',
@@ -154,9 +182,9 @@ export default async function PresentacionesPage() {
             <span style={{ fontSize: '1.5rem' }}>⚖️</span>
             <span style={{
               fontFamily: "'Red Hat Display', sans-serif", fontWeight: 800,
-              fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: '#ffffff', letterSpacing: '-0.01em',
+              fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: '#ffffff', letterSpacing: '-0.01em', lineHeight: 1.4,
             }}>
-              {t('Mínimo por orden de compra:')} <span style={{ color: '#9fd63a' }}>100 kg</span>
+              {t('Mínimo de producción:')} <span style={{ color: '#9fd63a' }}>100 kg</span> {t('por referencia en orden de compra')}
             </span>
           </div>
         </div>

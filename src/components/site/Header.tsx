@@ -160,7 +160,7 @@ export default function Header() {
           {/* Mobile toggle */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden"
+            className="mobile-menu-btn"
             style={{
               padding: '0.45rem',
               borderRadius: '10px',

@@ -41,6 +41,8 @@ export const en: Record<string, string> = {
   // ── WhatsApp / Social proof ──
   '¡Hola! ¿Tienes un proyecto?': 'Hi! Do you have a project?',
   'Respuesta en minutos 🚀': 'Reply in minutes 🚀',
+  'Fabrica con Zoovegetal': 'Manufactures with Zoovegetal',
+  'Marca aliada': 'Partner brand',
   ' de ': ' from ',
   ' adquirió': ' requested',
   'Verificado': 'Verified',
@@ -106,6 +108,27 @@ export const en: Record<string, string> = {
   'Suplementos y mezclas en polvo, de fácil dosificación y alta absorción.':
     'Powder supplements and blends, easy to dose and highly absorbable.',
   'Ver presentaciones': 'See presentations',
+
+  // ── Presentaciones: 4 formatos ──
+  'Bits o galletas': 'Bits or cookies',
+  'Polvos funcionales': 'Functional powders',
+  'Prensado en frío': 'Cold pressed',
+  'Snacks funcionales de alta palatabilidad, ideales como premios con propósito nutricional.':
+    'Highly palatable functional snacks, ideal as treats with a nutritional purpose.',
+  'Elaborado por prensado en frío, preservando al máximo los nutrientes y la palatabilidad.':
+    'Made by cold pressing, preserving nutrients and palatability to the maximum.',
+  'Formato peletizado de alta densidad nutricional, ideal para líneas especializadas.':
+    'High nutritional density pelletized format, ideal for specialized lines.',
+  'Preserva nutrientes': 'Preserves nutrients',
+  'Sin altas temperaturas': 'No high temperatures',
+  'Líneas especializadas': 'Specialized lines',
+  'Formato uniforme': 'Uniform format',
+  'Alta densidad nutricional': 'High nutritional density',
+  '🦴 Bits o galletas': '🦴 Bits or cookies',
+  '🥄 Polvos funcionales': '🥄 Functional powders',
+  '❄️ Prensado en frío': '❄️ Cold pressed',
+  'Productos altamente palatables, con proteína animal real': 'Highly palatable products, with real animal protein',
+  'no harinas de sangre': 'not blood meal',
 
   // ── Inicio: barra de certificaciones ──
   'Certificación BPM ICA': 'GMP ICA Certification',
@@ -254,6 +277,8 @@ const morePages: Record<string, string> = {
   'Alta absorción': 'High absorption',
   'Mezcla con el alimento': 'Mixes with food',
   'Mínimo por orden de compra:': 'Minimum per purchase order:',
+  'Mínimo de producción:': 'Minimum production:',
+  'por referencia en orden de compra': 'per SKU in the purchase order',
   'Galería': 'Gallery',
   'Algunas presentaciones que hemos creado': 'Some presentations we have created',
   '¿Quieres tu marca en estas presentaciones?': 'Want your brand in these presentations?',
