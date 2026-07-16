@@ -2,6 +2,7 @@ import Header from '@/components/site/Header'
 import Footer from '@/components/site/Footer'
 import WhatsAppButton from '@/components/site/WhatsAppButton'
 import SocialProofPopup from '@/components/site/SocialProofPopup'
+import CookieConsent from '@/components/site/CookieConsent'
 import { getSetting } from '@/lib/settings'
 
 function parseList(raw: string | null): string[] {
@@ -23,6 +24,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <Footer />
       <WhatsAppButton />
       <SocialProofPopup messages={messages} />
+      <CookieConsent />
     </>
   )
 }

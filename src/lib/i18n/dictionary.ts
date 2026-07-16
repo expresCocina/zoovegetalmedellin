@@ -43,6 +43,12 @@ export const en: Record<string, string> = {
   'Respuesta en minutos 🚀': 'Reply in minutes 🚀',
   'Fabrica con Zoovegetal': 'Manufactures with Zoovegetal',
   'Marca aliada': 'Partner brand',
+
+  // ── Cookies ──
+  'Usamos cookies para mejorar tu experiencia en el sitio. Puedes aceptarlas o rechazarlas.':
+    'We use cookies to improve your experience on the site. You can accept or reject them.',
+  'Aceptar': 'Accept',
+  'Rechazar': 'Reject',
   ' de ': ' from ',
   ' adquirió': ' requested',
   'Verificado': 'Verified',
